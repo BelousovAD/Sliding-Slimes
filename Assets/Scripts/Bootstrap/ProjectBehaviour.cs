@@ -4,7 +4,7 @@ namespace Bootstrap
     using Savvy.Interfaces;
     using UnityEngine;
 
-    public class ProjectBehaviour : ProjectBehaviourBase
+    internal class ProjectBehaviour : ProjectBehaviourBase
     {
         [SerializeField] private string _sceneToLoad;
         
