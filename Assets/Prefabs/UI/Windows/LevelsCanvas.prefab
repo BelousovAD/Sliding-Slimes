@@ -36,6 +36,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7023693276536783871}
+  - {fileID: 137342681599753121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -186,7 +187,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4458501556607548094}
-  - {fileID: 137342681599753121}
   m_Father: {fileID: 5854551125705595412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.1}
@@ -786,7 +786,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7023693276536783871}
+    m_TransformParent: {fileID: 5854551125705595412}
     m_Modifications:
     - target: {fileID: 2605260616650936100, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_Name
@@ -798,27 +798,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8845791775410067125, guid: 171146f8dc5d0e8419095d50d6cf817e, type: 3}
       propertyPath: m_SizeDelta.x
