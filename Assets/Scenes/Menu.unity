@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _windowPrefabs:
   - {fileID: 5462027991617231999, guid: faa67b22aae925e44a0d71ac72a5305f, type: 3}
+  - {fileID: 5462027991617231999, guid: 1ddb8e77f56dfe044b789861cd5bbcb0, type: 3}
+  - {fileID: 5462027991617231999, guid: 845e3907dd9ca4b4497901538b88eab7, type: 3}
 --- !u!1001 &154914961
 PrefabInstance:
   m_ObjectHideFlags: 0
