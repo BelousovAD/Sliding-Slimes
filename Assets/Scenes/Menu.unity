@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46c1d716edb4c57b3f5e2a86f77949e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startWindowId: HUD
+  _startWindowId: Menu
   _spawner: {fileID: 48584351}
 --- !u!114 &1637914375
 MonoBehaviour:
