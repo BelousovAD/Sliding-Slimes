@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 598649403954293623}
   - component: {fileID: 3474598675925874768}
   - component: {fileID: 6415718182206015412}
+  - component: {fileID: 4175463541766312797}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -330,6 +331,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4175463541766312797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347910014834741962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6c6f5be3147be960f505d2052c20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windowId: Levels
+  _needCloseCurrent: 1
 --- !u!1 &1998521541383828434
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +988,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6029977002093880923}
   m_OnClick:
     m_PersistentCalls:
@@ -990,6 +1005,7 @@ GameObject:
   - component: {fileID: 2556870918275039288}
   - component: {fileID: 4436753317353471911}
   - component: {fileID: 7008110137992273242}
+  - component: {fileID: 3438843073685828593}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1099,3 +1115,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3438843073685828593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958715300693818281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6c6f5be3147be960f505d2052c20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windowId: Settings
+  _needCloseCurrent: 0
