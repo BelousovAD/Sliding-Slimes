@@ -521,7 +521,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   m_DrawShape: 3
-  m_ImageType: 3
+  m_ImageType: 0
   m_MaterialMode: 0
   m_StrokeWidth: 0
   m_OutlineWidth: 10
