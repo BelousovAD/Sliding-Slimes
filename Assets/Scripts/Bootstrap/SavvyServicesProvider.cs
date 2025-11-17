@@ -8,6 +8,7 @@ namespace Bootstrap
         private ILocalizationService _localization;
         private IMediationService _mediation;
         private IPreferencesService _preferences;
+        private ISceneLoaderService _sceneLoader;
         
         public ILocalizationService Localisation =>
             _localization ??= GetService<ILocalizationService>();
@@ -17,5 +18,8 @@ namespace Bootstrap
 
         public IPreferencesService Preferences =>
             _preferences ??= GetService<IPreferencesService>();
+
+        public ISceneLoaderService SceneLoader =>
+            _sceneLoader ??= GetService<ISceneLoaderService>();
     }
 }
