@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 9179923154016976782}
   - component: {fileID: 9098679619988869774}
   m_Layer: 5
-  m_Name: NextRewardedButton
+  m_Name: ContinueRewardedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 9133560761016216379}
   m_OnClick:
     m_PersistentCalls:
@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 2556870918275039288}
   - component: {fileID: 4436753317353471911}
   - component: {fileID: 7008110137992273242}
+  - component: {fileID: 2770619438582480838}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1110,6 +1111,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2770619438582480838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958715300693818281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6a1c4ba1074e329c86983d59e31797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoad: Game
 --- !u!1 &7149486788718193973
 GameObject:
   m_ObjectHideFlags: 0
