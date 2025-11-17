@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 4592987562871818738}
   - component: {fileID: 8746278883818910236}
   - component: {fileID: 649391324892497921}
+  - component: {fileID: 1192345967256775834}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -272,7 +273,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 9124026044098054183}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 429658270746003399}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -298,6 +299,18 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1192345967256775834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118967199272117946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99008049cf3483ca8edbe6b1f2885cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1218851621367666919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1147,7 @@ GameObject:
   - component: {fileID: 5641682923523293257}
   - component: {fileID: 7958973467082231700}
   - component: {fileID: 8956892886489999589}
+  - component: {fileID: 2230759323840796090}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1234,6 +1248,18 @@ MonoBehaviour:
   m_FlexibleWidth: 3
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2230759323840796090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984582621114703971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff91d22228743c69fb6ab78e2264acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3225006970195996600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,6 +1787,7 @@ GameObject:
   - component: {fileID: 8380165099208837544}
   - component: {fileID: 6439407889851768863}
   - component: {fileID: 7698661828887466029}
+  - component: {fileID: 1832142303400948753}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1837,7 +1864,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.688
+  m_Value: 0.7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1861,6 +1888,18 @@ MonoBehaviour:
   m_FlexibleWidth: 3
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1832142303400948753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975166652119372798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5284f9bc3b4148ba01def6bedd653a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4099371558843877103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2088,7 @@ GameObject:
   - component: {fileID: 477171537582748305}
   - component: {fileID: 7153994835477101844}
   - component: {fileID: 222532998678309038}
+  - component: {fileID: 1180511424027627191}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -2118,7 +2158,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 735437323916314583}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 4232702673529461131}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -2144,6 +2184,18 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1180511424027627191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876011654418260890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01962fc5cc3a44c78aa3f4b68201ea6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5570870510907857958
 GameObject:
   m_ObjectHideFlags: 0
