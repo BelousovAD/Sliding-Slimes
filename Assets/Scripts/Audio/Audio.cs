@@ -6,16 +6,13 @@ namespace Audio
 
     internal class Audio
     {
-        private readonly SavvyServicesProvider _services;
         private readonly AudioType _type;
+        private SavvyServicesProvider _services;
         private bool _isActive = true;
         private float _volume = 1f;
 
-        public Audio(SavvyServicesProvider servicesProvider, AudioType type)
-        {
-            _services = servicesProvider;
+        public Audio(AudioType type) =>
             _type = type;
-        }
 
         public event Action ActivityChanged;
         public event Action VolumeChanged;
@@ -47,6 +44,9 @@ namespace Audio
                 VolumeChanged?.Invoke();
             }
         }
+
+        public void Initialize(SavvyServicesProvider servicesProvider) =>
+            _services = servicesProvider;
 
         public void SetActive(bool value)
         {

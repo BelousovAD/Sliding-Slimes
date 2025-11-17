@@ -4,6 +4,7 @@ namespace Window
 
     internal class WindowService : IWindowService
     {
+        private readonly string _startWindowId;
         private readonly IWindowSpawner _spawner;
         private readonly Stack<Window> _windowsHistory = new();
         private readonly Dictionary<string, Window> _spawnedWindows = new();
@@ -11,8 +12,11 @@ namespace Window
         public WindowService(string startWindowId, IWindowSpawner spawner)
         {
             _spawner = spawner;
-            Open(startWindowId);
+            _startWindowId = startWindowId;
         }
+
+        public void Initialize() =>
+            Open(_startWindowId);
         
         public void CloseCurrent()
         {
