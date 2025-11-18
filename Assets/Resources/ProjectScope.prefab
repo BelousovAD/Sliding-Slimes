@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 44365383734893512}
   - component: {fileID: -7827930677027404841}
   - component: {fileID: -916814205525942783}
+  - component: {fileID: -2154706648195675944}
   m_Layer: 0
   m_Name: ProjectScope
   m_TagString: Untagged
@@ -71,3 +72,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: 97e7620f47cd3af4092afb6f2d54a89a, type: 2}
+--- !u!114 &-2154706648195675944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579009083052112056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5018285bd3f44efe89fbb94e2f242ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxLevel: 40
