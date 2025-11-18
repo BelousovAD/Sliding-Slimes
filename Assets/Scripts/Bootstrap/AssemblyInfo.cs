@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Audio")]
-[assembly: InternalsVisibleTo("Gameplay")]
+[assembly: InternalsVisibleTo("Level")]
 [assembly: InternalsVisibleTo("SceneManagement")]

@@ -1,4 +1,4 @@
-namespace Gameplay
+namespace Level
 {
     using Reflex.Attributes;
     using UnityEngine;

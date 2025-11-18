@@ -1,4 +1,4 @@
-namespace Gameplay
+namespace Level
 {
     using Bootstrap;
     using Reflex.Attributes;
