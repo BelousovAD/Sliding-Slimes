@@ -33,7 +33,11 @@ namespace Gameplay
 
         public void HandleVictory()
         {
-            _level.Unlock();
+            if (_level.Chosen == _level.Available)
+            {
+                _level.Unlock();
+            }
+            
             _windowService.Open(_victoryWindowId, false);
         }
 
