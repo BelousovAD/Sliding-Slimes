@@ -3,7 +3,7 @@ namespace Audio
     using Bootstrap;
     using Reflex.Attributes;using UnityEngine;
 
-    public class Loader : MonoBehaviour, ILoadable
+    internal class AudioLoader : MonoBehaviour, ILoadable
     {
         private Audio _music;
         private Audio _sound;
