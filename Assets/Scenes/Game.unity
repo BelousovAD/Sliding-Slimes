@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 422861114}
   - component: {fileID: 422861116}
   - component: {fileID: 422861117}
+  - component: {fileID: 422861118}
   m_Layer: 0
   m_Name: SceneScope
   m_TagString: Untagged
@@ -251,6 +252,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startTime: 90
+--- !u!114 &422861118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422861113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56796c1ccc2c45c58106a210006a6902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defeatWindowId: Defeat
+  _victoryWindowId: Victory
 --- !u!1 &441359870
 GameObject:
   m_ObjectHideFlags: 0
