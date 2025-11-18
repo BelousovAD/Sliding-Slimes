@@ -5,11 +5,12 @@ namespace Gameplay
 
     internal class Level
     {
+        private const int Min = 1;
         private const string SaveKey = nameof(Level);
 
         private SavvyServicesProvider _services;
-        private int _available = 1;
-        private int _chosen = 1;
+        private int _available = Min;
+        private int _chosen = Min;
 
         public Level(int max) =>
             Max = max;
@@ -56,9 +57,32 @@ namespace Gameplay
 
         public void Initialize(SavvyServicesProvider servicesProvider) =>
             _services = servicesProvider;
+
+        public void Choose(int number)
+        {
+            if (number < Min)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number), $"Can't be less than {Min}");
+            }
+
+            if (number > Available || number > Max)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number), $"Can't be greater than {Available} or {Max}");
+            }
+
+            Chosen = number;
+        }
+
+        public void Unlock()
+        {
+            if (Available <= Max)
+            {
+                Available++;
+            }
+        }
         
         public void Load() =>
-            Available = _services.Preferences.LoadInt(SaveKey, 1);
+            Available = _services.Preferences.LoadInt(SaveKey, Min);
 
         private void Save() =>
             _services.Preferences.SaveInt(SaveKey, Available);

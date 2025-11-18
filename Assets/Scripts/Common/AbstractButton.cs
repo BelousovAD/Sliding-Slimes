@@ -4,7 +4,7 @@ namespace Common
     using UnityEngine.UI;
 
     [RequireComponent(typeof(Button))]
-    public abstract class AbstractButton : MonoBehaviour
+    internal abstract class AbstractButton : MonoBehaviour
     {
         protected Button Button { get; private set; }
 
