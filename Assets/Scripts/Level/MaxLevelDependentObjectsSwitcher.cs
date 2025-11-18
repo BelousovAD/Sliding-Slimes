@@ -4,7 +4,7 @@ namespace Level
     using Reflex.Attributes;
     using UnityEngine;
 
-    public class MaxLevelDependentObjectsSwitcher : MonoBehaviour
+    internal class MaxLevelDependentObjectsSwitcher : MonoBehaviour
     {
         [SerializeField] private List<GameObject> _ordinaryLevelObjects = new();
         [SerializeField] private List<GameObject> _maxLevelObjects = new();
