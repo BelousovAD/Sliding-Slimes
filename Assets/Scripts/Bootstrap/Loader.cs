@@ -2,20 +2,14 @@ namespace Bootstrap
 {
     using System;
     using System.Collections.Generic;
-    using Reflex.Attributes;
     using Savvy.Container;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     internal class Loader : MonoSavvy
     {
         [SerializeField] private string _sceneToLoad;
         [SerializeField] private List<MonoBehaviour> _loaders = new();
-
-        private SavvyServicesProvider _services;
-
-        [Inject]
-        private void Initialize(SavvyServicesProvider servicesProvider) =>
-            _services = servicesProvider;
         
         private void Start()
         {
@@ -31,8 +25,8 @@ namespace Bootstrap
                         $"Unexpected loader that is null or does not inherit {nameof(ILoadable)}");
                 }
             }
-            
-            _services.SceneLoader.LoadAdditiveSceneAsync(_sceneToLoad);
+
+            SceneManager.LoadScene(_sceneToLoad);
         }
 
         private void OnValidate()

@@ -38,7 +38,7 @@ MonoBehaviour:
   Quality: 0
   Random: 0
   SaveLoad: 0
-  SceneLoader: 1
+  SceneLoader: 0
   Social: 0
   UnityGaming: 0
   Vibration: 0
