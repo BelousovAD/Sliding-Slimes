@@ -1,5 +1,6 @@
 namespace Gameplay
 {
+    using Level;
     using Reflex.Core;
     using Timer;
     using UnityEngine;
@@ -28,6 +29,7 @@ namespace Gameplay
             _builder.OnContainerBuilt -= Initialize;
             
             _gameplay.Initialize(
+                container.Resolve<Level>(),
                 container.Resolve<CoroutineTimer>(),
                 container.Resolve<IWindowService>());
         }

@@ -1,6 +1,7 @@
 namespace Gameplay
 {
     using System;
+    using Level;
     using Timer;
     using Window;
 
@@ -8,6 +9,7 @@ namespace Gameplay
     {
         private readonly string _defeatWindowId;
         private readonly string _victoryWindowId;
+        private Level _level;
         private CoroutineTimer _timer;
         private IWindowService _windowService;
 
@@ -17,8 +19,9 @@ namespace Gameplay
             _victoryWindowId = victoryWindowId;
         }
 
-        public void Initialize(CoroutineTimer timer, IWindowService windowService)
+        public void Initialize(Level level, CoroutineTimer timer, IWindowService windowService)
         {
+            _level = level;
             _timer = timer;
             _windowService = windowService;
 
@@ -28,7 +31,13 @@ namespace Gameplay
         public void Dispose() =>
             _timer.TimeIsUp -= OpenDefeatWindow;
 
-        private void OpenDefeatWindow() =>
+        public void HandleVictory()
+        {
+            _level.Unlock();
+            _windowService.Open(_victoryWindowId, false);
+        }
+
+        public void OpenDefeatWindow() =>
             _windowService.Open(_defeatWindowId, false);
     }
 }
