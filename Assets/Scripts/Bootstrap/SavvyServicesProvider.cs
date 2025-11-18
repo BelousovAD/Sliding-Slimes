@@ -5,10 +5,14 @@ namespace Bootstrap
 
     internal class SavvyServicesProvider : NetSavvy
     {
+        private ICoroutineRunnerService _coroutineRunner;
         private ILocalizationService _localization;
         private IMediationService _mediation;
         private IPreferencesService _preferences;
         private ISceneLoaderService _sceneLoader;
+
+        public ICoroutineRunnerService CoroutineRunner =>
+            _coroutineRunner ??= GetService<ICoroutineRunnerService>();
         
         public ILocalizationService Localisation =>
             _localization ??= GetService<ILocalizationService>();
