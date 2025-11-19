@@ -2,6 +2,7 @@ namespace Level
 {
     using System;
     using Bootstrap;
+    using UnityEngine;
 
     internal class Level
     {
@@ -29,7 +30,7 @@ namespace Level
             {
                 if (value != _available)
                 {
-                    _available = value;
+                    _available = Mathf.Clamp(value, Min, Max + 1);
                     Save();
                     AvailableChanged?.Invoke();
                 }
