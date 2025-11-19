@@ -7,6 +7,8 @@ namespace Timer
 
     internal class CoroutineTimer
     {
+        private const int Min = 0;
+        
         private readonly WaitForSeconds _delay = new(1);
         private Coroutine _coroutine;
         private SavvyServicesProvider _services;
@@ -31,7 +33,7 @@ namespace Timer
             {
                 if (value != _time)
                 {
-                    _time = value;
+                    _time = Mathf.Clamp(value, Min, Max);
                     TimeChanged?.Invoke();
                 }
             }
@@ -40,24 +42,17 @@ namespace Timer
         public void Initialize(SavvyServicesProvider servicesProvider) =>
             _services = servicesProvider;
 
-        public bool TryAdd(int seconds)
+        public void Add(int seconds)
         {
-            if (Time + seconds > Max)
-            {
-                return false;
-            }
-            
             Time += seconds;
             
             _services.CoroutineRunner.StopCoroutine(_coroutine);
             _coroutine = _services.CoroutineRunner.StartCoroutine(Countdown());
-
-            return true;
         }
 
         private IEnumerator Countdown()
         {
-            while (Time > 0)
+            while (Time > Min)
             {
                 yield return _delay;
 

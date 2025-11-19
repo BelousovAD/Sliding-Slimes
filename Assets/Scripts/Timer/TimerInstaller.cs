@@ -26,7 +26,7 @@ namespace Timer
             _builder.OnContainerBuilt -= Initialize;
             
             _timer.Initialize(container.Resolve<SavvyServicesProvider>());
-            _timer.TryAdd(_startTime);
+            _timer.Add(_startTime);
         }
     }
 }
