@@ -9,6 +9,9 @@ namespace Bootstrap
         protected override void PostAwake()
         { }
 
+        protected override void RegisterLocalizationService() =>
+            RegisterService<ILocalizationService>(new CustomLocalizationService());
+
         protected override void RegisterMediationService() =>
             RegisterService<IMediationService>(new CustomMediationService());
 
