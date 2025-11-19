@@ -1,11 +1,18 @@
 namespace Mediation
 {
-    using MirraGames.SDK;
+    using Bootstrap;
+    using Reflex.Attributes;
     using UnityEngine;
 
     internal class InterstitialAdInvoker : MonoBehaviour
     {
+        private SavvyServicesProvider _services;
+
+        [Inject]
+        private void Initialize(SavvyServicesProvider servicesProvider) =>
+            _services = servicesProvider;
+
         private void OnEnable() =>
-            MirraSDK.Ads.InvokeInterstitial();
+            _services.Mediation.ShowInterstitialAd();
     }
 }
