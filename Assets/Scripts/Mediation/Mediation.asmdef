@@ -1,0 +1,19 @@
+{
+    "name": "Mediation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d5ff5e78780277246aa32f920c0a35ef",
+        "GUID:1c364b3336ff58842b4ae7b0404ebff2",
+        "GUID:4989e407f1624a44488699be48021839",
+        "GUID:5bdc465b4c3e7c0489d610a51cdf5e51"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
