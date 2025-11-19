@@ -1,6 +1,6 @@
 namespace Bootstrap
 {
-    internal interface ILoadable
+    public interface ILoadable
     {
         public void Load();
     }

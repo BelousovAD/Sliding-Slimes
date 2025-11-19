@@ -3,7 +3,7 @@ namespace Bootstrap
     using Savvy.Container;
     using Savvy.Interfaces;
 
-    internal class SavvyServicesProvider : NetSavvy
+    public class SavvyServicesProvider : NetSavvy
     {
         private ICoroutineRunnerService _coroutineRunner;
         private ILocalizationService _localization;

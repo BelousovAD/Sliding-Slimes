@@ -4,7 +4,7 @@ namespace Common
     using UnityEngine.UI;
 
     [RequireComponent(typeof(Toggle))]
-    internal abstract class AbstractToggle : MonoBehaviour
+    public abstract class AbstractToggle : MonoBehaviour
     {
         protected Toggle Toggle { get; private set; }
 

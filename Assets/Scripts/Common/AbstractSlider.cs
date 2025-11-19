@@ -4,7 +4,7 @@ namespace Common
     using UnityEngine.UI;
 
     [RequireComponent(typeof(Slider))]
-    internal abstract class AbstractSlider : MonoBehaviour
+    public abstract class AbstractSlider : MonoBehaviour
     {
         protected Slider Slider { get; private set; }
 
