@@ -11,5 +11,8 @@ namespace Bootstrap
 
         protected override void RegisterMediationService() =>
             RegisterService<IMediationService>(new CustomMediationService());
+
+        protected override void RegisterPreferencesService() =>
+            RegisterService<IPreferencesService>(new CustomPreferencesService());
     }
 }
