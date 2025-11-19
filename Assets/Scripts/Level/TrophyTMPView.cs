@@ -1,6 +1,7 @@
 namespace Level
 {
     using Reflex.Attributes;
+    using Savvy.Extensions;
     using TMPro;
     using UnityEngine;
 
@@ -29,6 +30,6 @@ namespace Level
             _level.AvailableChanged -= UpdateView;
 
         private void UpdateView() =>
-            _textField.text = string.Format(_format, _level.Available - 1);
+            _textField.text = string.Format(_format, (_level.Available - 1).ToNumsFormat());
     }
 }
