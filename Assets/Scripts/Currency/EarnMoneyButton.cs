@@ -1,6 +1,5 @@
 namespace Currency
 {
-    using Bootstrap;
     using Common;
     using Reflex.Attributes;
     using UnityEngine;
@@ -8,31 +7,14 @@ namespace Currency
     internal class EarnMoneyButton : AbstractButton
     {
         [SerializeField, Min(0)] private int _amount;
-        [SerializeField] private bool _isRewardedAd;
 
         private Money _money;
-        private SavvyServicesProvider _services;
 
         [Inject]
-        private void Initialize(Money money, SavvyServicesProvider servicesProvider)
-        {
+        private void Initialize(Money money) =>
             _money = money;
-            _services = servicesProvider;
-        }
 
-        protected override void HandleClick()
-        {
-            if (_isRewardedAd)
-            {
-                _services.Mediation.ShowRewardedAd(Earn);
-            }
-            else
-            {
-                Earn();
-            }
-        }
-
-        private void Earn() =>
+        protected override void HandleClick() =>
             _money.Earn(_amount);
     }
 }
