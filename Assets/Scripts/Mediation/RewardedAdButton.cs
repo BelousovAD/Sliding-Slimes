@@ -3,9 +3,13 @@ namespace Mediation
     using Bootstrap;
     using Common;
     using Reflex.Attributes;
+    using UnityEngine;
+    using UnityEngine.UI;
 
-    internal abstract class AbstractRewardedAdButton : AbstractButton
+    internal class RewardedAdButton : AbstractButton
     {
+        [SerializeField] private Button _buttonToComplete;
+        
         private SavvyServicesProvider _services;
 
         [Inject]
@@ -15,6 +19,7 @@ namespace Mediation
         protected override void HandleClick() =>
             _services.Mediation.ShowRewardedAd(HandleComplete);
 
-        protected abstract void HandleComplete();
+        private void HandleComplete() =>
+            _buttonToComplete.onClick.Invoke();
     }
 }
