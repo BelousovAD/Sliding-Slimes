@@ -34,7 +34,7 @@ MonoBehaviour:
   Localization: 0
   Mediation: 0
   Notification: 0
-  NumberFormat: 0
+  NumberFormat: 1
   Quality: 0
   Random: 0
   SaveLoad: 0
