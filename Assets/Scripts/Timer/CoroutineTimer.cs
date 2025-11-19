@@ -5,7 +5,7 @@ namespace Timer
     using Bootstrap;
     using UnityEngine;
 
-    internal class CoroutineTimer
+    public class CoroutineTimer
     {
         private const int Min = 0;
         

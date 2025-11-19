@@ -3,7 +3,7 @@ namespace Currency
     using System;
     using Bootstrap;
 
-    internal class Money
+    public class Money
     {
         private const int Min = 0;
         private const string SaveKey = nameof(Money);

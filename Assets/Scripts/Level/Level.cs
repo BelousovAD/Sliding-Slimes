@@ -4,7 +4,7 @@ namespace Level
     using Bootstrap;
     using UnityEngine;
 
-    internal class Level
+    public class Level
     {
         private const int Min = 1;
         private const string SaveKey = nameof(Level);

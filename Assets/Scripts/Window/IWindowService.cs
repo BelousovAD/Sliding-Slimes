@@ -1,6 +1,6 @@
 namespace Window
 {
-    internal interface IWindowService
+    public interface IWindowService
     {
         public void CloseCurrent();
         
