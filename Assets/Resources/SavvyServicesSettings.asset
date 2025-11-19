@@ -32,7 +32,7 @@ MonoBehaviour:
   GameStateMachine: 0
   InAppPurchasing: 0
   Localization: 0
-  Mediation: 0
+  Mediation: 1
   Notification: 0
   NumberFormat: 1
   Quality: 0
