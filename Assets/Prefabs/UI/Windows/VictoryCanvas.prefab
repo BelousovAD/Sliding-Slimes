@@ -839,7 +839,9 @@ GameObject:
   - component: {fileID: 3919257396454823351}
   - component: {fileID: 9133560761016216379}
   - component: {fileID: 9179923154016976782}
+  - component: {fileID: 6983489222712635893}
   - component: {fileID: 1054517855398629439}
+  - component: {fileID: 3931353436041597198}
   m_Layer: 5
   m_Name: NextRewardedButton
   m_TagString: Untagged
@@ -946,11 +948,25 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 9133560761016216379}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6983489222712635893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797703051590719828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12afafeb92a3413f8cb82bb0f7b43eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amount: 50
+  _isRewardedAd: 1
 --- !u!114 &1054517855398629439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,6 +979,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b51dd714794237a0222a0a376a6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3931353436041597198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797703051590719828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6a1c4ba1074e329c86983d59e31797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToLoad: Game
 --- !u!1 &5163980417558511880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next +10
+  m_text: Next +50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aac49d300080e2f44b0b2d137f6e9219, type: 2}
   m_sharedMaterial: {fileID: -7986007717675844703, guid: aac49d300080e2f44b0b2d137f6e9219, type: 2}
@@ -1280,7 +1309,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78.6
+  m_fontSize: 75.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1496,6 +1525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amount: 10
+  _isRewardedAd: 0
 --- !u!114 &2488427023516883657
 MonoBehaviour:
   m_ObjectHideFlags: 0
