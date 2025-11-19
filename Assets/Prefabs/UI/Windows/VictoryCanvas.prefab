@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 9179923154016976782}
   - component: {fileID: 1054517855398629439}
   - component: {fileID: 1026627044577947369}
+  - component: {fileID: 6758873993790991158}
   m_Layer: 5
   m_Name: NextRewardedButton
   m_TagString: Untagged
@@ -892,6 +893,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amount: 50
+--- !u!114 &6758873993790991158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797703051590719828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6a1c4ba1074e329c86983d59e31797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _sceneToLoad: Game
 --- !u!1 &5650342900379056112
 GameObject:
