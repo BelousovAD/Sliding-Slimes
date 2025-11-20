@@ -2,6 +2,7 @@ namespace Bootstrap
 {
     using System;
     using System.Collections.Generic;
+    using MirraGames.SDK;
     using Savvy.Container;
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -12,6 +13,15 @@ namespace Bootstrap
         [SerializeField] private List<MonoBehaviour> _loaders = new();
         
         private void Start()
+        {
+            MirraSDK.WaitForProviders(() =>
+            {
+                Load();
+                SceneManager.LoadScene(_sceneToLoad);
+            });
+        }
+
+        private void Load()
         {
             foreach (MonoBehaviour monoBehaviour in _loaders)
             {
@@ -25,8 +35,6 @@ namespace Bootstrap
                         $"Unexpected loader that is null or does not inherit {nameof(ILoadable)}");
                 }
             }
-
-            SceneManager.LoadScene(_sceneToLoad);
         }
 
         private void OnValidate()

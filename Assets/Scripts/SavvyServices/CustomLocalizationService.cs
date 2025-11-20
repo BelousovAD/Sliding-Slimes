@@ -25,7 +25,11 @@ namespace SavvyServices
         public void Init()
         {
             _settings = LoadResources<LocalizationSettings>(_settingsPath);
-            LoadTextAsset(GetTextAsset(GetLanguage()));
+            
+            MirraSDK.WaitForProviders(() =>
+            {
+                LoadTextAsset(GetTextAsset(GetLanguage()));
+            });
         }
 
         public SystemLanguage GetLanguage()

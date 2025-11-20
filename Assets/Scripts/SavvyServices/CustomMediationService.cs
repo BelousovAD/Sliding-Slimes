@@ -1,6 +1,7 @@
 namespace SavvyServices
 {
     using System;
+    using MirraGames.SDK;
     using MirraMediation;
     using Savvy.Constants;
     using Savvy.Container;
@@ -51,10 +52,14 @@ namespace SavvyServices
         {
             _settings = LoadResources<MediationSettings>(_settingsPath);
             _mediationNetwork = new MirraAdapter(_settings);
-            _bannerAdCount = _preferences.LoadInt(GetBannerAdKey());
-            _interstitialAdCount = _preferences.LoadInt(GetInterstitialAdKey());
-            _rewardedAdCount = _preferences.LoadInt(GetRewardedAdKey());
-            _isNoAds = _preferences.LoadBool(GetNoAdsKey());
+            
+            MirraSDK.WaitForProviders(() =>
+            {
+                _bannerAdCount = _preferences.LoadInt(GetBannerAdKey());
+                _interstitialAdCount = _preferences.LoadInt(GetInterstitialAdKey());
+                _rewardedAdCount = _preferences.LoadInt(GetRewardedAdKey());
+                _isNoAds = _preferences.LoadBool(GetNoAdsKey());
+            });
 
             if (_settings.AutoShowInterstitialAd && _settings.InterstitialAdCountdownPrefab == false)
             {
