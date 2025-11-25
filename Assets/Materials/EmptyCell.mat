@@ -22,9 +22,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap:
-    RenderType: Transparent
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -101,7 +101,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DirectIntensityOutline: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EmissionChannel: 4
     - _FresnelMax: 1.5
     - _FresnelMin: 0
@@ -137,7 +137,7 @@ Material:
     - _ReceiveShadowsOff: 1
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
-    - _RenderingMode: 1
+    - _RenderingMode: 0
     - _RimMax: 1
     - _RimMin: 0.5
     - _ShadowColorLightAtten: 0
@@ -149,7 +149,7 @@ Material:
     - _SpecularToonSize: 0.25
     - _SpecularToonSmoothness: 0.05
     - _SpecularType: 0
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _UVSec: 0
     - _UseAlphaTest: 1
     - _UseEmission: 0
@@ -165,7 +165,7 @@ Material:
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0, g: 0.7529412, b: 0.3764706, a: 1}
     - _Color: {r: 0, g: 0.7529412, b: 0.3764706, a: 1}
