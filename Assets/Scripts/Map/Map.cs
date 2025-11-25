@@ -7,6 +7,9 @@ namespace Map
 
     internal class Map
     {
+        private const char Separator0 = ',';
+        private const char Separator1 = '\n';
+        private const int CellCapacity = 2;
         private const int GridOffset = 2;
         
         private List<AbstractModel>[,] _objects;
@@ -17,7 +20,7 @@ namespace Map
 
         public void Load(TextAsset map)
         {
-            string[] data = map.text.Split(',', '\n');
+            string[] data = map.text.Split(Separator0, Separator1);
             int indexOfSetting = 0;
             Size = new Vector2Int(data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
             int settingsOffset = Size.x * Size.y + GridOffset;
@@ -28,7 +31,7 @@ namespace Map
                 for (int x = 0; x < Size.x; x++)
                 {
                     ObjectType type = (ObjectType)data[GridOffset + y * Size.x + x][0];
-                    _objects[x, y] = new List<AbstractModel>
+                    _objects[x, y] = new List<AbstractModel>(CellCapacity)
                     {
                         type == ObjectType.Wall ? new Wall() : new EmptyCell()
                     };
