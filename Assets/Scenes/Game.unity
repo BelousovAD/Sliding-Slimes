@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 422861116}
   - component: {fileID: 422861117}
   - component: {fileID: 422861118}
+  - component: {fileID: 422861119}
   m_Layer: 0
   m_Name: SceneScope
   m_TagString: Untagged
@@ -266,6 +267,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defeatWindowId: Defeat
   _victoryWindowId: Victory
+--- !u!114 &422861119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422861113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df7e19d9e7ccdd478846bb9a4ba0eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maps:
+  - {fileID: 4900000, guid: e83ce00f9f781374c91cc70e7f429d67, type: 3}
 --- !u!1 &441359870
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +408,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 441359871}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &705909354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705909355}
+  - component: {fileID: 705909356}
+  m_Layer: 0
+  m_Name: MapBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &705909355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705909354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &705909356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705909354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734a2f775bc84e8291da3fac18482eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emptyCellView: {fileID: 146314085594481277, guid: 2d9cd2ca69f0ebf4496a711b5a26baa3, type: 3}
+  _luckyBlockView: {fileID: 8742395090352152326, guid: 46588c874b5ff13479fd15822038c016, type: 3}
+  _portalView: {fileID: 5726583673506369726, guid: b52dd19af3ec2324f9ed479512535702, type: 3}
+  _slimeView: {fileID: 7743013343145485791, guid: 410ab3e2001774b4494f11fb6b0515b3, type: 3}
+  _travelatorView: {fileID: 7547838008331145868, guid: 8f816dbae40e1bc42b455ed6f20c73d2, type: 3}
+  _wallView: {fileID: 5059473302472792145, guid: 4cc7c78da1a46a942b1186d97dc4e6c5, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,3 +686,4 @@ SceneRoots:
   - {fileID: 441359871}
   - {fileID: 1773951417}
   - {fileID: 1600380843}
+  - {fileID: 705909355}
