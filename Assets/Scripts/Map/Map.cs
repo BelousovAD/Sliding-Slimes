@@ -12,11 +12,11 @@ namespace Map
         private const int CellCapacity = 2;
         private const int GridOffset = 2;
         
-        private List<AbstractModel>[,] _cells;
+        private Stack<AbstractModel>[,] _cells;
         
         public Vector2Int Size { get; private set; }
 
-        public IReadOnlyList<AbstractModel> this[int x, int y] => _cells[x, y];
+        public IReadOnlyCollection<AbstractModel> this[int x, int y] => _cells[x, y];
 
         public void Load(TextAsset map)
         {
@@ -24,17 +24,15 @@ namespace Map
             int indexOfSetting = 0;
             Size = new Vector2Int(data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
             int settingsOffset = Size.x * Size.y + GridOffset;
-            _cells = new List<AbstractModel>[Size.x, Size.y];
+            _cells = new Stack<AbstractModel>[Size.x, Size.y];
 
             for (int y = 0; y < Size.y; y++)
             {
                 for (int x = 0; x < Size.x; x++)
                 {
-                    _cells[x, y] = new List<AbstractModel>(CellCapacity)
-                    {
-                        type == ObjectType.Wall ? new Wall() : new EmptyCell()
-                    };
                     ObjectType type = (ObjectType)data[GridOffset + (Size.y - y - 1) * Size.x + x][0];
+                    _cells[x, y] = new Stack<AbstractModel>(CellCapacity);
+                    _cells[x, y].Push(type == ObjectType.Wall ? new Wall() : new EmptyCell());
 
                     switch (type)
                     {
@@ -42,24 +40,24 @@ namespace Map
                             break;
                         case ObjectType.Portal:
                             _cells[x, y]
-                                .Add(new Portal(data[settingsOffset + indexOfSetting++]
+                                .Push(new Portal(data[settingsOffset + indexOfSetting++]
                                     .ToEnumOrDefault<SlimeType>()));
                             break;
                         case ObjectType.LuckyBlock:
                             _cells[x, y]
-                                .Add(new LuckyBlock(data[settingsOffset + indexOfSetting++]
+                                .Push(new LuckyBlock(data[settingsOffset + indexOfSetting++]
                                     .ToIntOrDefault()));
                             break;
                         case ObjectType.Slime:
                             _cells[x, y]
-                                .Add(new Slime(data[settingsOffset + indexOfSetting++]
+                                .Push(new Slime(data[settingsOffset + indexOfSetting++]
                                         .ToEnumOrDefault<SlimeType>(),
                                     data[settingsOffset + indexOfSetting++]
                                         .ToIntOrDefault()));
                             break;
                         case ObjectType.Travelator:
                             _cells[x, y]
-                                .Add(new Travelator(data[settingsOffset + indexOfSetting]
+                                .Push(new Travelator(data[settingsOffset + indexOfSetting]
                                     .ToEnumOrDefault<TravelatorType>()));
                             break;
                         case ObjectType.Wall:

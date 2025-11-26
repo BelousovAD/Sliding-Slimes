@@ -42,7 +42,7 @@ namespace Map
             {
                 for (int x = 0; x < _map.Size.x; x++)
                 {
-                    IReadOnlyList<AbstractModel> cells = _map[x, y];
+                    IReadOnlyCollection<AbstractModel> cells = _map[x, y];
 
                     foreach (AbstractModel model in cells)
                     {
