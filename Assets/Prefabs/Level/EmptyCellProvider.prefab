@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6014991795270966267}
   - component: {fileID: 146314085594481277}
   m_Layer: 0
-  m_Name: EmptyCellView
+  m_Name: EmptyCellProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

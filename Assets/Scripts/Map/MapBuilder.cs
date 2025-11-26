@@ -9,14 +9,14 @@ namespace Map
     {
         private const int SizeDivider = 2;
         
-        [SerializeField] private EmptyCellView _emptyCellView;
-        [SerializeField] private LuckyBlockView _luckyBlockView;
-        [SerializeField] private PortalView _portalView;
-        [SerializeField] private SlimeView _slimeView;
-        [SerializeField] private TravelatorView _travelatorView;
-        [SerializeField] private WallView _wallView;
+        [SerializeField] private EmptyCellProvider _emptyCellProvider;
+        [SerializeField] private LuckyBlockProvider _luckyBlockProvider;
+        [SerializeField] private PortalProvider _portalProvider;
+        [SerializeField] private SlimeProvider _slimeProvider;
+        [SerializeField] private TravelatorProvider _travelatorProvider;
+        [SerializeField] private WallProvider _wallProvider;
 
-        private Dictionary<Type, AbstractView<AbstractModel>> _views;
+        private Dictionary<Type, MonoBehaviour> _providers;
         private Map _map;
 
         [Inject]
@@ -25,14 +25,14 @@ namespace Map
 
         private void Awake()
         {
-            _views = new Dictionary<Type, AbstractView<AbstractModel>>
+            _providers = new Dictionary<Type, MonoBehaviour>
             {
-                [typeof(EmptyCell)] = _emptyCellView,
-                [typeof(LuckyBlock)] = _luckyBlockView,
-                [typeof(Portal)] = _portalView,
-                [typeof(Slime)] = _slimeView,
-                [typeof(Travelator)] = _travelatorView,
-                [typeof(Wall)] = _wallView,
+                [typeof(EmptyCell)] = _emptyCellProvider,
+                [typeof(LuckyBlock)] = _luckyBlockProvider,
+                [typeof(Portal)] = _portalProvider,
+                [typeof(Slime)] = _slimeProvider,
+                [typeof(Travelator)] = _travelatorProvider,
+                [typeof(Wall)] = _wallProvider,
             };
         }
 
@@ -42,9 +42,9 @@ namespace Map
             {
                 for (int x = 0; x < _map.Size.x; x++)
                 {
-                    IReadOnlyList<AbstractModel> models = _map[x, y];
+                    IReadOnlyList<AbstractModel> cells = _map[x, y];
 
-                    foreach (AbstractModel model in models)
+                    foreach (AbstractModel model in cells)
                     {
                         switch (model)
                         {
@@ -79,9 +79,11 @@ namespace Map
 
         private void Spawn<T>(T model, Vector2 position) where T : AbstractModel
         {
-            AbstractView<AbstractModel> view =
-                Instantiate(_views[typeof(T)], new Vector3(position.x, 0f, position.y), Quaternion.identity, transform);
-            view.Initialize(model);
+            AbstractProvider<T> provider = Instantiate(
+                _providers[typeof(T)] as AbstractProvider<T>,
+                new Vector3(position.x, 0f, position.y),
+                Quaternion.identity, transform);
+            provider.Initialize(model);
         }
     }
 }

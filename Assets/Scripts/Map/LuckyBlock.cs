@@ -2,8 +2,10 @@ namespace Map
 {
     using System;
 
-    internal class LuckyBlock : AbstractModel
+    internal class LuckyBlock : AbstractModel, ICountable
     {
+        private int _count;
+
         public LuckyBlock(int health)
         {
             if (health < 1)
@@ -11,9 +13,31 @@ namespace Map
                 throw new ArgumentOutOfRangeException(nameof(health), "Must be greater than 1");
             }
 
-            Health = health;
+            Count = health;
         }
 
-        public int Health { get; }
+        public event Action CountChanged;
+
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+
+            private set
+            {
+                if (value == _count)
+                {
+                    return;
+                }
+                
+                _count = value < ICountable.MinCount ? ICountable.MinCount : value;
+                CountChanged?.Invoke();
+            }
+        }
+
+        public void CountDown() =>
+            Count--;
     }
 }

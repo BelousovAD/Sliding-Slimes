@@ -3,8 +3,10 @@ namespace Map
     using System;
     using UnityEngine;
 
-    internal class Slime : AbstractModel
+    internal class Slime : AbstractModel, ICountable
     {
+        private int _count;
+
         public Slime(SlimeType type, int sleepCount)
         {
             Type = type;
@@ -14,10 +16,29 @@ namespace Map
                 throw new ArgumentOutOfRangeException(nameof(sleepCount), "Must be positive");
             }
 
-            SleepCount = sleepCount;
+            Count = sleepCount;
         }
+        
+        public event Action CountChanged;
 
-        public int SleepCount { get; }
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+
+            private set
+            {
+                if (value == _count)
+                {
+                    return;
+                }
+                
+                _count = value < ICountable.MinCount ? ICountable.MinCount : value;
+                CountChanged?.Invoke();
+            }
+        }
 
         public SlimeType Type { get; }
 

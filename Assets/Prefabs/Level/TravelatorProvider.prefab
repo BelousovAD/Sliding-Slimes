@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5969658559061203282}
   - component: {fileID: 7547838008331145868}
   m_Layer: 0
-  m_Name: TravelatorView
+  m_Name: TravelatorProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
