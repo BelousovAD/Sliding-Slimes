@@ -196,6 +196,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2513196661148279715}
   - component: {fileID: 8742395090352152326}
+  - component: {fileID: 3169768233404045579}
+  - component: {fileID: 1298874389333931766}
   m_Layer: 0
   m_Name: LuckyBlockProvider
   m_TagString: Untagged
@@ -232,6 +234,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8ca643e26e431090b15844685d6a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3169768233404045579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533555839715943826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.5, y: 0.5, z: -0.5}
+--- !u!114 &1298874389333931766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533555839715943826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63d110b55f24925988a5718faa4f1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _luckyBlockProvider: {fileID: 8742395090352152326}
 --- !u!1001 &5491684112169713996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,53 +359,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a45e84c47cd2b014a84e596bb5f836c0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8019937107356924759}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a45e84c47cd2b014a84e596bb5f836c0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1492105629301340841}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45e84c47cd2b014a84e596bb5f836c0, type: 3}
---- !u!1 &4681219457778285597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a45e84c47cd2b014a84e596bb5f836c0, type: 3}
-  m_PrefabInstance: {fileID: 5491684112169713996}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &8019937107356924759
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681219457778285597}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &1492105629301340841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681219457778285597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a63d110b55f24925988a5718faa4f1d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _luckyBlockProvider: {fileID: 8742395090352152326}
 --- !u!4 &5457475339044595367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a45e84c47cd2b014a84e596bb5f836c0, type: 3}
