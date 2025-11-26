@@ -30,11 +30,11 @@ namespace Map
             {
                 for (int x = 0; x < Size.x; x++)
                 {
-                    ObjectType type = (ObjectType)data[GridOffset + y * Size.x + x][0];
                     _cells[x, y] = new List<AbstractModel>(CellCapacity)
                     {
                         type == ObjectType.Wall ? new Wall() : new EmptyCell()
                     };
+                    ObjectType type = (ObjectType)data[GridOffset + (Size.y - y - 1) * Size.x + x][0];
 
                     switch (type)
                     {

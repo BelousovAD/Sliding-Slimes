@@ -49,22 +49,22 @@ namespace Map
                         switch (model)
                         {
                             case EmptyCell emptyCell:
-                                Spawn(emptyCell, new Vector2(x, -y));
+                                Spawn(emptyCell, new Vector2(x, y));
                                 break;
                             case LuckyBlock luckyBlock:
-                                Spawn(luckyBlock, new Vector2(x, -y));
+                                Spawn(luckyBlock, new Vector2(x, y));
                                 break;
                             case Portal portal:
-                                Spawn(portal, new Vector2(x, -y));
+                                Spawn(portal, new Vector2(x, y));
                                 break;
                             case Slime slime:
-                                Spawn(slime, new Vector2(x, -y));
+                                Spawn(slime, new Vector2(x, y));
                                 break;
                             case Travelator travelator:
-                                Spawn(travelator, new Vector2(x, -y));
+                                Spawn(travelator, new Vector2(x, y));
                                 break;
                             case Wall wall:
-                                Spawn(wall, new Vector2(x, -y));
+                                Spawn(wall, new Vector2(x, y));
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException();
@@ -74,7 +74,7 @@ namespace Map
             }
 
             transform.localPosition =
-                new Vector3((float)-_map.Size.x / SizeDivider, 0f, (float)_map.Size.y / SizeDivider);
+                new Vector3((float)-_map.Size.x / SizeDivider, 0f, (float)-_map.Size.y / SizeDivider);
         }
 
         private void Spawn<T>(T model, Vector2 position) where T : AbstractModel
