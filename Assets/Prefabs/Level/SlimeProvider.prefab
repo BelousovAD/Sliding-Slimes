@@ -10,8 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2725820005159692403}
   - component: {fileID: 7743013343145485791}
-  - component: {fileID: 149761866943613944}
+  - component: {fileID: 8045441641617282780}
+  - component: {fileID: 6893227290878586054}
+  - component: {fileID: 1654636826456051198}
   - component: {fileID: 8349924831639689183}
+  - component: {fileID: 3144106778459882079}
   m_Layer: 0
   m_Name: SlimeProvider
   m_TagString: Untagged
@@ -49,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9660f65b8713489cae51318f7b7a44f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &149761866943613944
-SphereCollider:
+--- !u!65 &8045441641617282780
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,8 +71,49 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0.5, y: 0.5, z: -0.5}
+  m_Size: {x: 0.95, y: 0.95, z: 0.95}
+  m_Center: {x: 0.5, y: 0.5, z: 0.5}
+--- !u!54 &6893227290878586054
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848578635021197477}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!114 &1654636826456051198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848578635021197477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a111904b6154c6ba18edb5d607c0f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputReader: {fileID: 8349924831639689183}
+  _speed: 2
 --- !u!114 &8349924831639689183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +124,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f266fe64cf24af3a0447e03dc2a1e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3144106778459882079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848578635021197477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68628954a9c641a8a68839d7d368b3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3615721550246112662
