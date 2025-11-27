@@ -4,7 +4,7 @@ namespace Map
     using UnityEngine;
     using UnityEngine.EventSystems;
 
-    public class InputReader : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
+    internal class InputReader : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
     {
         private bool _isCached;
         private Vector2 _startPoint;

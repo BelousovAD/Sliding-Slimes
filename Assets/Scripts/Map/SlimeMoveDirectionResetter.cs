@@ -2,7 +2,7 @@ namespace Map
 {
     using UnityEngine;
 
-    public class SlimeMoveDirectionResetter : MonoBehaviour
+    internal class SlimeMoveDirectionResetter : MonoBehaviour
     {
         private const float CollinearDot = 1f;
         

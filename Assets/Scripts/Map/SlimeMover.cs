@@ -3,7 +3,7 @@ namespace Map
     using UnityEngine;
 
     [RequireComponent(typeof(Rigidbody))]
-    public class SlimeMover : MonoBehaviour
+    internal class SlimeMover : MonoBehaviour
     {
         [SerializeField] private InputReader _inputReader;
         [SerializeField, Min(0f)] private float _speed;
