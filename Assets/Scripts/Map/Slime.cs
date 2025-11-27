@@ -3,7 +3,7 @@ namespace Map
     using System;
     using UnityEngine;
 
-    internal class Slime : AbstractModel, ICountable
+    internal class Slime : AbstractModel, ICountable, ISlimeTypeable
     {
         private int _count;
 

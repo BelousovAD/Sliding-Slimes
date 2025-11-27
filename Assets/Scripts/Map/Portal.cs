@@ -3,7 +3,7 @@ namespace Map
     using System;
     using UnityEngine;
 
-    internal class Portal : AbstractModel
+    internal class Portal : AbstractModel, ISlimeTypeable
     {
         public Portal(SlimeType type) =>
             Type = type;
