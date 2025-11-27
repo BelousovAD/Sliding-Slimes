@@ -8,6 +8,8 @@ namespace Map
         public Portal(SlimeType type) =>
             Type = type;
 
+        public event Action<Portal, Slime> Disappeared; 
+
         public SlimeType Type { get; }
 
         public Color Color
@@ -27,5 +29,8 @@ namespace Map
                 };
             }
         }
+
+        public void Disappear(Slime slime) =>
+            Disappeared?.Invoke(this, slime);
     }
 }

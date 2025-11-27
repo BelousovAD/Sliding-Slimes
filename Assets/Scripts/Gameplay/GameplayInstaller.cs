@@ -1,6 +1,7 @@
 namespace Gameplay
 {
     using Level;
+    using Map;
     using Reflex.Core;
     using Timer;
     using UnityEngine;
@@ -30,6 +31,7 @@ namespace Gameplay
             
             _gameplay.Initialize(
                 container.Resolve<Level>(),
+                container.Resolve<Map>(),
                 container.Resolve<CoroutineTimer>(),
                 container.Resolve<IWindowService>());
         }

@@ -29,7 +29,7 @@ namespace Gameplay
         {
             if (_win)
             {
-                _gameplay.HandleVictory();
+                _gameplay.Victory();
             }
             else
             {

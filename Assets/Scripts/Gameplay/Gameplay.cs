@@ -2,6 +2,7 @@ namespace Gameplay
 {
     using System;
     using Level;
+    using Map;
     using Timer;
     using Window;
 
@@ -10,6 +11,7 @@ namespace Gameplay
         private readonly string _defeatWindowId;
         private readonly string _victoryWindowId;
         private Level _level;
+        private Map _map;
         private CoroutineTimer _timer;
         private IWindowService _windowService;
 
@@ -19,19 +21,21 @@ namespace Gameplay
             _victoryWindowId = victoryWindowId;
         }
 
-        public void Initialize(Level level, CoroutineTimer timer, IWindowService windowService)
+        public void Initialize(Level level, Map map, CoroutineTimer timer, IWindowService windowService)
         {
             _level = level;
+            _map = map;
             _timer = timer;
             _windowService = windowService;
 
+            _map.PortalsDisappeared += Victory;
             _timer.TimeIsUp += OpenDefeatWindow;
         }
 
         public void Dispose() =>
             _timer.TimeIsUp -= OpenDefeatWindow;
 
-        public void HandleVictory()
+        public void Victory()
         {
             if (_level.Chosen == _level.Available)
             {

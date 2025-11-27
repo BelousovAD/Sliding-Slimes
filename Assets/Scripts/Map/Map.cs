@@ -5,18 +5,54 @@ namespace Map
     using Savvy.Extensions;
     using UnityEngine;
 
-    internal class Map
+    public class Map : IDisposable
     {
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
         private const int CellCapacity = 2;
         private const int GridOffset = 2;
+        private const int MinCount = 0;
         
         private Stack<AbstractModel>[,] _cells;
+        private int _portalCount;
+        
+        public event Action PortalsDisappeared;
         
         public Vector2Int Size { get; private set; }
+        
+        public int PortalCount
+        {
+            get
+            {
+                return _portalCount;
+            }
+
+            private set
+            {
+                if (value == _portalCount)
+                {
+                    return;
+                }
+                
+                _portalCount = value < MinCount ? MinCount : value;
+            }
+        }
 
         public IReadOnlyCollection<AbstractModel> this[int x, int y] => _cells[x, y];
+
+        public void Dispose()
+        {
+            foreach (Stack<AbstractModel> abstractModels in _cells)
+            {
+                foreach (AbstractModel abstractModel in abstractModels)
+                {
+                    if (abstractModel is Portal portal)
+                    {
+                        portal.Disappeared -= CountDown;
+                    }
+                }
+            }
+        }
 
         public void Load(TextAsset map)
         {
@@ -39,8 +75,10 @@ namespace Map
                         case ObjectType.EmptyCell:
                             break;
                         case ObjectType.Portal:
-                            _cells[x, y]
-                                .Push(new Portal((SlimeType)data[settingsOffset + indexOfSetting++][0]));
+                            Portal portal = new((SlimeType)data[settingsOffset + indexOfSetting++][0]);
+                            portal.Disappeared += CountDown;
+                            _cells[x, y].Push(portal);
+                            PortalCount++;
                             break;
                         case ObjectType.LuckyBlock:
                             _cells[x, y]
@@ -61,6 +99,17 @@ namespace Map
                             throw new ArgumentOutOfRangeException();
                     }
                 }
+            }
+        }
+
+        private void CountDown(Portal portal, Slime slime)
+        {
+            portal.Disappeared -= CountDown;
+            PortalCount--;
+
+            if (PortalCount == MinCount)
+            {
+                PortalsDisappeared?.Invoke();
             }
         }
 

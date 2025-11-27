@@ -17,6 +17,8 @@ namespace Map
         [SerializeField] private WallProvider _wallProvider;
 
         private Dictionary<Type, MonoBehaviour> _providers;
+        private Dictionary<Portal, GameObject> _portals = new();
+        private Dictionary<Slime, GameObject> _slimes = new();
         private Map _map;
 
         [Inject]
@@ -55,10 +57,11 @@ namespace Map
                                 Spawn(luckyBlock, new Vector2(x, y));
                                 break;
                             case Portal portal:
-                                Spawn(portal, new Vector2(x, y));
+                                portal.Disappeared += DestroyGameObjects;
+                                _portals.Add(portal, Spawn(portal, new Vector2(x, y)).gameObject);
                                 break;
                             case Slime slime:
-                                Spawn(slime, new Vector2(x, y));
+                                _slimes.Add(slime, Spawn(slime, new Vector2(x, y)).gameObject);
                                 break;
                             case Travelator travelator:
                                 Spawn(travelator, new Vector2(x, y));
@@ -77,13 +80,38 @@ namespace Map
                 new Vector3((float)-_map.Size.x / SizeDivider, 0f, (float)-_map.Size.y / SizeDivider);
         }
 
-        private void Spawn<T>(T model, Vector2 position) where T : AbstractModel
+        private void OnDestroy()
+        {
+            foreach (KeyValuePair<Portal, GameObject> portalObjectPair in _portals)
+            {
+                portalObjectPair.Key.Disappeared -= DestroyGameObjects;
+                Destroy(portalObjectPair.Value);
+            }
+
+            foreach (KeyValuePair<Slime, GameObject> slimeObjectPair in _slimes)
+            {
+                Destroy(slimeObjectPair.Value);
+            }
+            
+            _portals.Clear();
+            _slimes.Clear();
+        }
+
+        private AbstractProvider<T> Spawn<T>(T model, Vector2 position) where T : AbstractModel
         {
             AbstractProvider<T> provider = Instantiate(
                 _providers[typeof(T)] as AbstractProvider<T>,
                 new Vector3(position.x, 0f, position.y),
                 Quaternion.identity, transform);
             provider.Initialize(model);
+            
+            return provider;
+        }
+
+        private void DestroyGameObjects(Portal portal, Slime slime)
+        {
+            Destroy(_slimes[slime]);
+            Destroy(_portals[portal]);
         }
     }
 }

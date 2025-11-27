@@ -1,5 +1,5 @@
 namespace Map
 {
-    internal abstract class AbstractModel
+    public abstract class AbstractModel
     { }
 }
