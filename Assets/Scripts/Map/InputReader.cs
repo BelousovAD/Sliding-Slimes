@@ -6,8 +6,6 @@ namespace Map
 
     public class InputReader : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
     {
-        private const float CollinearEpsilon = 0.5f;
-        
         private bool _isCached;
         private Vector2 _startPoint;
 
@@ -27,24 +25,8 @@ namespace Map
             }
             
             _isCached = false;
-            Vector2 direction = eventData.position - _startPoint;
-
-            if (Vector2.Dot(Vector2.up, direction) > CollinearEpsilon)
-            {
-                MoveRequested?.Invoke(Vector2Int.up);
-            }
-            else if (Vector2.Dot(Vector2.right, direction) > CollinearEpsilon)
-            {
-                MoveRequested?.Invoke(Vector2Int.right);
-            }
-            else if (Vector2.Dot(Vector2.down, direction) > CollinearEpsilon)
-            {
-                MoveRequested?.Invoke(Vector2Int.down);
-            }
-            else
-            {
-                MoveRequested?.Invoke(Vector2Int.left);
-            }
+            Vector2 direction = (eventData.position - _startPoint).normalized;
+            MoveRequested?.Invoke(Vector2Int.RoundToInt(direction));
         }
     }
 }
