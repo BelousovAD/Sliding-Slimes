@@ -40,25 +40,20 @@ namespace Map
                             break;
                         case ObjectType.Portal:
                             _cells[x, y]
-                                .Push(new Portal(data[settingsOffset + indexOfSetting++]
-                                    .ToEnumOrDefault<SlimeType>()));
+                                .Push(new Portal((SlimeType)data[settingsOffset + indexOfSetting++][0]));
                             break;
                         case ObjectType.LuckyBlock:
                             _cells[x, y]
-                                .Push(new LuckyBlock(data[settingsOffset + indexOfSetting++]
-                                    .ToIntOrDefault()));
+                                .Push(new LuckyBlock(data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
                             break;
                         case ObjectType.Slime:
                             _cells[x, y]
-                                .Push(new Slime(data[settingsOffset + indexOfSetting++]
-                                        .ToEnumOrDefault<SlimeType>(),
-                                    data[settingsOffset + indexOfSetting++]
-                                        .ToIntOrDefault()));
+                                .Push(new Slime((SlimeType)data[settingsOffset + indexOfSetting++][0],
+                                    data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
                             break;
                         case ObjectType.Travelator:
                             _cells[x, y]
-                                .Push(new Travelator(data[settingsOffset + indexOfSetting]
-                                    .ToEnumOrDefault<TravelatorType>()));
+                                .Push(new Travelator((TravelatorType)data[settingsOffset + indexOfSetting][0]));
                             break;
                         case ObjectType.Wall:
                             break;
