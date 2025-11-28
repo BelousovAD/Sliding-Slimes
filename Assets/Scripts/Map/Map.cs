@@ -7,16 +7,16 @@ namespace Map
 
     public class Map : IDisposable
     {
+        public const int MinPortalCount = 0;
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
         private const int CellCapacity = 2;
         private const int GridOffset = 2;
-        private const int MinCount = 0;
         
         private Stack<AbstractModel>[,] _cells;
         private int _portalCount;
         
-        public event Action PortalsDisappeared;
+        public event Action PortalCountChanged;
         
         public Vector2Int Size { get; private set; }
         
@@ -34,7 +34,8 @@ namespace Map
                     return;
                 }
                 
-                _portalCount = value < MinCount ? MinCount : value;
+                _portalCount = value < MinPortalCount ? MinPortalCount : value;
+                PortalCountChanged?.Invoke();
             }
         }
 
@@ -48,7 +49,7 @@ namespace Map
                 {
                     if (abstractModel is Portal portal)
                     {
-                        portal.Disappeared -= CountDown;
+                        portal.SlimeCaught -= CountDown;
                     }
                 }
             }
@@ -75,10 +76,10 @@ namespace Map
                         case ObjectType.EmptyCell:
                             break;
                         case ObjectType.Portal:
-                            Portal portal = new((SlimeType)data[settingsOffset + indexOfSetting++][0]);
-                            portal.Disappeared += CountDown;
-                            _cells[x, y].Push(portal);
                             PortalCount++;
+                            Portal portal = new((SlimeType)data[settingsOffset + indexOfSetting++][0]);
+                            portal.SlimeCaught += CountDown;
+                            _cells[x, y].Push(portal);
                             break;
                         case ObjectType.LuckyBlock:
                             _cells[x, y]
@@ -102,15 +103,10 @@ namespace Map
             }
         }
 
-        private void CountDown(Portal portal, Slime slime)
+        private void CountDown(Portal portal)
         {
-            portal.Disappeared -= CountDown;
+            portal.SlimeCaught -= CountDown;
             PortalCount--;
-
-            if (PortalCount == MinCount)
-            {
-                PortalsDisappeared?.Invoke();
-            }
         }
 
         private enum ObjectType

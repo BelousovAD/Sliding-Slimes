@@ -20,6 +20,7 @@ namespace Map
         }
         
         public event Action CountChanged;
+        public event Action<Slime> Caught;
 
         public int Count
         {
@@ -58,6 +59,14 @@ namespace Map
                     _ => throw new ArgumentOutOfRangeException()
                 };
             }
+        }
+        
+        public bool IsCaught { get; private set; }
+
+        public void Catch()
+        {
+            IsCaught = true;
+            Caught?.Invoke(this);
         }
     }
 }

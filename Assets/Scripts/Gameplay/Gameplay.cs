@@ -28,7 +28,7 @@ namespace Gameplay
             _timer = timer;
             _windowService = windowService;
 
-            _map.PortalsDisappeared += Victory;
+            _map.PortalCountChanged += Victory;
             _timer.TimeIsUp += OpenDefeatWindow;
         }
 
@@ -37,11 +37,16 @@ namespace Gameplay
 
         public void Victory()
         {
+            if (_map.PortalCount != Map.MinPortalCount)
+            {
+                return;
+            }
+            
             if (_level.Chosen == _level.Available)
             {
                 _level.Unlock();
             }
-            
+
             _windowService.Open(_victoryWindowId, false);
         }
 

@@ -3,7 +3,7 @@ namespace Map
     using UnityEngine;
 
     [RequireComponent(typeof(Collider))]
-    internal class PortalBreaker : MonoBehaviour
+    internal class SlimeCatcher : MonoBehaviour
     {
         [SerializeField] private PortalProvider _portalProvider;
 
@@ -16,7 +16,8 @@ namespace Map
             if (other.TryGetComponent(out SlimeProvider slimeProvider)
                 && slimeProvider.Model.Type == _portal.Type)
             {
-                _portal.Disappear(slimeProvider.Model);
+                slimeProvider.Model.Catch();
+                _portal.CatchSlime();
             }
         }
     }

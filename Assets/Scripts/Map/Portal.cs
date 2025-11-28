@@ -8,7 +8,7 @@ namespace Map
         public Portal(SlimeType type) =>
             Type = type;
 
-        public event Action<Portal, Slime> Disappeared; 
+        public event Action<Portal> SlimeCaught;
 
         public SlimeType Type { get; }
 
@@ -30,7 +30,12 @@ namespace Map
             }
         }
 
-        public void Disappear(Slime slime) =>
-            Disappeared?.Invoke(this, slime);
+        public bool HasSlime { get; private set; }
+
+        public void CatchSlime()
+        {
+            HasSlime = true;
+            SlimeCaught?.Invoke(this);
+        }
     }
 }
