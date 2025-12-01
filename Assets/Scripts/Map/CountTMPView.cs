@@ -16,7 +16,9 @@ namespace Map
         private void Awake() =>
             _textField = GetComponent<TMP_Text>();
         
-
+        private void OnEnable() =>
+            UpdateView();
+        
         private void Start()
         {
             _countable = ((IModelProvider)_countableProvider).Model as ICountable
@@ -24,10 +26,7 @@ namespace Map
             _countable.CountChanged += UpdateView;
             UpdateView();
         }
-
-        private void OnEnable() =>
-            UpdateView();
-
+        
         private void OnDestroy() =>
             _countable.CountChanged -= UpdateView;
 

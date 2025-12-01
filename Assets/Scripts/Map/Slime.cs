@@ -52,6 +52,8 @@ namespace Map
         
         public bool IsCaught { get; private set; }
 
+        public bool IsSleeping => Count > ICountable.MinCount;
+
         public void Dispose() =>
             _portalCounter.CountChanged -= UpdateRemainingCount;
 
