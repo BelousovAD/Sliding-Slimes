@@ -2,7 +2,7 @@ namespace Map
 {
     using UnityEngine;
 
-    public class PortalDestroyer : MonoBehaviour
+    internal class PortalDestroyer : MonoBehaviour
     {
         [SerializeField] private PortalProvider _portalProvider;
 

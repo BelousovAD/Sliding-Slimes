@@ -9,7 +9,7 @@ namespace Map
         
         private readonly Map _map;
         private readonly List<Portal> _portals = new();
-        private int _count;
+        private int _remainingCount;
 
         public PortalCounter(Map map) =>
             _map = map;
@@ -20,17 +20,17 @@ namespace Map
         {
             get
             {
-                return _count;
+                return _remainingCount;
             }
 
             private set
             {
-                if (value == _count)
+                if (value == _remainingCount)
                 {
                     return;
                 }
                 
-                _count = value < Min ? Min : value;
+                _remainingCount = value < Min ? Min : value;
                 CountChanged?.Invoke();
             }
         }

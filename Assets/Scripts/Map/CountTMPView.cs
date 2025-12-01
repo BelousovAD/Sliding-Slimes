@@ -12,25 +12,27 @@ namespace Map
         
         private TMP_Text _textField;
         private ICountable _countable;
-
-        private void Awake()
-        {
+        
+        private void Awake() =>
             _textField = GetComponent<TMP_Text>();
+        
+
+        private void Start()
+        {
             _countable = ((IModelProvider)_countableProvider).Model as ICountable
                          ?? throw new InvalidOperationException();
-        }
-
-        private void OnEnable()
-        {
             _countable.CountChanged += UpdateView;
             UpdateView();
         }
 
-        private void OnDisable() =>
+        private void OnEnable() =>
+            UpdateView();
+
+        private void OnDestroy() =>
             _countable.CountChanged -= UpdateView;
 
         private void UpdateView() =>
-            _textField.text = string.Format(_format, _countable.Count);
+            _textField.text = string.Format(_format, _countable is null ? string.Empty : _countable.Count);
 
         private void OnValidate()
         {

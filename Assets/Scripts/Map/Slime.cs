@@ -2,22 +2,30 @@ namespace Map
 {
     using System;
 
-    internal class Slime : AbstractModel, ICountable, ISlimeTypeable
+    internal class Slime : AbstractModel, ICountable, IDisposable, ISlimeTypeable
     {
-        private int _count;
+        private const int MinPortalCountToAwake = 1;
+        
+        private int _remainingCount;
+        private readonly int _countToAwake;
+        private readonly ICountable _portalCounter;
 
-        public Slime(SlimeType type, int sleepCount)
+        public Slime(SlimeType type, int portalCountToAwake, ICountable portalCounter)
         {
             Type = type;
 
-            if (sleepCount < 0)
+            if (portalCountToAwake < MinPortalCountToAwake)
             {
-                throw new ArgumentOutOfRangeException(nameof(sleepCount), "Must be positive");
+                throw new ArgumentOutOfRangeException(nameof(portalCountToAwake),
+                    $"Must be greater than or equal to {MinPortalCountToAwake}");
             }
 
-            Count = sleepCount;
+            _countToAwake = portalCountToAwake;
+            _portalCounter = portalCounter;
+
+            _portalCounter.CountChanged += UpdateRemainingCount;
         }
-        
+
         public event Action CountChanged;
         public event Action Caught;
 
@@ -25,17 +33,17 @@ namespace Map
         {
             get
             {
-                return _count;
+                return _remainingCount;
             }
 
             private set
             {
-                if (value == _count)
+                if (value == _remainingCount)
                 {
                     return;
                 }
                 
-                _count = value < ICountable.MinCount ? ICountable.MinCount : value;
+                _remainingCount = value < ICountable.MinCount ? ICountable.MinCount : value;
                 CountChanged?.Invoke();
             }
         }
@@ -44,10 +52,16 @@ namespace Map
         
         public bool IsCaught { get; private set; }
 
+        public void Dispose() =>
+            _portalCounter.CountChanged -= UpdateRemainingCount;
+
         public void Catch()
         {
             IsCaught = true;
             Caught?.Invoke();
         }
+
+        private void UpdateRemainingCount() =>
+            Count = _portalCounter.Count - _countToAwake;
     }
 }

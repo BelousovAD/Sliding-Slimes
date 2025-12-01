@@ -29,7 +29,7 @@ namespace Map
         {
             _builder.OnContainerBuilt -= Initialize;
 
-            _map.Load(_maps[container.Resolve<Level>().Chosen - 1]);
+            _map.Load(_maps[container.Resolve<Level>().Chosen - 1], _portalCounter);
             _portalCounter.Initialize();
         }
     }

@@ -2,7 +2,7 @@ namespace Map
 {
     using UnityEngine;
 
-    public class SlimeDestroyer : MonoBehaviour
+    internal class SlimeDestroyer : MonoBehaviour
     {
         [SerializeField] private SlimeProvider _slimeProvider;
 

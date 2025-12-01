@@ -5,7 +5,7 @@ namespace Map
     using Savvy.Extensions;
     using UnityEngine;
 
-    public class Map
+    public class Map : IDisposable
     {
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
@@ -18,7 +18,25 @@ namespace Map
 
         public IReadOnlyCollection<AbstractModel> this[int x, int y] => _cells[x, y];
 
-        public void Load(TextAsset map)
+        public void Dispose()
+        {
+            foreach (Stack<AbstractModel> abstractModels in _cells)
+            {
+                foreach (AbstractModel model in abstractModels)
+                {
+                    if (model is IDisposable disposable)
+                    {
+                        disposable.Dispose();
+                    }
+                }
+                
+                abstractModels.Clear();
+            }
+
+            _cells = null;
+        }
+
+        public void Load(TextAsset map, ICountable portalCounter)
         {
             string[] data = map.text.Split(Separator0, Separator1);
             int indexOfSetting = 0;
@@ -46,7 +64,7 @@ namespace Map
                             break;
                         case ObjectType.Slime:
                             _cells[x, y].Push(new Slime((SlimeType)data[settingsOffset + indexOfSetting++][0],
-                                    data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
+                                    data[settingsOffset + indexOfSetting++].ToIntOrDefault(), portalCounter));
                             break;
                         case ObjectType.Travelator:
                             _cells[x, y].Push(new Travelator((TravelatorType)data[settingsOffset + indexOfSetting][0]));

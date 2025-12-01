@@ -2,7 +2,7 @@ namespace Map
 {
     using System;
 
-    internal interface ICountable
+    public interface ICountable
     {
         protected const int MinCount = 0;
         

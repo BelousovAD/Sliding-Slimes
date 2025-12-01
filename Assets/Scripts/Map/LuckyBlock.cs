@@ -4,7 +4,7 @@ namespace Map
 
     internal class LuckyBlock : AbstractModel, ICountable
     {
-        private int _count;
+        private int _remainingCount;
 
         public LuckyBlock(int health)
         {
@@ -22,17 +22,17 @@ namespace Map
         {
             get
             {
-                return _count;
+                return _remainingCount;
             }
 
             private set
             {
-                if (value == _count)
+                if (value == _remainingCount)
                 {
                     return;
                 }
                 
-                _count = value < ICountable.MinCount ? ICountable.MinCount : value;
+                _remainingCount = value < ICountable.MinCount ? ICountable.MinCount : value;
                 CountChanged?.Invoke();
             }
         }

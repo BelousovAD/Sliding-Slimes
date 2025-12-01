@@ -6,4 +6,4 @@ X,O,O,O,X
 X,O,O,O,X
 X,S,O,S,X
 X,X,X,X,X
-R,0,Y,0,R,Y
+R,1,Y,2,R,Y
