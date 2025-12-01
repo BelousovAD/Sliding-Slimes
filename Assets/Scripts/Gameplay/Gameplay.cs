@@ -8,10 +8,12 @@ namespace Gameplay
 
     internal class Gameplay : IDisposable
     {
+        private const int PortalCountToWin = 0;
+        
         private readonly string _defeatWindowId;
         private readonly string _victoryWindowId;
         private Level _level;
-        private Map _map;
+        private PortalCounter _portalCounter;
         private CoroutineTimer _timer;
         private IWindowService _windowService;
 
@@ -21,23 +23,30 @@ namespace Gameplay
             _victoryWindowId = victoryWindowId;
         }
 
-        public void Initialize(Level level, Map map, CoroutineTimer timer, IWindowService windowService)
+        public void Initialize(
+            Level level,
+            PortalCounter portalCounter,
+            CoroutineTimer timer,
+            IWindowService windowService)
         {
             _level = level;
-            _map = map;
+            _portalCounter = portalCounter;
             _timer = timer;
             _windowService = windowService;
 
-            _map.PortalCountChanged += Victory;
+            _portalCounter.CountChanged += Victory;
             _timer.TimeIsUp += OpenDefeatWindow;
         }
 
-        public void Dispose() =>
+        public void Dispose()
+        {
+            _portalCounter.CountChanged -= Victory;
             _timer.TimeIsUp -= OpenDefeatWindow;
+        }
 
         public void Victory()
         {
-            if (_map.PortalCount != Map.MinPortalCount)
+            if (_portalCounter.Count != PortalCountToWin)
             {
                 return;
             }

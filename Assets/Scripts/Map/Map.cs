@@ -5,55 +5,18 @@ namespace Map
     using Savvy.Extensions;
     using UnityEngine;
 
-    public class Map : IDisposable
+    public class Map
     {
-        public const int MinPortalCount = 0;
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
         private const int CellCapacity = 2;
         private const int GridOffset = 2;
         
         private Stack<AbstractModel>[,] _cells;
-        private int _portalCount;
-        
-        public event Action PortalCountChanged;
         
         public Vector2Int Size { get; private set; }
-        
-        public int PortalCount
-        {
-            get
-            {
-                return _portalCount;
-            }
-
-            private set
-            {
-                if (value == _portalCount)
-                {
-                    return;
-                }
-                
-                _portalCount = value < MinPortalCount ? MinPortalCount : value;
-                PortalCountChanged?.Invoke();
-            }
-        }
 
         public IReadOnlyCollection<AbstractModel> this[int x, int y] => _cells[x, y];
-
-        public void Dispose()
-        {
-            foreach (Stack<AbstractModel> abstractModels in _cells)
-            {
-                foreach (AbstractModel abstractModel in abstractModels)
-                {
-                    if (abstractModel is Portal portal)
-                    {
-                        portal.SlimeCaught -= CountDown;
-                    }
-                }
-            }
-        }
 
         public void Load(TextAsset map)
         {
@@ -76,23 +39,17 @@ namespace Map
                         case ObjectType.EmptyCell:
                             break;
                         case ObjectType.Portal:
-                            PortalCount++;
-                            Portal portal = new((SlimeType)data[settingsOffset + indexOfSetting++][0]);
-                            portal.SlimeCaught += CountDown;
-                            _cells[x, y].Push(portal);
+                            _cells[x, y].Push(new Portal((SlimeType)data[settingsOffset + indexOfSetting++][0]));
                             break;
                         case ObjectType.LuckyBlock:
-                            _cells[x, y]
-                                .Push(new LuckyBlock(data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
+                            _cells[x, y].Push(new LuckyBlock(data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
                             break;
                         case ObjectType.Slime:
-                            _cells[x, y]
-                                .Push(new Slime((SlimeType)data[settingsOffset + indexOfSetting++][0],
+                            _cells[x, y].Push(new Slime((SlimeType)data[settingsOffset + indexOfSetting++][0],
                                     data[settingsOffset + indexOfSetting++].ToIntOrDefault()));
                             break;
                         case ObjectType.Travelator:
-                            _cells[x, y]
-                                .Push(new Travelator((TravelatorType)data[settingsOffset + indexOfSetting][0]));
+                            _cells[x, y].Push(new Travelator((TravelatorType)data[settingsOffset + indexOfSetting][0]));
                             break;
                         case ObjectType.Wall:
                             break;
@@ -101,12 +58,6 @@ namespace Map
                     }
                 }
             }
-        }
-
-        private void CountDown(Portal portal)
-        {
-            portal.SlimeCaught -= CountDown;
-            PortalCount--;
         }
 
         private enum ObjectType

@@ -19,7 +19,7 @@ namespace Map
         }
         
         public event Action CountChanged;
-        public event Action<Slime> Caught;
+        public event Action Caught;
 
         public int Count
         {
@@ -47,7 +47,7 @@ namespace Map
         public void Catch()
         {
             IsCaught = true;
-            Caught?.Invoke(this);
+            Caught?.Invoke();
         }
     }
 }

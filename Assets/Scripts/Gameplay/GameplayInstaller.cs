@@ -31,7 +31,7 @@ namespace Gameplay
             
             _gameplay.Initialize(
                 container.Resolve<Level>(),
-                container.Resolve<Map>(),
+                container.Resolve<PortalCounter>(),
                 container.Resolve<CoroutineTimer>(),
                 container.Resolve<IWindowService>());
         }
