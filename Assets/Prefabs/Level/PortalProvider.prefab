@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 7182651570980352678}
   - component: {fileID: 2016462220025541503}
   - component: {fileID: 2299480450294073625}
+  - component: {fileID: 5493301678156826167}
   m_Layer: 0
   m_Name: PortalProvider
   m_TagString: Untagged
@@ -286,3 +287,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeTypeableProvider: {fileID: 5726583673506369726}
+--- !u!114 &5493301678156826167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169387681179119742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f96faf57b73439986eeab49fed2fbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _portalProvider: {fileID: 5726583673506369726}
