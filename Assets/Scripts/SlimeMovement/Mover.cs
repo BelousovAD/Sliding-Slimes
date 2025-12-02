@@ -1,11 +1,10 @@
-namespace Map
+namespace SlimeMovement
 {
     using UnityEngine;
 
     [RequireComponent(typeof(Rigidbody))]
-    internal class SlimeMover : MonoBehaviour
+    internal class Mover : MonoBehaviour
     {
-        [SerializeField] private InputReader _inputReader;
         [SerializeField, Min(0f)] private float _speed;
         
         private Rigidbody _rigidbody;
@@ -14,12 +13,6 @@ namespace Map
 
         private void Awake() =>
             _rigidbody = GetComponent<Rigidbody>();
-
-        private void OnEnable() =>
-            _inputReader.MoveRequested += Move;
-
-        private void OnDisable() =>
-            _inputReader.MoveRequested -= Move;
 
         public void Move(Vector2Int direction)
         {

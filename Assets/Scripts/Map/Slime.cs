@@ -2,7 +2,7 @@ namespace Map
 {
     using System;
 
-    internal class Slime : AbstractModel, ICountable, IDisposable, ISlimeTypeable
+    public class Slime : AbstractModel, ICountable, IDisposable, ISlimeTypeable
     {
         private const int MinPortalCountToAwake = 1;
         

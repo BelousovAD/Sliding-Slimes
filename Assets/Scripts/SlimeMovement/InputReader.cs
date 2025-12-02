@@ -1,4 +1,4 @@
-namespace Map
+namespace SlimeMovement
 {
     using System;
     using UnityEngine;
@@ -9,7 +9,7 @@ namespace Map
         private bool _isCached;
         private Vector2 _startPoint;
 
-        public event Action<Vector2Int> MoveRequested; 
+        public event Action<Vector2Int> MoveRequested;
         
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -19,14 +19,12 @@ namespace Map
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_isCached == false)
+            if (_isCached)
             {
-                return;
+                _isCached = false;
+                Vector2 direction = (eventData.position - _startPoint).normalized;
+                MoveRequested?.Invoke(Vector2Int.RoundToInt(direction));
             }
-            
-            _isCached = false;
-            Vector2 direction = (eventData.position - _startPoint).normalized;
-            MoveRequested?.Invoke(Vector2Int.RoundToInt(direction));
         }
     }
 }

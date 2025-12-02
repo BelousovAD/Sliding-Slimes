@@ -1,6 +1,6 @@
 namespace Map
 {
-    internal interface IModelProvider
+    public interface IModelProvider
     {
         public AbstractModel Model { get; }
     }
