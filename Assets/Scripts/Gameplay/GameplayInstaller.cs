@@ -12,15 +12,18 @@ namespace Gameplay
         [SerializeField] private string _defeatWindowId;
         [SerializeField] private string _victoryWindowId;
 
-        private Gameplay _gameplay;
         private ContainerBuilder _builder;
+        private Gameplay _gameplay;
+        private PortalCounter _portalCounter;
         
         public void InstallBindings(ContainerBuilder builder)
         {
             _builder = builder;
             _gameplay = new Gameplay(_defeatWindowId, _victoryWindowId);
+            _portalCounter = new PortalCounter();
 
             _builder.AddSingleton(_gameplay);
+            _builder.AddSingleton(_portalCounter);
             
             _builder.OnContainerBuilt += Initialize;
         }
@@ -34,6 +37,7 @@ namespace Gameplay
                 container.Resolve<PortalCounter>(),
                 container.Resolve<CoroutineTimer>(),
                 container.Resolve<IWindowService>());
+            _portalCounter.Initialize(container.Resolve<Map>());
         }
     }
 }

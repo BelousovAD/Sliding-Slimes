@@ -2,88 +2,112 @@ namespace Map
 {
     using System;
     using System.Collections.Generic;
-    using Reflex.Attributes;
+    using Model;
+    using Savvy.Extensions;
+    using SlimeTypeable;
     using UnityEngine;
 
     internal class MapBuilder : MonoBehaviour
     {
+        private const char Separator0 = ',';
+        private const char Separator1 = '\n';
+        private const int CellCapacity = 2;
+        private const int GridOffset = 2;
         private const int SizeDivider = 2;
         
-        [SerializeField] private EmptyCellProvider _emptyCellProvider;
-        [SerializeField] private LuckyBlockProvider _luckyBlockProvider;
-        [SerializeField] private PortalProvider _portalProvider;
-        [SerializeField] private SlimeProvider _slimeProvider;
-        [SerializeField] private TravelatorProvider _travelatorProvider;
-        [SerializeField] private WallProvider _wallProvider;
+        [SerializeField] private EmptyCell _emptyCell;
+        [SerializeField] private LuckyBlock _luckyBlock;
+        [SerializeField] private Portal _portal;
+        [SerializeField] private Slime _slime;
+        [SerializeField] private Travelator _travelator;
+        [SerializeField] private Wall _wall;
 
-        private Dictionary<Type, MonoBehaviour> _providers;
-        private Map _map;
+        private Dictionary<Type, MonoBehaviour> _models;
 
-        [Inject]
-        private void Initialize(Map map) =>
-            _map = map;
-
-        private void Awake()
+        public void Build(Map map, TextAsset textMap)
         {
-            _providers = new Dictionary<Type, MonoBehaviour>
+            _models = new Dictionary<Type, MonoBehaviour>
             {
-                [typeof(EmptyCell)] = _emptyCellProvider,
-                [typeof(LuckyBlock)] = _luckyBlockProvider,
-                [typeof(Portal)] = _portalProvider,
-                [typeof(Slime)] = _slimeProvider,
-                [typeof(Travelator)] = _travelatorProvider,
-                [typeof(Wall)] = _wallProvider,
+                [typeof(EmptyCell)] = _emptyCell,
+                [typeof(LuckyBlock)] = _luckyBlock,
+                [typeof(Portal)] = _portal,
+                [typeof(Slime)] = _slime,
+                [typeof(Travelator)] = _travelator,
+                [typeof(Wall)] = _wall,
             };
-        }
+            
+            string[] data = textMap.text.Split(Separator0, Separator1);
+            int indexOfSetting = 0;
+            Vector2Int size = new(data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
+            int settingsOffset = size.x * size.y + GridOffset;
+            Stack<AbstractModel>[,] cells = new Stack<AbstractModel>[size.x, size.y];
 
-        private void Start()
-        {
-            for (int y = 0; y < _map.Size.y; y++)
+            for (int y = 0; y < size.y; y++)
             {
-                for (int x = 0; x < _map.Size.x; x++)
+                for (int x = 0; x < size.x; x++)
                 {
-                    IReadOnlyCollection<AbstractModel> cells = _map[x, y];
+                    ObjectType type = (ObjectType)data[GridOffset + (size.y - y - 1) * size.x + x][0];
+                    cells[x, y] = new Stack<AbstractModel>(CellCapacity);
+                    cells[x, y].Push(
+                        type == ObjectType.Wall
+                        ? Spawn<Wall>(new Vector2(x, y))
+                        : Spawn<EmptyCell>(new Vector2(x, y)));
 
-                    foreach (AbstractModel model in cells)
+                    switch (type)
                     {
-                        switch (model)
-                        {
-                            case EmptyCell emptyCell:
-                                Spawn(emptyCell, new Vector2(x, y));
-                                break;
-                            case LuckyBlock luckyBlock:
-                                Spawn(luckyBlock, new Vector2(x, y));
-                                break;
-                            case Portal portal:
-                                Spawn(portal, new Vector2(x, y));
-                                break;
-                            case Slime slime:
-                                Spawn(slime, new Vector2(x, y));
-                                break;
-                            case Travelator travelator:
-                                Spawn(travelator, new Vector2(x, y));
-                                break;
-                            case Wall wall:
-                                Spawn(wall, new Vector2(x, y));
-                                break;
-                            default:
-                                throw new ArgumentOutOfRangeException();
-                        }
+                        case ObjectType.EmptyCell:
+                            break;
+                        case ObjectType.Portal:
+                            Portal portal = Spawn<Portal>(new Vector2(x, y));
+                            portal.Initialize((SlimeType)data[settingsOffset + indexOfSetting++][0]);
+                            cells[x, y].Push(portal);
+                            break;
+                        case ObjectType.LuckyBlock:
+                            LuckyBlock luckyBlock = Spawn<LuckyBlock>(new Vector2(x, y));
+                            luckyBlock.Initialize(data[settingsOffset + indexOfSetting++].ToIntOrDefault());
+                            cells[x, y].Push(luckyBlock);
+                            break;
+                        case ObjectType.Slime:
+                            Slime slime = Spawn<Slime>(new Vector2(x, y));
+                            slime.Initialize((SlimeType)data[settingsOffset + indexOfSetting++][0],
+                                data[settingsOffset + indexOfSetting++].ToIntOrDefault());
+                            cells[x, y].Push(slime);
+                            break;
+                        case ObjectType.Travelator:
+                            Travelator travelator = Spawn<Travelator>(new Vector2(x, y));
+                            travelator.Initialize((TravelatorType)data[settingsOffset + indexOfSetting][0]);
+                            cells[x, y].Push(travelator);
+                            break;
+                        case ObjectType.Wall:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                 }
             }
 
             transform.localPosition =
-                new Vector3((float)-_map.Size.x / SizeDivider, 0f, (float)-_map.Size.y / SizeDivider);
+                new Vector3((float)-size.x / SizeDivider, 0f, (float)-size.y / SizeDivider);
+            
+            map.Initialize(cells);
         }
 
-        private void Spawn<T>(T model, Vector2 position) where T : AbstractModel
+        private T Spawn<T>(Vector2 position) where T : AbstractModel
         {
-            AbstractProvider<T> provider = Instantiate(
-                _providers[typeof(T)] as AbstractProvider<T>,
+            return Instantiate(
+                _models[typeof(T)] as T,
                 new Vector3(position.x, 0f, position.y),
                 Quaternion.identity, transform);
-            provider.Initialize(model);
+        }
+        
+        private enum ObjectType
+        {
+            EmptyCell = 'O',
+            Portal = 'P',
+            LuckyBlock = 'L',
+            Slime = 'S',
+            Travelator = 'T',
+            Wall = 'X'
         }
     }
 }

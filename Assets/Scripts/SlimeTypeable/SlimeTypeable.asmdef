@@ -1,10 +1,7 @@
 {
-    "name": "SlimeMovement",
+    "name": "SlimeTypeable",
     "rootNamespace": "",
-    "references": [
-        "GUID:ddea5a15274c1904698316c57c9613eb",
-        "GUID:c19fb17649f61e245946c25304ea3ff2"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

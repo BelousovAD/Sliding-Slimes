@@ -1,20 +1,13 @@
 namespace SlimeMovement
 {
-    using System;
-    using Map;
+    using Model;
     using UnityEngine;
 
     internal class ManualMovability : MonoBehaviour
     {
-        [SerializeField] private MonoBehaviour _slimeProvider;
+        [SerializeField] private Slime _slime;
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private Mover _mover;
-
-        private Slime _slime;
-        
-        private void Start() =>
-            _slime = ((IModelProvider)_slimeProvider).Model as Slime
-                     ?? throw new InvalidOperationException();
 
         private void OnEnable() =>
             _inputReader.MoveRequested += Move;
@@ -29,15 +22,6 @@ namespace SlimeMovement
                 && _slime.IsSleeping == false)
             {
                 _mover.Move(direction);
-            }
-        }
-
-        private void OnValidate()
-        {
-            if (_slimeProvider is not (null or IModelProvider))
-            {
-                Debug.LogError($"{nameof(_slimeProvider)} must inherit {nameof(IModelProvider)}");
-                _slimeProvider = null;
             }
         }
     }
