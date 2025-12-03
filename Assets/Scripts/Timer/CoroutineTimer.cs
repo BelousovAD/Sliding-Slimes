@@ -44,10 +44,15 @@ namespace Timer
 
         public void Add(int seconds)
         {
-            Time += seconds;
-            
             _services.CoroutineRunner.StopCoroutine(_coroutine);
+            Time += seconds;
             _coroutine = _services.CoroutineRunner.StartCoroutine(Countdown());
+        }
+
+        public void Stop()
+        {
+            _services.CoroutineRunner.StopCoroutine(_coroutine);
+            Time = Min;
         }
 
         private IEnumerator Countdown()

@@ -1,30 +1,40 @@
 namespace Model
 {
     using System;
+    using System.Collections.Generic;
     using UnityEngine;
 
     public class Travelator : AbstractModel
     {
-        private TravelatorType _type;
-        
-        public event Action TypeChanged;
+        private readonly List<TravelatorType> _typeOrder = new()
+        {
+            TravelatorType.North,
+            TravelatorType.East,
+            TravelatorType.South,
+            TravelatorType.West,
+        };
+        private int _index;
 
-        public TravelatorType Type
+        public event Action TypeChanged;
+        
+        private int Index
         {
             get
             {
-                return _type;
+                return _index;
             }
 
-            private set
+            set
             {
-                if (value != _type)
+                if (value != _index)
                 {
-                    _type = value;
+                    _index = value;
                     TypeChanged?.Invoke();
                 }
             }
         }
+
+        public TravelatorType Type => _typeOrder[Index];
 
         public Vector2Int Direction
         {
@@ -40,8 +50,11 @@ namespace Model
                 };
             }
         }
-        
+
         public void Initialize(TravelatorType type) =>
-            Type = type;
+            Index = _typeOrder.FindIndex(element => element == type);
+
+        public void NextType() =>
+            Index = (Index + 1) % _typeOrder.Count;
     }
 }

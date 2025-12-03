@@ -50,7 +50,12 @@ namespace SlimeSleep
         private void OnDestroy() =>
             _portalCounter.CountChanged -= UpdateCount;
 
-        private void UpdateCount() =>
-            Count = _portalCounter.Count - _slime.PortalCountToAwake;
+        private void UpdateCount()
+        {
+            if (_portalCounter is not null)
+            {
+                Count = _portalCounter.Count - _slime.PortalCountToAwake;
+            }
+        }
     }
 }

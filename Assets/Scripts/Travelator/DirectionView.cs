@@ -3,7 +3,7 @@ namespace Travelator
     using Model;
     using UnityEngine;
 
-    public class DirectionView : MonoBehaviour
+    internal class DirectionView : MonoBehaviour
     {
         [SerializeField] private Travelator _travelator;
 
