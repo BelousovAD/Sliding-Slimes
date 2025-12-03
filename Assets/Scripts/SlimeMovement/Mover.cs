@@ -18,16 +18,12 @@ namespace SlimeMovement
         {
             Direction = new Vector3(direction.x, 0, direction.y);
             _rigidbody.isKinematic = false;
+            transform.localPosition = Vector3Int.RoundToInt(transform.localPosition);
+            _rigidbody.velocity = Direction * _speed;
             
             if (direction == Vector2Int.zero)
             {
-                _rigidbody.velocity = Vector3.zero;
-                transform.localPosition = Vector3Int.RoundToInt(transform.localPosition);
                 _rigidbody.isKinematic = true;
-            }
-            else
-            {
-                _rigidbody.velocity = Direction * _speed;
             }
         }
     }

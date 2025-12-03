@@ -5,12 +5,12 @@ namespace Model
 
     public class Slime : AbstractModel, ISlimeTypeable
     {
-        public const int MinPortalCountToAwake = 1;
+        private const int MinPortalCountToAwake = 1;
 
         public event Action Caught;
 
         public SlimeType Type { get; private set; }
-        
+
         public bool IsCaught { get; private set; }
 
         public int PortalCountToAwake { get; private set; } = MinPortalCountToAwake;
