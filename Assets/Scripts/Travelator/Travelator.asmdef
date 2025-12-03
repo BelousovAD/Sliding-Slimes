@@ -1,0 +1,16 @@
+{
+    "name": "Travelator",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c19fb17649f61e245946c25304ea3ff2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

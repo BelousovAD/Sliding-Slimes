@@ -5,7 +5,26 @@ namespace Model
 
     public class Travelator : AbstractModel
     {
-        public TravelatorType Type { get; private set; }
+        private TravelatorType _type;
+        
+        public event Action TypeChanged;
+
+        public TravelatorType Type
+        {
+            get
+            {
+                return _type;
+            }
+
+            private set
+            {
+                if (value != _type)
+                {
+                    _type = value;
+                    TypeChanged?.Invoke();
+                }
+            }
+        }
 
         public Vector2Int Direction
         {
