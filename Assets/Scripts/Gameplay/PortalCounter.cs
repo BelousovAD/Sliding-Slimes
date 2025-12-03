@@ -6,7 +6,7 @@ namespace Gameplay
     using Map;
     using Model;
 
-    public class PortalCounter : ICountable, IDisposable
+    internal class PortalCounter : ICountable, IDisposable
     {
         private readonly List<Portal> _portals = new();
         private Map _map;

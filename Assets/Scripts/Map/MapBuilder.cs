@@ -75,7 +75,7 @@ namespace Map
                             break;
                         case ObjectType.Travelator:
                             Travelator travelator = Spawn<Travelator>(new Vector2(x, y));
-                            travelator.Initialize((TravelatorType)data[settingsOffset + indexOfSetting][0]);
+                            travelator.Initialize((TravelatorType)data[settingsOffset + indexOfSetting++][0]);
                             cells[x, y].Push(travelator);
                             break;
                         case ObjectType.Wall:
@@ -86,9 +86,7 @@ namespace Map
                 }
             }
 
-            transform.localPosition =
-                new Vector3((float)-size.x / SizeDivider, 0f, (float)-size.y / SizeDivider);
-            
+            transform.localPosition = new Vector3((float)-size.x / SizeDivider, 0f, (float)-size.y / SizeDivider);
             map.Initialize(cells);
         }
 

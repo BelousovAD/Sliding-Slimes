@@ -5,7 +5,7 @@ namespace Countable
     using UnityEngine;
 
     [RequireComponent(typeof(TMP_Text))]
-    public class CountTMPView : MonoBehaviour
+    internal class CountTMPView : MonoBehaviour
     {
         [SerializeField] private string _format = "{0}";
         [SerializeField] private MonoBehaviour _countableComponent;
@@ -13,27 +13,20 @@ namespace Countable
         private TMP_Text _textField;
         private ICountable _countable;
         
-        private void Awake() =>
-            _textField = GetComponent<TMP_Text>();
-        
-        private void OnEnable() =>
-            UpdateView();
-        
-        private void Start()
+        private void Awake()
         {
-            _countable = _countableComponent as ICountable
-                         ?? throw new InvalidOperationException();
+            _textField = GetComponent<TMP_Text>();
+            _countable = _countableComponent as ICountable ?? throw new InvalidOperationException();
+        }
+
+        private void OnEnable()
+        {
             _countable.CountChanged += UpdateView;
             UpdateView();
         }
         
-        private void OnDestroy()
-        {
-            if (_countable is not null)
-            {
-                _countable.CountChanged -= UpdateView;
-            }
-        }
+        private void OnDisable() =>
+            _countable.CountChanged -= UpdateView;
 
         private void UpdateView() =>
             _textField.text = string.Format(_format, _countable is null ? string.Empty : _countable.Count);

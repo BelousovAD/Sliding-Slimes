@@ -11,8 +11,7 @@ namespace SlimeTypeable
         
         private void Start()
         {
-            _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable
-                             ?? throw new InvalidOperationException();
+            _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable ?? throw new InvalidOperationException();
             gameObject.layer = LayerMask.NameToLayer(Enum.GetName(typeof(SlimeType), _slimeTypeable.Type));
         }
         

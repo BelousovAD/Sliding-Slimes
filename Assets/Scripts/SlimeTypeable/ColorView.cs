@@ -34,8 +34,7 @@ namespace SlimeTypeable
         
         private void Start()
         {
-            _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable
-                             ?? throw new InvalidOperationException();
+            _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable ?? throw new InvalidOperationException();
             _meshRenderer.material.color = Color;
         }
 
