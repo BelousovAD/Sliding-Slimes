@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ce04f0fc4b4a609e2a261a3a6c8c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slime: {fileID: 7743013343145485791}
+  _sleepCounter: {fileID: 1333361476661850519}
   _awakeObjects:
   - {fileID: 3615721550246112662}
   _sleepObjects:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411f5a3967ee407693d26ade4ddcbc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slime: {fileID: 7743013343145485791}
+  _sleepCounter: {fileID: 1333361476661850519}
   _inputReader: {fileID: 8349924831639689183}
   _mover: {fileID: 1654636826456051198}
 --- !u!114 &8349924831639689183
@@ -265,6 +265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4521370872452569099}
+  - {fileID: 3874238264233872372}
   m_Father: {fileID: 2725820005159692403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3615721550246112662
@@ -433,6 +434,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8402478854583152131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3874238264233872372}
+  - component: {fileID: 1333361476661850519}
+  m_Layer: 0
+  m_Name: SleepCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3874238264233872372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402478854583152131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5151762079144795985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333361476661850519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402478854583152131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adf5c30b8824ea18d98072272200f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slime: {fileID: 7743013343145485791}
 --- !u!1 &9053365780072451810
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _format: '{0}'
-  _countableComponent: {fileID: 7743013343145485791}
+  _countableComponent: {fileID: 1333361476661850519}
 --- !u!1001 &1329248252786650345
 PrefabInstance:
   m_ObjectHideFlags: 0

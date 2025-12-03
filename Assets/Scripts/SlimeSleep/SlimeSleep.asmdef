@@ -2,7 +2,10 @@
     "name": "SlimeSleep",
     "rootNamespace": "",
     "references": [
-        "GUID:c19fb17649f61e245946c25304ea3ff2"
+        "GUID:b96de3548dfb26a42a74a0f903414195",
+        "GUID:5b4f8b75a1e789d45bd30f6b914bab83",
+        "GUID:c19fb17649f61e245946c25304ea3ff2",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

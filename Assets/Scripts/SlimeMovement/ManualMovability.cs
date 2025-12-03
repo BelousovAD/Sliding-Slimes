@@ -1,11 +1,11 @@
 namespace SlimeMovement
 {
-    using Model;
+    using SlimeSleep;
     using UnityEngine;
 
     internal class ManualMovability : MonoBehaviour
     {
-        [SerializeField] private Slime _slime;
+        [SerializeField] private SleepCounter _sleepCounter;
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private Mover _mover;
 
@@ -17,9 +17,9 @@ namespace SlimeMovement
 
         private void Move(Vector2Int direction)
         {
-            if (_slime is not null
+            if (_sleepCounter is not null
                 && _mover.Direction == Vector3.zero
-                && _slime.IsSleeping == false)
+                && _sleepCounter.IsSleepActive == false)
             {
                 _mover.Move(direction);
             }
