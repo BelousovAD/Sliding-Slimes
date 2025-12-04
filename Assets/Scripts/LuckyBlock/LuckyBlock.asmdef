@@ -1,8 +1,9 @@
 {
-    "name": "Model",
+    "name": "LuckyBlock",
     "rootNamespace": "",
     "references": [
-        "GUID:3a63586fcaa1ed0418c27a0ab2993bd9"
+        "GUID:b96de3548dfb26a42a74a0f903414195",
+        "GUID:c19fb17649f61e245946c25304ea3ff2"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

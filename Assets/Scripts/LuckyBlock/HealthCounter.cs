@@ -1,0 +1,46 @@
+namespace LuckyBlock
+{
+    using System;
+    using Countable;
+    using Model;
+    using UnityEngine;
+
+    internal class HealthCounter : MonoBehaviour, ICountable
+    {
+        [SerializeField] private LuckyBlock _luckyBlock;
+        
+        private int _count;
+
+        public event Action CountChanged;
+        
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+
+            private set
+            {
+                if (value != _count)
+                {
+                    _count = value < ICountable.MinCount ? ICountable.MinCount : value;
+                    CountChanged?.Invoke();
+                }
+            }
+        }
+
+        public bool IsAlive => Count > ICountable.MinCount;
+
+        private void Start() =>
+            Count = _luckyBlock.StartHealth;
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.TryGetComponent(out Slime _))
+            {
+                Count--;
+            }
+        }
+    }
+}
