@@ -1,0 +1,9 @@
+6,7
+X,X,X,X,X,X
+X,O,O,P,O,X
+X,O,O,O,O,X
+X,S,O,O,S,X
+X,O,O,O,O,X
+X,O,P,O,O,X
+X,X,X,X,X,X
+O,B,2,O,2,B

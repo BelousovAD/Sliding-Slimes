@@ -1,0 +1,11 @@
+9,9
+X,X,X,X,X,X,X,X,X
+X,O,O,O,P,O,O,O,X
+X,P,X,S,S,S,X,P,X
+X,O,X,P,X,P,X,O,X
+X,O,O,S,X,S,O,O,X
+X,O,X,O,S,O,X,O,X
+X,O,O,O,P,O,O,O,X
+X,X,X,O,O,O,X,X,X
+X,X,X,X,X,X,X,X,X
+B,P,4,O,6,W,6,W,O,R,Y,4,B,6,R,4,Y,P
