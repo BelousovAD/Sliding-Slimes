@@ -5,8 +5,8 @@ X,X,O,O,O,S,X,O,X
 X,O,O,T,P,S,P,O,X
 X,O,S,O,O,O,X,X,X
 X,O,O,O,X,X,X,X,X
-X,O,S,O,X,P,P,O,X
-X,O,O,T,S,P,X,O,X
+X,O,S,O,O,P,P,O,X
+X,O,O,T,S,S,X,O,X
 X,X,O,O,O,P,O,O,X
 X,X,X,X,X,X,X,X,X
-G,N,P,6,B,4,Y,W,R,G,4,E,P,W,6,B,R,4,Y
+G,N,P,6,B,4,Y,2,W,R,G,2,E,P,W,6,B,R,4,Y

@@ -2,10 +2,11 @@
 X,X,X,X,X,X,X,X,X,X
 X,P,O,O,X,X,X,P,X,X
 X,X,X,O,X,X,O,P,O,X
-X,X,O,S,S,S,O,O,X,X
+X,X,X,S,S,S,O,O,X,X
 X,X,X,T,T,T,X,X,X,X
 X,L,O,O,O,S,P,O,P,X
 X,O,O,S,O,O,O,X,X,X
 X,O,P,O,S,O,O,X,X,X
 X,O,O,O,X,O,O,S,P,X
 X,X,X,X,X,X,X,X,X,X
+R,7,W,R,O,7,Y,7,3,W,7,O,Y,N,N,N,G,3,B,3,P,3,B,P,G
