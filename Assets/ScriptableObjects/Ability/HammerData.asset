@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f81ede8b21a4ceea0bde776b304e50d, type: 3}
   m_Name: HammerData
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 52538b7886af945f990da19b2f3c5da6, type: 3}
   _isRewardForAd: 1
   _price: 0
   _saveKey: Hammer

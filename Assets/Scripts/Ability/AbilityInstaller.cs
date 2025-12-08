@@ -25,7 +25,10 @@ namespace Ability
             _lightning = new Lightning(_lightningData);
             _megaphone = new Megaphone(_megaphoneData);
 
+            _builder.AddSingleton(_hammer);
             _builder.AddSingleton(_hourglass);
+            _builder.AddSingleton(_lightning);
+            _builder.AddSingleton(_megaphone);
             
             _builder.OnContainerBuilt += Initialize;
         }

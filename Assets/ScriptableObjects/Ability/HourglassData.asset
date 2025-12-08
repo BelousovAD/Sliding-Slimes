@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f81ede8b21a4ceea0bde776b304e50d, type: 3}
   m_Name: HourglassData
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 5c95239b368a4412d829405c8675cd0c, type: 3}
+  _isRewardForAd: 0
   _price: 30
   _saveKey: Hourglass
   _startCount: 1

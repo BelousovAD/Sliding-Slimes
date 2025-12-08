@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f81ede8b21a4ceea0bde776b304e50d, type: 3}
   m_Name: MegaphoneData
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 224e30830bd8b4de6b8c9e081af317d5, type: 3}
+  _isRewardForAd: 0
   _price: 30
   _saveKey: Megaphone
   _startCount: 1

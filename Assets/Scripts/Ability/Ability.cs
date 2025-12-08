@@ -2,10 +2,11 @@ namespace Ability
 {
     using System;
     using Bootstrap;
+    using UnityEngine;
 
     public abstract class Ability
     {
-        private const int Min = 0;
+        public const int MinCount = 0;
 
         private readonly AbilityData _data;
         private int _count;
@@ -34,12 +35,16 @@ namespace Ability
             {
                 if (value != _count)
                 {
-                    _count = value < Min ? Min : value;
+                    _count = value < MinCount ? MinCount : value;
                     Save();
                     CountChanged?.Invoke();
                 }
             }
         }
+
+        public Sprite Icon => _data.Icon;
+
+        public bool IsRewardForAd => _data.IsRewardForAd;
 
         public int Price => _data.Price;
 

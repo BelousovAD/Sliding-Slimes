@@ -12,7 +12,8 @@ namespace Ability
         private Ability _megaphone;
 
         [Inject]
-        private void Initialize(Hammer hammer,
+        private void Initialize(
+            Hammer hammer,
             Hourglass hourglass,
             Lightning lightning,
             Megaphone megaphone)
