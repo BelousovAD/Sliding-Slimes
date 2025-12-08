@@ -22,8 +22,14 @@ namespace SlimeMovement
             if (_isCached)
             {
                 _isCached = false;
-                Vector2 direction = (eventData.position - _startPoint).normalized;
-                MoveRequested?.Invoke(Vector2Int.RoundToInt(direction));
+                Vector2Int direction = Vector2Int.RoundToInt((eventData.position - _startPoint).normalized);
+
+                if (direction.sqrMagnitude > 1)
+                {
+                    direction.x = 0;
+                }
+                
+                MoveRequested?.Invoke(direction);
             }
         }
     }
