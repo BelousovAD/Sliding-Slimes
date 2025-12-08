@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -916814205525942783}
   - component: {fileID: -2154706648195675944}
   - component: {fileID: -7127990509416123811}
+  - component: {fileID: 2414338379237699568}
   m_Layer: 0
   m_Name: ProjectScope
   m_TagString: Untagged
@@ -98,3 +99,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d216026e02469aa9dd89617e973081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2414338379237699568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579009083052112056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426d4dfa073642f0a4dd4b6636ed33cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hammerData: {fileID: 11400000, guid: a95f7af609a2afa4ca5ceb47c2f8ba04, type: 2}
+  _hourglassData: {fileID: 11400000, guid: b91bac92d9c9f35469f5b5bb238e76ba, type: 2}
+  _lightningData: {fileID: 11400000, guid: be67b2ad21f6bf04dbe9fc9948a4b8aa, type: 2}
+  _megaphoneData: {fileID: 11400000, guid: b71765b6425a85d45b1f6202568f0071, type: 2}
