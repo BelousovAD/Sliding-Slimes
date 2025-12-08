@@ -66,9 +66,9 @@ GameObject:
   - component: {fileID: 1654636826456051198}
   - component: {fileID: 8058893874793897363}
   - component: {fileID: 8349924831639689183}
-  - component: {fileID: 3144106778459882079}
   - component: {fileID: 8184312048069506363}
   - component: {fileID: 8708433320581475758}
+  - component: {fileID: 1026412308817310928}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -95,6 +95,7 @@ Transform:
   - {fileID: 1218073256029364}
   - {fileID: 8537023902324833121}
   - {fileID: 1325032130115283667}
+  - {fileID: 1066787917152562189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7743013343145485791
@@ -197,20 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f266fe64cf24af3a0447e03dc2a1e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3144106778459882079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848578635021197477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68628954a9c641a8a68839d7d368b3c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _invertSlimeDirection: 0
-  _direction: {x: 0, y: 0}
 --- !u!114 &8184312048069506363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +224,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slime: {fileID: 7743013343145485791}
+--- !u!114 &1026412308817310928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848578635021197477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507056a1d207407a94b2b18827fd6652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastSource: {fileID: 1066787917152562189}
+  _raycastDistance: 0.9
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 16320
+  _mover: {fileID: 1654636826456051198}
 --- !u!1 &3503393946269956356
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +441,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7806052680729595744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066787917152562189}
+  m_Layer: 0
+  m_Name: RaycastSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066787917152562189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806052680729595744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.75, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2725820005159692403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8402478854583152131
 GameObject:
   m_ObjectHideFlags: 0
