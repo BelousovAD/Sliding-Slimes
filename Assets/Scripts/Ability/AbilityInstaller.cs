@@ -49,7 +49,8 @@ namespace Ability
                 container.Resolve<CoroutineTimer>());
             _lightning.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
-                container.Resolve<Money>());
+                container.Resolve<Money>(),
+                container.Resolve<Map>());
             _megaphone.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
                 container.Resolve<Money>(),

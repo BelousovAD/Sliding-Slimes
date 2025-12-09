@@ -14,8 +14,10 @@ namespace Model
             TravelatorType.West,
         };
         private int _index;
+        private bool _isManual;
 
         public event Action TypeChanged;
+        public event Action ManualStatusChanged;
         
         private int Index
         {
@@ -51,10 +53,30 @@ namespace Model
             }
         }
 
+        public bool IsManual
+        {
+            get
+            {
+                return _isManual;
+            }
+
+            private set
+            {
+                if (value != _isManual)
+                {
+                    _isManual = value;
+                    ManualStatusChanged?.Invoke();
+                }
+            }
+        }
+
         public void Initialize(TravelatorType type) =>
             Index = _typeOrder.FindIndex(element => element == type);
 
         public void NextType() =>
             Index = (Index + 1) % _typeOrder.Count;
+
+        public void SetManualControl() =>
+            IsManual = true;
     }
 }
