@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f1889da85c9ed49b447ab43a99354c, type: 3}
+  m_Name: LocalizationSettings
+  m_EditorClassIdentifier: 
+  Debug: 0
+  <PrefsKey>k__BackingField: LocalizationSettings
+  DefaultSystemLanguage: 10
+  DefaultTextAsset: {fileID: 4900000, guid: de5d46b57934be94891d3bbe01891cd3, type: 3}
+  TranslationsData:
+  - SystemLanguage: 10
+    TextAsset: {fileID: 4900000, guid: de5d46b57934be94891d3bbe01891cd3, type: 3}
+  - SystemLanguage: 14
+    TextAsset: {fileID: 4900000, guid: 0a406d6a0b8ecd746bed0823aef01df4, type: 3}
+  - SystemLanguage: 15
+    TextAsset: {fileID: 4900000, guid: 1cde0090d82d9274fa73feb497790ebc, type: 3}
+  - SystemLanguage: 21
+    TextAsset: {fileID: 4900000, guid: f07e11972d5670f469e0a1afcd606e03, type: 3}
+  - SystemLanguage: 27
+    TextAsset: {fileID: 4900000, guid: 4fc3ae26e99caf043afb64c46485c069, type: 3}
+  - SystemLanguage: 29
+    TextAsset: {fileID: 4900000, guid: 7a76a2144b2508c419ca7db1e8d6c8e8, type: 3}
+  - SystemLanguage: 30
+    TextAsset: {fileID: 4900000, guid: f605279dd8bd3c14a88659e50de9db23, type: 3}
+  - SystemLanguage: 34
+    TextAsset: {fileID: 4900000, guid: 480d3d214dcf84542813df1f2ac62f38, type: 3}
+  - SystemLanguage: 37
+    TextAsset: {fileID: 4900000, guid: ed745e7cc5ab9d2418300e465e0740fc, type: 3}
+  - SystemLanguage: 38
+    TextAsset: {fileID: 4900000, guid: 559c09933ee9a85489592be989b84da0, type: 3}
+  SheetId: 1Rzk70E8L7L8tVgw8lUWEwPzdF5nOwY9dJu_dRK62Y6k
+  SheetsExportUrl: https://docs.google.com/spreadsheets/d/{0}/export?format=tsv
+  SheetsUrl: https://docs.google.com/spreadsheets/d/{0}

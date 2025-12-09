@@ -31,7 +31,7 @@ MonoBehaviour:
   FirebaseStorage: 0
   GameStateMachine: 0
   InAppPurchasing: 0
-  Localization: 0
+  Localization: 1
   Mediation: 1
   Notification: 0
   NumberFormat: 1
