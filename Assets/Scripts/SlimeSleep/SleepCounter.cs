@@ -44,11 +44,15 @@ namespace SlimeSleep
         private void Start()
         {
             _portalCounter.CountChanged += UpdateCount;
+            _slime.PortalCountToAwakeChanged += UpdateCount;
             UpdateCount();
         }
 
-        private void OnDestroy() =>
+        private void OnDestroy()
+        {
             _portalCounter.CountChanged -= UpdateCount;
+            _slime.PortalCountToAwakeChanged -= UpdateCount;
+        }
 
         private void UpdateCount()
         {

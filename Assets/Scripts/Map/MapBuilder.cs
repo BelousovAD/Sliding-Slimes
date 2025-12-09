@@ -11,7 +11,6 @@ namespace Map
     {
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
-        private const int CellCapacity = 2;
         private const int GridOffset = 2;
         private const int SizeDivider = 2;
         
@@ -40,18 +39,21 @@ namespace Map
             int indexOfSetting = 0;
             Vector2Int size = new(data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
             int settingsOffset = size.x * size.y + GridOffset;
-            Stack<AbstractModel>[,] cells = new Stack<AbstractModel>[size.x, size.y];
+            List<LuckyBlock> luckyBlocks = new();
+            List<Portal> portals = new();
+            List<Slime> slimes = new();
+            List<Travelator> travelators = new();
 
             for (int y = 0; y < size.y; y++)
             {
                 for (int x = 0; x < size.x; x++)
                 {
                     ObjectType type = (ObjectType)data[GridOffset + (size.y - y - 1) * size.x + x][0];
-                    cells[x, y] = new Stack<AbstractModel>(CellCapacity);
-                    cells[x, y].Push(
-                        type == ObjectType.Wall
-                        ? Spawn<Wall>(new Vector2(x, y))
-                        : Spawn<EmptyCell>(new Vector2(x, y)));
+
+                    if (type != ObjectType.Wall)
+                    {
+                        Spawn<EmptyCell>(new Vector2(x, y));
+                    }
 
                     switch (type)
                     {
@@ -60,25 +62,26 @@ namespace Map
                         case ObjectType.Portal:
                             Portal portal = Spawn<Portal>(new Vector2(x, y));
                             portal.Initialize((SlimeType)data[settingsOffset + indexOfSetting++][0]);
-                            cells[x, y].Push(portal);
+                            portals.Add(portal);
                             break;
                         case ObjectType.LuckyBlock:
                             LuckyBlock luckyBlock = Spawn<LuckyBlock>(new Vector2(x, y));
                             luckyBlock.Initialize(data[settingsOffset + indexOfSetting++].ToIntOrDefault());
-                            cells[x, y].Push(luckyBlock);
+                            luckyBlocks.Add(luckyBlock);
                             break;
                         case ObjectType.Slime:
                             Slime slime = Spawn<Slime>(new Vector2(x, y));
                             slime.Initialize((SlimeType)data[settingsOffset + indexOfSetting++][0],
                                 data[settingsOffset + indexOfSetting++].ToIntOrDefault());
-                            cells[x, y].Push(slime);
+                            slimes.Add(slime);
                             break;
                         case ObjectType.Travelator:
                             Travelator travelator = Spawn<Travelator>(new Vector2(x, y));
                             travelator.Initialize((TravelatorType)data[settingsOffset + indexOfSetting++][0]);
-                            cells[x, y].Push(travelator);
+                            travelators.Add(travelator);
                             break;
                         case ObjectType.Wall:
+                            Spawn<Wall>(new Vector2(x, y));
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -87,7 +90,7 @@ namespace Map
             }
 
             transform.localPosition = new Vector3((float)-size.x / SizeDivider, 0f, (float)-size.y / SizeDivider);
-            map.Initialize(cells);
+            map.Initialize(size, luckyBlocks, portals, slimes, travelators);
         }
 
         private T Spawn<T>(Vector2 position) where T : AbstractModel

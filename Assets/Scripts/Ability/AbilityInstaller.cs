@@ -2,6 +2,7 @@ namespace Ability
 {
     using Bootstrap;
     using Currency;
+    using Map;
     using Reflex.Core;
     using Timer;
     using UnityEngine;
@@ -51,7 +52,8 @@ namespace Ability
                 container.Resolve<Money>());
             _megaphone.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
-                container.Resolve<Money>());
+                container.Resolve<Money>(),
+                container.Resolve<Map>());
         }
     }
 }

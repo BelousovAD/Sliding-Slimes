@@ -7,7 +7,10 @@ namespace Map
 
     public class Map
     {
-        private Stack<AbstractModel>[,] _cells;
+        private List<LuckyBlock> _luckyBlocks;
+        private List<Portal> _portals;
+        private List<Slime> _slimes;
+        private List<Travelator> _travelators;
 
         public event Action Initialized;
         
@@ -15,17 +18,28 @@ namespace Map
         
         public Vector2Int Size { get; private set; }
 
-        public IReadOnlyCollection<AbstractModel> this[int x, int y] => _cells[x, y];
+        public IReadOnlyCollection<LuckyBlock> LuckyBlocks => _luckyBlocks;
+        
+        public IReadOnlyCollection<Portal> Portals => _portals;
+        
+        public IReadOnlyCollection<Slime> Slimes => _slimes;
+        
+        public IReadOnlyCollection<Travelator> Travelators => _travelators;
 
-        public void Initialize(Stack<AbstractModel>[,] cells)
+        public void Initialize(
+            Vector2Int size,
+            List<LuckyBlock> luckyBlocks,
+            List<Portal> portals,
+            List<Slime> slimes,
+            List<Travelator> travelators)
         {
-            if (IsInitialized == false)
-            {
-                _cells = cells;
-                Size = new Vector2Int(_cells.GetLength(0), _cells.GetLength(1));
-                IsInitialized = true;
-                Initialized?.Invoke();
-            }
+            Size = size;
+            _luckyBlocks = luckyBlocks;
+            _portals = portals;
+            _slimes = slimes;
+            _travelators = travelators;
+            IsInitialized = true;
+            Initialized?.Invoke();
         }
     }
 }

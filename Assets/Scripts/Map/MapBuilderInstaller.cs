@@ -5,20 +5,16 @@ namespace Map
     using Reflex.Core;
     using UnityEngine;
 
-    internal class MapInstaller : MonoBehaviour, IInstaller
+    internal class MapBuilderInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private MapBuilder _mapBuilder;
         [SerializeField] private List<TextAsset> _maps = new();
 
         private ContainerBuilder _builder;
-        private Map _map;
 
         public void InstallBindings(ContainerBuilder builder)
         {
             _builder = builder;
-            _map = new Map();
-
-            _builder.AddSingleton(_map);
 
             _builder.OnContainerBuilt += Initialize;
         }

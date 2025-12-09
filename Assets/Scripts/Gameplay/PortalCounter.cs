@@ -8,7 +8,6 @@ namespace Gameplay
 
     public class PortalCounter : ICountable, IDisposable
     {
-        private readonly List<Portal> _portals = new();
         private Map _map;
         private int _count;
 
@@ -35,46 +34,24 @@ namespace Gameplay
         {
             _map = map;
             _map.Initialized += Initialize;
-            Initialize();
         }
 
         private void Initialize()
         {
-            if (_map.IsInitialized == false)
+            foreach (Portal portal in _map.Portals)
             {
-                return;
+                portal.SlimeCaught += CountDown;
             }
 
-            _map.Initialized -= Initialize;
-            
-            for (int x = 0; x < _map.Size.x; x++)
-            {
-                for (int y = 0; y < _map.Size.y; y++)
-                {
-                    foreach (AbstractModel model in _map[x, y])
-                    {
-                        if (model is not Portal portal)
-                        {
-                            continue;
-                        }
-                        
-                        portal.SlimeCaught += CountDown;
-                        _portals.Add(portal);
-                    }
-                }
-            }
-
-            Count = _portals.Count;
+            Count = _map.Portals.Count;
         }
 
         public void Dispose()
         {
-            foreach (Portal portal in _portals)
+            foreach (Portal portal in _map.Portals)
             {
                 portal.SlimeCaught -= CountDown;
             }
-            
-            _portals.Clear();
         }
 
         private void CountDown() =>
