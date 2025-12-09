@@ -76,9 +76,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b12eced0da15114a878ae16d523c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _luckyBlock: {fileID: 8742395090352152326}
   _healthCounter: {fileID: 7523607697793921096}
-  _minBoundary: 10
-  _maxBoundary: 50
+  _minMoney: 10
+  _maxMoney: 50
+  _bonusChances:
+  - Percent: 50
+    Bonus: 0
+  - Percent: 19
+    Bonus: 1
+  - Percent: 19
+    Bonus: 2
+  - Percent: 11
+    Bonus: 3
+  - Percent: 1
+    Bonus: 4
 --- !u!1 &7119221995188171015
 GameObject:
   m_ObjectHideFlags: 0

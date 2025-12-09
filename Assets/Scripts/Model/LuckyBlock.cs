@@ -6,7 +6,11 @@ namespace Model
     {
         private const int MinStartHealth = 1;
 
+        public event Action DestroyRequested;
+
         public int StartHealth { get; private set; } = MinStartHealth;
+        
+        public bool IsUpgraded { get; private set; }
         
         public void Initialize(int health)
         {
@@ -18,5 +22,11 @@ namespace Model
 
             StartHealth = health;
         }
+
+        public void Destroy() =>
+            DestroyRequested?.Invoke();
+
+        public void Upgrade() =>
+            IsUpgraded = true;
     }
 }

@@ -42,7 +42,8 @@ namespace Ability
 
             _hammer.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
-                container.Resolve<Money>());
+                container.Resolve<Money>(),
+                container.Resolve<Map>());
             _hourglass.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
                 container.Resolve<Money>(),

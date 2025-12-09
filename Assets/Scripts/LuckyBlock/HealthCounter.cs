@@ -35,6 +35,12 @@ namespace LuckyBlock
         private void Start() =>
             Count = _luckyBlock.StartHealth;
 
+        private void OnEnable() =>
+            _luckyBlock.DestroyRequested += Die;
+
+        private void OnDisable() =>
+            _luckyBlock.DestroyRequested -= Die;
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.TryGetComponent(out Slime _))
@@ -42,5 +48,8 @@ namespace LuckyBlock
                 Count--;
             }
         }
+
+        private void Die() =>
+            Count = ICountable.MinCount;
     }
 }
