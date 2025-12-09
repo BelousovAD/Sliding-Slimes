@@ -6,7 +6,7 @@ namespace Timer
 
     internal class TimerInstaller : MonoBehaviour, IInstaller
     {
-        [SerializeField, Min(1)] private int _startTime = 90;
+        [SerializeField, Min(1)] private int _maxTime = 90;
 
         private CoroutineTimer _timer;
         private ContainerBuilder _builder;
@@ -14,7 +14,7 @@ namespace Timer
         public void InstallBindings(ContainerBuilder builder)
         {
             _builder = builder;
-            _timer = new CoroutineTimer(_startTime);
+            _timer = new CoroutineTimer(_maxTime);
 
             _builder.AddSingleton(_timer);
             
@@ -26,7 +26,6 @@ namespace Timer
             _builder.OnContainerBuilt -= Initialize;
             
             _timer.Initialize(container.Resolve<SavvyServicesProvider>());
-            _timer.Add(_startTime);
         }
     }
 }

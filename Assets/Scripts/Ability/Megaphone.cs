@@ -5,5 +5,10 @@ namespace Ability
         public Megaphone(AbilityData data)
             : base(data)
         { }
+
+        protected override void Activate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

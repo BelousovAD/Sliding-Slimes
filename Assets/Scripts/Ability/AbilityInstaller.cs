@@ -1,7 +1,9 @@
 namespace Ability
 {
     using Bootstrap;
+    using Currency;
     using Reflex.Core;
+    using Timer;
     using UnityEngine;
 
     internal class AbilityInstaller : MonoBehaviour, IInstaller
@@ -36,11 +38,20 @@ namespace Ability
         private void Initialize(Container container)
         {
             _builder.OnContainerBuilt -= Initialize;
-            
-            _hammer.Initialize(container.Resolve<SavvyServicesProvider>());
-            _hourglass.Initialize(container.Resolve<SavvyServicesProvider>());
-            _lightning.Initialize(container.Resolve<SavvyServicesProvider>());
-            _megaphone.Initialize(container.Resolve<SavvyServicesProvider>());
+
+            _hammer.Initialize(
+                container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Money>());
+            _hourglass.Initialize(
+                container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Money>(),
+                container.Resolve<CoroutineTimer>());
+            _lightning.Initialize(
+                container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Money>());
+            _megaphone.Initialize(
+                container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Money>());
         }
     }
 }

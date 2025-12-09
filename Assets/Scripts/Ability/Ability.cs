@@ -2,14 +2,17 @@ namespace Ability
 {
     using System;
     using Bootstrap;
+    using Currency;
     using UnityEngine;
 
     public abstract class Ability
     {
         public const int MinCount = 0;
+        private const int CountForAction = 1;
 
         private readonly AbilityData _data;
         private int _count;
+        private Money _money;
         private SavvyServicesProvider _services;
 
         public Ability(AbilityData data)
@@ -50,37 +53,42 @@ namespace Ability
 
         public int UnlockLevel => _data.UnlockLevel;
         
-        public void Initialize(SavvyServicesProvider servicesProvider) =>
-            _services = servicesProvider;
-        
-        public void Earn(int amount)
+        public void Initialize(SavvyServicesProvider servicesProvider, Money money)
         {
-            if (amount < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(amount), "Can not be negative");
-            }
-
-            Count += amount;
+            _services = servicesProvider;
+            _money = money;
         }
 
-        public bool TrySpend(int amount)
-        {
-            if (amount < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(amount), "Can not be negative");
-            }
+        public void Add() =>
+            Count += CountForAction;
 
-            if (Count < amount)
+        public void Use()
+        {
+            if (Count < CountForAction)
             {
-                return false;
+                if (IsRewardForAd)
+                {
+                    _services.Mediation.ShowRewardedAd(Activate);
+                }
+                else
+                {
+                    if (_money.TrySpend(Price))
+                    {
+                        Activate();
+                    }
+                }
             }
-            
-            Count -= amount;
-            return true;
+            else
+            {
+                Count -= CountForAction;
+                Activate();
+            }
         }
         
         public void Load() =>
             Count = _services.Preferences.LoadInt(_data.SaveKey, _data.StartCount);
+
+        protected abstract void Activate();
         
         private void Save() =>
             _services.Preferences.SaveInt(_data.SaveKey, Count);
