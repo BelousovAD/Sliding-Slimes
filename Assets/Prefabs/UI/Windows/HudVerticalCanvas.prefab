@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 2245386481050602600}
   - component: {fileID: 5739317892846830106}
   m_Layer: 5
-  m_Name: HudCanvas
+  m_Name: HudVerticalCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,8 +882,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5854551125705595412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.15}
-  m_AnchorMax: {x: 0.9, y: 0.15}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 175}
   m_Pivot: {x: 0.5, y: 0}
