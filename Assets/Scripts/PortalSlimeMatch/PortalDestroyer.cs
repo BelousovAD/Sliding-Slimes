@@ -12,20 +12,24 @@ namespace PortalSlimeMatch
         [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
         [SerializeField, Min(0.001f)] private float _particleSystemDuration = 0.001f;
 
+        private Sequence _sequence;
+
         private void OnEnable() =>
             _portal.SlimeCaught += Destroy;
 
-        private void OnDisable() =>
+        private void OnDisable()
+        {
             _portal.SlimeCaught -= Destroy;
+            _sequence.Kill(true);
+        }
 
         private void Destroy()
         {
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(_model.DOScale(Vector3.zero, _animationDuration).SetEase(Ease.Linear));
-            sequence.AppendCallback(() => _particleSystem.Play());
-            sequence.AppendInterval(_particleSystemDuration);
-            sequence.AppendCallback(() => Destroy(gameObject));
-            sequence.SetUpdate(true);
+            _sequence = DOTween.Sequence();
+            _sequence.Append(_model.DOScale(Vector3.zero, _animationDuration).SetEase(Ease.Linear));
+            _sequence.AppendCallback(() => _particleSystem.Play());
+            _sequence.AppendInterval(_particleSystemDuration);
+            _sequence.AppendCallback(() => Destroy(gameObject));
         }
     }
 }

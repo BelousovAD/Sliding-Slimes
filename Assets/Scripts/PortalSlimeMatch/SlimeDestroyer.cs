@@ -9,19 +9,23 @@ namespace PortalSlimeMatch
         [SerializeField] private Slime _slime;
         [SerializeField] private Transform _model;
         [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
+
+        private Sequence _sequence;
         
         private void OnEnable() =>
             _slime.Caught += Destroy;
 
-        private void OnDisable() =>
+        private void OnDisable()
+        {
             _slime.Caught -= Destroy;
+            _sequence.Kill(true);
+        }
 
         private void Destroy()
         {
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(_model.DOScale(Vector3.zero, _animationDuration).SetEase(Ease.Linear));
-            sequence.AppendCallback(() => Destroy(gameObject));
-            sequence.SetUpdate(true);
+            _sequence = DOTween.Sequence();
+            _sequence.Append(_model.DOScale(Vector3.zero, _animationDuration).SetEase(Ease.Linear));
+            _sequence.AppendCallback(() => Destroy(gameObject));
         }
     }
 }
