@@ -62,11 +62,8 @@ namespace Model
 
             private set
             {
-                if (value != _isManual)
-                {
-                    _isManual = value;
-                    ManualStatusChanged?.Invoke();
-                }
+                _isManual = value;
+                ManualStatusChanged?.Invoke();
             }
         }
 
