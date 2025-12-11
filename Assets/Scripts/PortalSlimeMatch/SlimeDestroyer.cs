@@ -6,6 +6,8 @@ namespace PortalSlimeMatch
 
     internal class SlimeDestroyer : MonoBehaviour
     {
+        private static readonly Vector3 MinScale = Vector3.zero;
+        
         [SerializeField] private Slime _slime;
         [SerializeField] private Transform _model;
         [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
@@ -24,7 +26,7 @@ namespace PortalSlimeMatch
         private void Destroy()
         {
             _sequence = DOTween.Sequence();
-            _sequence.Append(_model.DOScale(Vector3.zero, _animationDuration).SetEase(Ease.Linear));
+            _sequence.Append(_model.DOScale(MinScale, _animationDuration).SetEase(Ease.Linear));
             _sequence.AppendCallback(() => Destroy(gameObject));
         }
     }

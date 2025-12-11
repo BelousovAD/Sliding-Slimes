@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 8349924831639689183}
   _model: {fileID: 3052456084595243238}
-  _scalePunch: {x: 0, y: 0.2, z: 0}
+  _scalePunch: {x: 0, y: -0.2, z: 0}
   _animationDuration: 1
 --- !u!1 &3503393946269956356
 GameObject:

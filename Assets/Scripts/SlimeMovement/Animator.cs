@@ -3,7 +3,7 @@ namespace SlimeMovement
     using DG.Tweening;
     using UnityEngine;
 
-    public class Animator : MonoBehaviour
+    internal class Animator : MonoBehaviour
     {
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private Transform _model;

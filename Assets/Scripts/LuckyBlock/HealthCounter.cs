@@ -43,7 +43,7 @@ namespace LuckyBlock
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent(out Slime _))
+            if (IsAlive && other.gameObject.TryGetComponent(out Slime _))
             {
                 Count--;
             }
