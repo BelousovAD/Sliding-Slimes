@@ -4,7 +4,7 @@ namespace SlimeMovement
     using UnityEngine;
     using UnityEngine.EventSystems;
 
-    internal class InputReader : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
+    internal class InputReader : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
     {
         private bool _isCached;
         private Vector2 _startPoint;
@@ -17,7 +17,13 @@ namespace SlimeMovement
             _startPoint = eventData.position;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public void OnPointerUp(PointerEventData eventData) =>
+            RequestMove(eventData);
+
+        public void OnPointerExit(PointerEventData eventData) =>
+            RequestMove(eventData);
+
+        private void RequestMove(PointerEventData eventData)
         {
             if (_isCached)
             {
