@@ -305,7 +305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _portal: {fileID: 5726583673506369726}
+  _model: {fileID: 4387099506950790632}
   _particleSystem: {fileID: 3884186393278384427}
+  _animationDuration: 0.25
+  _particleSystemDuration: 1
 --- !u!1 &3884186393297873265
 GameObject:
   m_ObjectHideFlags: 0
