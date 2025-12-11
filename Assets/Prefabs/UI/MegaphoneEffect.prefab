@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1485220007624387220}
   - component: {fileID: 1485220007624387218}
   - component: {fileID: 1485220007624387219}
+  - component: {fileID: 5457736021794594472}
   m_Layer: 0
   m_Name: MegaphoneEffect
   m_TagString: Untagged
@@ -1410,3 +1411,15 @@ MonoBehaviour:
   moduleAdvancedFoldout: 0
   m_Sprite: {fileID: 21300000, guid: 6410c1bb877394bd4acd17e82436d2a7, type: 3}
   m_Texture: {fileID: 0}
+--- !u!114 &5457736021794594472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485220007624387221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01051538c9fb4a62afb99200006a4876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

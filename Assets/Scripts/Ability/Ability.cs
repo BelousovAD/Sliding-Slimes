@@ -26,6 +26,7 @@ namespace Ability
         }
 
         public event Action CountChanged;
+        public event Action Used;
 
         public int Count
         {
@@ -75,6 +76,7 @@ namespace Ability
                     if (_money.TrySpend(Price))
                     {
                         Activate();
+                        Used?.Invoke();
                     }
                 }
             }
@@ -82,6 +84,7 @@ namespace Ability
             {
                 Count -= CountForAction;
                 Activate();
+                Used?.Invoke();
             }
         }
         
