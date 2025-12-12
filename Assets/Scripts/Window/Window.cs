@@ -7,8 +7,8 @@ namespace Window
     {
         [SerializeField] private string _id;
         
-        private bool _isActive = true;
-        private bool _isInteractable = true;
+        private bool _isActive;
+        private bool _isInteractable;
 
         public event Action ActivityChanged;
         public event Action InteractableChanged;

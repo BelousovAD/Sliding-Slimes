@@ -16,6 +16,7 @@ namespace Window
             if (_windowsHistory.Count > 0)
             {
                 Window window = _windowsHistory.Pop();
+                window.SetInteractable(false);
                 window.SetActive(false);
 
                 if (_windowsHistory.Count > 0)
@@ -37,14 +38,12 @@ namespace Window
                 {
                     return;
                 }
+                
+                lastWindow.SetInteractable(false);
 
                 if (needCloseCurrent)
                 {
                     lastWindow.SetActive(false);
-                }
-                else
-                {
-                    lastWindow.SetInteractable(false);
                 }
             }
 
@@ -56,6 +55,7 @@ namespace Window
 
             _windowsHistory.Push(window);
             window.SetActive(true);
+            window.SetInteractable(true);
         }
     }
 }

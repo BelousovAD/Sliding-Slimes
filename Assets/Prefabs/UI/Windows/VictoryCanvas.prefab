@@ -1002,6 +1002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _window: {fileID: 5462027991617231999}
+  _content: {fileID: 7023693276536783871}
+  _animationDuration: 0.5
 --- !u!114 &5739317892846830106
 MonoBehaviour:
   m_ObjectHideFlags: 0
