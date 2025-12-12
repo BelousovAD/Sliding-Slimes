@@ -9,6 +9,7 @@ namespace Level
     {
         [SerializeField] private GameObject _lockIcon;
         [SerializeField] private GameObject _trophyIcon;
+        [SerializeField] private GameObject _targetIcon;
         [SerializeField] private TMP_Text _textField;
         [SerializeField] private string _format = "{0}";
 
@@ -39,6 +40,7 @@ namespace Level
         {
             _lockIcon.SetActive(_levelButton.Number > _level.Available);
             _trophyIcon.SetActive(_levelButton.Number < _level.Available);
+            _targetIcon.SetActive(_levelButton.Number == _level.Available);
             _textField.text = string.Format(_format, _levelButton.Number);
         }
     }
