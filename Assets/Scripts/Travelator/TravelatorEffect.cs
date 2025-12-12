@@ -3,7 +3,7 @@ namespace Travelator
     using Model;
     using UnityEngine;
 
-    internal class Animator : MonoBehaviour
+    internal class TravelatorEffect : MonoBehaviour
     {
         [SerializeField] private Travelator _travelator;
         [SerializeField] private ParticleSystem _particleSystem;
