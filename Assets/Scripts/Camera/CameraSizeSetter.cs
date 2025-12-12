@@ -35,9 +35,14 @@ namespace Camera
         {
             if (_map.IsInitialized)
             {
-                _camera.orthographicSize =
-                    Mathf.Max(_map.Size.x, _map.Size.y) *
-                    (MirraSDK.Device.IsMobile ? VerticalFactor : HorizontalFactor) + AdditionalSize;
+                if (MirraSDK.Device.IsMobile)
+                {
+                    _camera.orthographicSize = Mathf.Min(_map.Size.x, _map.Size.y) * VerticalFactor - AdditionalSize;
+                }
+                else
+                {
+                    _camera.orthographicSize = Mathf.Max(_map.Size.x, _map.Size.y) * HorizontalFactor + AdditionalSize;
+                }
             }
         }
     }
