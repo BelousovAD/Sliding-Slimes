@@ -6,7 +6,7 @@ namespace Ability
     public class AbilityData : ScriptableObject
     {
         [SerializeField] private Sprite _icon;
-        [SerializeField] private bool _isRewardForAd;
+        [SerializeField] private bool _isOnlyRewardForAd;
         [SerializeField, Min(0)] private int _price;
         [SerializeField] private string _saveKey;
         [SerializeField, Min(0)] private int _startCount;
@@ -14,7 +14,7 @@ namespace Ability
 
         public Sprite Icon => _icon;
 
-        public bool IsRewardForAd => _isRewardForAd;
+        public bool IsOnlyRewardForAd => _isOnlyRewardForAd;
 
         public int Price => _price;
 

@@ -48,7 +48,7 @@ namespace Ability
 
         public Sprite Icon => _data.Icon;
 
-        public bool IsRewardForAd => _data.IsRewardForAd;
+        public bool IsOnlyRewardForAd => _data.IsOnlyRewardForAd;
 
         public int Price => _data.Price;
 
@@ -65,27 +65,26 @@ namespace Ability
 
         public void Use()
         {
-            if (Count < CountForAction)
-            {
-                if (IsRewardForAd)
-                {
-                    _services.Mediation.ShowRewardedAd(Activate);
-                }
-                else
-                {
-                    if (_money.TrySpend(Price))
-                    {
-                        Activate();
-                        Used?.Invoke();
-                    }
-                }
-            }
-            else
+            if (Count >= CountForAction)
             {
                 Count -= CountForAction;
                 Activate();
                 Used?.Invoke();
+                return;
             }
+            
+            if (IsOnlyRewardForAd || _money.TrySpend(Price) == false)
+            {
+                _services.Mediation.ShowRewardedAd(() =>
+                {
+                    Activate();
+                    Used?.Invoke();
+                });
+                return;
+            }
+            
+            Activate();
+            Used?.Invoke();
         }
         
         public void Load() =>
