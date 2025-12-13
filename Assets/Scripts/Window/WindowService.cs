@@ -1,6 +1,7 @@
 namespace Window
 {
     using System.Collections.Generic;
+    using UnityEngine;
 
     internal class WindowService : IWindowService
     {
@@ -28,7 +29,7 @@ namespace Window
             }
         }
         
-        public void Open(string id, bool needCloseCurrent = false)
+        public RectTransform Open(string id, bool needCloseCurrent = false)
         {
             if (_windowsHistory.Count > 0)
             {
@@ -36,7 +37,7 @@ namespace Window
 
                 if (lastWindow.Id == id)
                 {
-                    return;
+                    return lastWindow.transform as RectTransform;
                 }
                 
                 lastWindow.SetInteractable(false);
@@ -56,6 +57,8 @@ namespace Window
             _windowsHistory.Push(window);
             window.SetActive(true);
             window.SetInteractable(true);
+            
+            return window.transform as RectTransform;
         }
     }
 }

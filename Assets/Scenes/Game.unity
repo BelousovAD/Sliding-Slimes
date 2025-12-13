@@ -803,6 +803,7 @@ MonoBehaviour:
   - {fileID: 5462027991617231999, guid: 845e3907dd9ca4b4497901538b88eab7, type: 3}
   - {fileID: 5462027991617231999, guid: ad0372e704ac6af4aac81beb9a2a1fe1, type: 3}
   - {fileID: 5462027991617231999, guid: e0581dafe6da1214088e8c4b8b34ca1c, type: 3}
+  - {fileID: 5462027991617231999, guid: bdfae4b795f887e47b4276ac743f124d, type: 3}
 --- !u!4 &1600380843
 Transform:
   m_ObjectHideFlags: 0
@@ -898,6 +899,7 @@ MonoBehaviour:
   - {fileID: 5462027991617231999, guid: 845e3907dd9ca4b4497901538b88eab7, type: 3}
   - {fileID: 5462027991617231999, guid: ad0372e704ac6af4aac81beb9a2a1fe1, type: 3}
   - {fileID: 5462027991617231999, guid: e0581dafe6da1214088e8c4b8b34ca1c, type: 3}
+  - {fileID: 5462027991617231999, guid: bdfae4b795f887e47b4276ac743f124d, type: 3}
 --- !u!4 &1778446090
 Transform:
   m_ObjectHideFlags: 0
@@ -905,6 +907,61 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778446088}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2014911983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014911985}
+  - component: {fileID: 2014911984}
+  m_Layer: 0
+  m_Name: TutorialOpener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2014911984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014911983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2159e0f3f0468380a2b141fa40e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windowId: Tutorial
+  _delay: 0.1
+  _datas:
+  - {fileID: 11400000, guid: f4f20af7d85f0e540b838dc427d98e6a, type: 2}
+  - {fileID: 11400000, guid: ff6fe4c3d61458f47bd25c3906d718d8, type: 2}
+  - {fileID: 11400000, guid: ce1cac9dc0602be48b221f9f524f34e9, type: 2}
+  - {fileID: 11400000, guid: 4e8bf1eceb3a57048bf919703fd9de5e, type: 2}
+  - {fileID: 11400000, guid: fa159462e26d57a4bbf297f1ffa62048, type: 2}
+  - {fileID: 11400000, guid: f1e9b5d286d70404fb792afc5046d9e1, type: 2}
+  - {fileID: 11400000, guid: 376d039af069e0846b7f2b474c22fe33, type: 2}
+  - {fileID: 11400000, guid: 998106573eacd42449d7e420381ffe18, type: 2}
+--- !u!4 &2014911985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014911983}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -925,3 +982,4 @@ SceneRoots:
   - {fileID: 1600380843}
   - {fileID: 705909355}
   - {fileID: 9950899}
+  - {fileID: 2014911985}
