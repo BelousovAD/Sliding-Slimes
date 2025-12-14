@@ -1,13 +1,10 @@
 namespace Level
 {
     using Reflex.Attributes;
-    using UnityEngine;
+    using Spawn;
 
-    internal class LevelButtonSpawner : MonoBehaviour
+    internal class LevelButtonSpawner : SiblingsSpawner
     {
-        [SerializeField] private Transform _parent;
-        [SerializeField] private LevelButton _prefab;
-
         private Level _level;
 
         [Inject]
@@ -18,7 +15,8 @@ namespace Level
         {
             for (int i = 0; i < _level.Max; i++)
             {
-                LevelButton button = Instantiate(_prefab, _parent);
+                PooledComponent pooledComponent = Spawn();
+                LevelButton button = pooledComponent.GetComponent<LevelButton>();
                 button.Initialize(i + 1);
             }
         }

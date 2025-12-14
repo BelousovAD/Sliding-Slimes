@@ -1,13 +1,13 @@
 namespace Ability
 {
+    using System.Collections.Generic;
     using Reflex.Attributes;
-    using UnityEngine;
+    using Spawn;
 
-    public class AbilityProviderSpawner : MonoBehaviour
+    public class AbilityProviderSpawner : SiblingsSpawner
     {
-        [SerializeField] private AbilityProvider _prefab;
-        [SerializeField] private Transform _parent;
-
+        private readonly List<Ability> _abilities = new();
+        
         [Inject]
         private void Initialize(
             Hammer hammer,
@@ -15,10 +15,16 @@ namespace Ability
             Lightning lightning,
             Megaphone megaphone)
         {
-            Instantiate(_prefab, _parent).Initialize(hourglass);
-            Instantiate(_prefab, _parent).Initialize(megaphone);
-            Instantiate(_prefab, _parent).Initialize(lightning);
-            Instantiate(_prefab, _parent).Initialize(hammer);
+            _abilities.Add(hourglass);
+            _abilities.Add(megaphone);
+            _abilities.Add(lightning);
+            _abilities.Add(hammer);
         }
+
+        private void Start() =>
+            _abilities.ForEach(Spawn);
+
+        private void Spawn(Ability ability) =>
+            Spawn().GetComponent<AbilityProvider>().Initialize(ability);
     }
 }

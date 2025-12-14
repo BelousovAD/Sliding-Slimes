@@ -1120,8 +1120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcc09bf7ac845a4a487494fac497c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5259028328733736396, guid: fc344e0db4f442948b4eeae24820b21e, type: 3}
+  _prefab: {fileID: 6409508230004690811, guid: fc344e0db4f442948b4eeae24820b21e, type: 3}
   _parent: {fileID: 8962282519688345182}
+  _poolSize: 4
 --- !u!1001 &75765070256124897
 PrefabInstance:
   m_ObjectHideFlags: 0
