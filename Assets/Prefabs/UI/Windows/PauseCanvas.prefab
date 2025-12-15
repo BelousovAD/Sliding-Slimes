@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clipKey: 8
+  _clipKey: 7
 --- !u!114 &1327648290243579190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clipKey: 8
+  _clipKey: 7
 --- !u!114 &1643458630840268148
 MonoBehaviour:
   m_ObjectHideFlags: 0
