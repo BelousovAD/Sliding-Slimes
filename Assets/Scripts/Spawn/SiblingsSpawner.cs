@@ -8,7 +8,7 @@ namespace Spawn
     {
         [SerializeField] private PooledComponent _prefab;
         [SerializeField] private Transform _parent;
-        [SerializeField, Min(1)] private int _poolSize = 1;
+        [SerializeField, Min(1)] private int _poolSize = 20;
 
         private IObjectPool<PooledComponent> _pool;
         
@@ -20,6 +20,16 @@ namespace Spawn
                 actionOnRelease: ReleasePooledComponent,
                 actionOnDestroy: DestroyPooledComponent,
                 defaultCapacity: _poolSize);
+
+        public void Initialize(PooledComponent prefab, Transform parent = null)
+        {
+            _prefab = prefab;
+
+            if (parent is not null)
+            {
+                _parent = parent;
+            }
+        }
 
         public PooledComponent Spawn()
         {
@@ -33,7 +43,6 @@ namespace Spawn
         private void ReleasePooledComponent(PooledComponent pooledComponent)
         {
             pooledComponent.gameObject.SetActive(false);
-            _pool.Release(pooledComponent);
             pooledComponent.ReleaseRequested -= _pool.Release;
             ComponentReleased?.Invoke(pooledComponent);
         }

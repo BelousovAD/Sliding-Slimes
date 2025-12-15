@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 598649403954293623}
   - component: {fileID: 3474598675925874768}
   - component: {fileID: 6415718182206015412}
+  - component: {fileID: 474379664652471273}
   - component: {fileID: 4175463541766312797}
   - component: {fileID: 4462203434343504380}
   m_Layer: 5
@@ -411,6 +412,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &474379664652471273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347910014834741962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &4175463541766312797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,6 +1240,7 @@ GameObject:
   - component: {fileID: 4390030164613159408}
   - component: {fileID: 6029977002093880923}
   - component: {fileID: 4974671228146261928}
+  - component: {fileID: 4895387773903654814}
   m_Layer: 5
   m_Name: LeaderboardButton
   m_TagString: Untagged
@@ -1335,6 +1350,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4895387773903654814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531742348975703213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!1 &6958715300693818281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1375,7 @@ GameObject:
   - component: {fileID: 2556870918275039288}
   - component: {fileID: 4436753317353471911}
   - component: {fileID: 7008110137992273242}
+  - component: {fileID: 2009325159626868623}
   - component: {fileID: 3438843073685828593}
   m_Layer: 5
   m_Name: SettingsButton
@@ -1457,6 +1486,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2009325159626868623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958715300693818281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &3438843073685828593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1525,7 @@ GameObject:
   - component: {fileID: 5471903407822387458}
   - component: {fileID: 6199405151525679595}
   - component: {fileID: 8649257597422119775}
+  - component: {fileID: 5044043584839899729}
   - component: {fileID: 1917317331883405861}
   m_Layer: 5
   m_Name: LanguageButton
@@ -1593,6 +1636,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5044043584839899729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164844354759980064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &1917317331883405861
 MonoBehaviour:
   m_ObjectHideFlags: 0

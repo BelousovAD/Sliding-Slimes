@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4256972069123422363}
   - component: {fileID: 4230713952492694574}
   - component: {fileID: 4293655013211291950}
+  - component: {fileID: 16469762703107649}
   - component: {fileID: 1287674059633891580}
   - component: {fileID: 9155152090767619873}
   - component: {fileID: 7980257171510449614}
@@ -147,6 +148,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &16469762703107649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524666150526798580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &1287674059633891580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +211,7 @@ GameObject:
   - component: {fileID: 527150150833811738}
   - component: {fileID: 6190243567117866590}
   - component: {fileID: 1938297764077822763}
+  - component: {fileID: 7292858090494801329}
   - component: {fileID: 1475983797753207878}
   m_Layer: 5
   m_Name: RewardedButton
@@ -306,6 +321,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7292858090494801329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863570088553106375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &1475983797753207878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +360,7 @@ GameObject:
   - component: {fileID: 3838253361945069685}
   - component: {fileID: 3774416870847178157}
   - component: {fileID: 7061187784705073226}
+  - component: {fileID: 2139584186563243938}
   - component: {fileID: 6958976072577586540}
   - component: {fileID: 3748551940306829531}
   m_Layer: 5
@@ -465,6 +494,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2139584186563243938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882359682704522339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983575eefcc3403fb827fe02b3f66591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clipKey: 8
 --- !u!114 &6958976072577586540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,7 +2921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2559037201541945336, guid: 88a59c8e316774bf68b9a81e990ede96, type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2559037202506892816, guid: 88a59c8e316774bf68b9a81e990ede96, type: 3}
       propertyPath: m_Name

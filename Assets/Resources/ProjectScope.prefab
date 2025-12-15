@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 4262276868366627178}
   - component: {fileID: 5673672220003566885}
   - component: {fileID: 2414338379237699568}
-  - component: {fileID: 8613060037034112245}
   m_Layer: 0
   m_Name: ProjectScope
   m_TagString: Untagged
@@ -79,9 +78,33 @@ MonoBehaviour:
   _audioMixer: {fileID: 24100000, guid: 97e7620f47cd3af4092afb6f2d54a89a, type: 2}
   _musicGroup: {fileID: 3371282219012332893, guid: 97e7620f47cd3af4092afb6f2d54a89a, type: 2}
   _soundGroup: {fileID: 8368295926522934696, guid: 97e7620f47cd3af4092afb6f2d54a89a, type: 2}
-  _audioSpawner: {fileID: 8613060037034112245}
-  _musics: []
-  _sounds: []
+  _prefab: {fileID: 7550635719394469849, guid: be5cf54410c496d4eb9e428bf5f35c5d, type: 3}
+  _musics:
+  - Key: 11
+    Clip: {fileID: 0}
+  _sounds:
+  - Key: 0
+    Clip: {fileID: 8300000, guid: 7fb954e1c1961644d85f884b946f53b0, type: 3}
+  - Key: 1
+    Clip: {fileID: 8300000, guid: fcad7d2908b3dbf4caf9c998c47b6b1f, type: 3}
+  - Key: 2
+    Clip: {fileID: 8300000, guid: 08ef3735b9527d54ab97d0e9fc9d505d, type: 3}
+  - Key: 3
+    Clip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
+  - Key: 4
+    Clip: {fileID: 0}
+  - Key: 5
+    Clip: {fileID: 8300000, guid: 1f7bdf2a80fb8194f8520a3525f321bd, type: 3}
+  - Key: 6
+    Clip: {fileID: 8300000, guid: b1acecdf352627048b995eca86c0f8ec, type: 3}
+  - Key: 7
+    Clip: {fileID: 0}
+  - Key: 8
+    Clip: {fileID: 8300000, guid: a550cb02580f00c40b4ba02aeff3acb4, type: 3}
+  - Key: 9
+    Clip: {fileID: 0}
+  - Key: 10
+    Clip: {fileID: 0}
 --- !u!114 &-2154706648195675944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,18 +171,3 @@ MonoBehaviour:
   _hourglassData: {fileID: 11400000, guid: b91bac92d9c9f35469f5b5bb238e76ba, type: 2}
   _lightningData: {fileID: 11400000, guid: be67b2ad21f6bf04dbe9fc9948a4b8aa, type: 2}
   _megaphoneData: {fileID: 11400000, guid: b71765b6425a85d45b1f6202568f0071, type: 2}
---- !u!114 &8613060037034112245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5579009083052112056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb24d56e31734616af2700d68f385480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 7550635719394469849, guid: be5cf54410c496d4eb9e428bf5f35c5d, type: 3}
-  _parent: {fileID: 0}
-  _poolSize: 100
