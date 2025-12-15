@@ -1,5 +1,6 @@
 namespace Audio
 {
+    using System.Collections.Generic;
     using Bootstrap;
     using Reflex.Core;
     using UnityEngine;
@@ -8,14 +9,21 @@ namespace Audio
     internal class AudioInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private AudioMixer _audioMixer;
+        [SerializeField] private AudioMixerGroup _musicGroup;
+        [SerializeField] private AudioMixerGroup _soundGroup;
+        [SerializeField] private AudioSourceSpawner _audioSpawner;
+        [SerializeField] private List<Track> _musics = new();
+        [SerializeField] private List<Track> _sounds = new();
 
-        private readonly Music _music = new();
-        private readonly Sound _sound = new();
+        private Music _music;
+        private Sound _sound;
         private ContainerBuilder _builder;
         
         public void InstallBindings(ContainerBuilder builder)
         {
             _builder = builder;
+            _music = new Music(_musicGroup, _audioSpawner, _musics);
+            _sound = new Sound(_soundGroup, _audioSpawner, _sounds);
 
             _builder
                 .AddSingleton(_music)

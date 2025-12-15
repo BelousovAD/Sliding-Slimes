@@ -1,18 +1,36 @@
 namespace Audio
 {
     using System;
+    using System.Collections.Generic;
     using Bootstrap;
     using UnityEngine;
+    using UnityEngine.Audio;
 
-    internal class Audio
+    internal abstract class Audio
     {
         private readonly AudioType _type;
+        private readonly AudioMixerGroup _group;
+        private readonly AudioSourceSpawner _spawner;
+        private readonly Dictionary<AudioClipKey, AudioClip> _tracks = new();
         private SavvyServicesProvider _services;
         private bool _isActive = true;
         private float _volume = 1f;
 
-        public Audio(AudioType type) =>
+        public Audio(
+            AudioType type,
+            AudioMixerGroup group,
+            AudioSourceSpawner spawner,
+            IEnumerable<Track> tracks)
+        {
             _type = type;
+            _group = group;
+            _spawner = spawner;
+
+            foreach (Track track in tracks)
+            {
+                _tracks.Add(track.Key, track.Clip);
+            }
+        }
 
         public event Action ActivityChanged;
         public event Action VolumeChanged;
@@ -64,6 +82,13 @@ namespace Audio
         {
             IsActive = _services.Preferences.LoadBool(_type + nameof(IsActive), true);
             Volume = Mathf.Clamp01(_services.Preferences.LoadFloat(_type + nameof(Volume), 0.5f));
+        }
+
+        public void Play(AudioClipKey key)
+        {
+            PooledAudioSource audioSource = _spawner.Spawn();
+            audioSource.Initialize(_group, _tracks[key]);
+            audioSource.Play();
         }
 
         private void Save()
