@@ -81,7 +81,7 @@ MonoBehaviour:
   _prefab: {fileID: 7550635719394469849, guid: be5cf54410c496d4eb9e428bf5f35c5d, type: 3}
   _musics:
   - Key: 10
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: f817ccb577f91d0499c6e9095a5de8c9, type: 3}
   _sounds:
   - Key: 0
     Clip: {fileID: 8300000, guid: 7fb954e1c1961644d85f884b946f53b0, type: 3}

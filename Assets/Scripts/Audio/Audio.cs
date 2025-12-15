@@ -1,6 +1,7 @@
 namespace Audio
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using Bootstrap;
     using UnityEngine;
@@ -63,6 +64,8 @@ namespace Audio
             }
         }
 
+        public IReadOnlyCollection<AudioClipKey> TrackKeys => _tracks.Keys;
+
         public void Initialize(SavvyServicesProvider servicesProvider) =>
             _services = servicesProvider;
 
@@ -84,11 +87,13 @@ namespace Audio
             Volume = Mathf.Clamp01(_services.Preferences.LoadFloat(_type + nameof(Volume), 0.5f));
         }
 
-        public void Play(AudioClipKey key)
+        public float Play(AudioClipKey key)
         {
             PooledAudioSource audioSource = _spawner.Spawn();
             audioSource.Initialize(_group, _tracks[key]);
             audioSource.Play();
+
+            return _tracks[key].length;
         }
 
         private void Save()
