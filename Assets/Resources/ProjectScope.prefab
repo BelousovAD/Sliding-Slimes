@@ -80,7 +80,7 @@ MonoBehaviour:
   _soundGroup: {fileID: 8368295926522934696, guid: 97e7620f47cd3af4092afb6f2d54a89a, type: 2}
   _prefab: {fileID: 7550635719394469849, guid: be5cf54410c496d4eb9e428bf5f35c5d, type: 3}
   _musics:
-  - Key: 11
+  - Key: 10
     Clip: {fileID: 0}
   _sounds:
   - Key: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   - Key: 1
     Clip: {fileID: 8300000, guid: fcad7d2908b3dbf4caf9c998c47b6b1f, type: 3}
   - Key: 2
-    Clip: {fileID: 8300000, guid: 08ef3735b9527d54ab97d0e9fc9d505d, type: 3}
+    Clip: {fileID: 8300000, guid: a550cb02580f00c40b4ba02aeff3acb4, type: 3}
   - Key: 3
     Clip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
   - Key: 4
@@ -98,12 +98,10 @@ MonoBehaviour:
   - Key: 6
     Clip: {fileID: 8300000, guid: b1acecdf352627048b995eca86c0f8ec, type: 3}
   - Key: 7
-    Clip: {fileID: 0}
-  - Key: 8
     Clip: {fileID: 8300000, guid: a550cb02580f00c40b4ba02aeff3acb4, type: 3}
-  - Key: 9
+  - Key: 8
     Clip: {fileID: 0}
-  - Key: 10
+  - Key: 9
     Clip: {fileID: 0}
 --- !u!114 &-2154706648195675944
 MonoBehaviour:

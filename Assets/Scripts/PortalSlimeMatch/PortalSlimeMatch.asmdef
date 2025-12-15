@@ -2,8 +2,10 @@
     "name": "PortalSlimeMatch",
     "rootNamespace": "",
     "references": [
+        "GUID:42743b4677aa30d4f8e97ae7ae413748",
         "GUID:c19fb17649f61e245946c25304ea3ff2",
-        "GUID:3a63586fcaa1ed0418c27a0ab2993bd9"
+        "GUID:3a63586fcaa1ed0418c27a0ab2993bd9",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

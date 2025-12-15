@@ -1,6 +1,6 @@
 namespace Audio
 {
-    internal enum AudioType
+    public enum AudioType
     {
         Music = 0,
         Sound

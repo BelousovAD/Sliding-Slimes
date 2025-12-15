@@ -4,7 +4,7 @@ namespace Audio
     using UnityEngine;
 
     [Serializable]
-    internal struct Track
+    public struct Track
     {
         public AudioClipKey Key;
         public AudioClip Clip;

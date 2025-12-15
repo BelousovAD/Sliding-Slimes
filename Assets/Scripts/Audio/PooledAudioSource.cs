@@ -6,7 +6,7 @@ namespace Audio
     using UnityEngine.Audio;
 
     [RequireComponent(typeof(AudioSource))]
-    internal class PooledAudioSource : PooledComponent
+    public class PooledAudioSource : PooledComponent
     {
         private AudioSource _audioSource;
         private WaitForSeconds _wait;

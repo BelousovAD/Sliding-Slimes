@@ -1,5 +1,6 @@
 namespace Ability
 {
+    using Audio;
     using Bootstrap;
     using Currency;
     using Map;
@@ -46,6 +47,7 @@ namespace Ability
                 container.Resolve<Map>());
             _hourglass.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Sound>(),
                 container.Resolve<Money>(),
                 container.Resolve<CoroutineTimer>());
             _lightning.Initialize(
@@ -54,6 +56,7 @@ namespace Ability
                 container.Resolve<Map>());
             _megaphone.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
+                container.Resolve<Sound>(),
                 container.Resolve<Money>(),
                 container.Resolve<Map>());
         }

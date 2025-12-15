@@ -9,7 +9,6 @@ namespace Audio
         Hourglass,
         Megaphone,
         Lightning,
-        Hammer,
         Click,
         Defeat,
         Victory,

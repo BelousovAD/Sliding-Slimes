@@ -1,5 +1,6 @@
 namespace Ability
 {
+    using Audio;
     using Bootstrap;
     using Currency;
     using Map;
@@ -8,14 +9,16 @@ namespace Ability
     public class Megaphone : Ability
     {
         private Map _map;
+        private Audio _audio;
         
         public Megaphone(AbilityData data)
             : base(data)
         { }
 
-        public void Initialize(SavvyServicesProvider services, Money money, Map map)
+        public void Initialize(SavvyServicesProvider services, Sound sound, Money money, Map map)
         {
             Initialize(services, money);
+            _audio = sound;
             _map = map;
         }
 
@@ -27,6 +30,8 @@ namespace Ability
             {
                 slime.WakeUp(portalCount);
             }
+            
+            _audio.Play(AudioClipKey.Megaphone);
         }
     }
 }

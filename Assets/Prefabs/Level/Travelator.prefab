@@ -5088,7 +5088,7 @@ GameObject:
   - component: {fileID: 7465400695486553251}
   - component: {fileID: 601645933345182151}
   m_Layer: 0
-  m_Name: Animator
+  m_Name: TravelatorEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,8 @@
 namespace SlimeMovement
 {
+    using Audio;
     using DG.Tweening;
+    using Reflex.Attributes;
     using UnityEngine;
 
     internal class SlimeEffect : MonoBehaviour
@@ -11,6 +13,11 @@ namespace SlimeMovement
         [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
 
         private Tweener _tweener;
+        private Audio _audio;
+
+        [Inject]
+        private void Initialize(Sound sound) =>
+            _audio = sound;
 
         private void OnEnable() =>
             _inputReader.MoveRequested += PlayAnimation;
@@ -28,6 +35,7 @@ namespace SlimeMovement
                 _tweener.Kill(true);
             }
             
+            _audio.Play(AudioClipKey.Slime);
             _tweener = _model.DOPunchScale(_scalePunch, _animationDuration);
         }
     }

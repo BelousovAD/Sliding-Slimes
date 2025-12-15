@@ -6,7 +6,7 @@ namespace Audio
     using UnityEngine;
     using UnityEngine.Audio;
 
-    internal abstract class Audio
+    public abstract class Audio
     {
         private readonly AudioType _type;
         private readonly AudioMixerGroup _group;

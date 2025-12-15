@@ -1,5 +1,6 @@
 namespace Travelator
 {
+    using Audio;
     using Bootstrap;
     using Model;
     using Reflex.Attributes;
@@ -15,10 +16,14 @@ namespace Travelator
 
         private CoroutineTimer _timer;
         private bool _isCached;
+        private Audio _audio;
 
         [Inject]
-        private void Initialize(SavvyServicesProvider servicesProvider) =>
+        private void Initialize(SavvyServicesProvider servicesProvider, Sound sound)
+        {
             _timer.Initialize(servicesProvider);
+            _audio = sound;
+        }
 
         private void Awake() =>
             _timer = new CoroutineTimer(_delay);
@@ -41,6 +46,7 @@ namespace Travelator
         {
             if (_travelator.IsManual)
             {
+                _audio.Play(AudioClipKey.Travelator);
                 ChangeType();
             }
         }

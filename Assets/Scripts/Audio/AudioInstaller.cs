@@ -25,7 +25,7 @@ namespace Audio
             GameObject spawnerObject = new(nameof(AudioSourceSpawner));
             AudioSourceSpawner spawner = spawnerObject.AddComponent<AudioSourceSpawner>();
             DontDestroyOnLoad(spawnerObject);
-            spawner.Initialize(_prefab);
+            spawner.Initialize(_prefab, spawnerObject.transform);
             _music = new Music(_musicGroup, spawner, _musics);
             _sound = new Sound(_soundGroup, spawner, _sounds);
 
