@@ -23,10 +23,10 @@ namespace Leaderboard
 
         private void UpdateView()
         {
-            if (_item.Position < _positionSprites.Count)
+            if (_item.Position <= _positionSprites.Count)
             {
                 _textField.enabled = false;
-                _image.sprite = _positionSprites[_item.Position];
+                _image.sprite = _positionSprites[_item.Position - 1];
             }
             else
             {

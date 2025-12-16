@@ -43,11 +43,11 @@ namespace Leaderboard
             _spawned.Clear();
         }
 
-        private void Cut(Leaderboard leaderboard)
+        private void Cut(MirraGames.SDK.Common.Leaderboard leaderboard)
         {
             if (leaderboard.players.Length > _maxCount)
             {
-                int currentPlayer = -1;
+                int currentPlayerIndex = -1;
                 string displayName = MirraSDK.Player.DisplayName;
                     
                 for (int i = 0; i < leaderboard.players.Length; i++)
@@ -57,11 +57,11 @@ namespace Leaderboard
                         continue;
                     }
                         
-                    currentPlayer = i;
+                    currentPlayerIndex = i;
                     break;
                 }
                     
-                if (currentPlayer >= _maxCount)
+                if (currentPlayerIndex >= _maxCount)
                 {
                     List<PlayerScore> players = new();
 
@@ -86,7 +86,7 @@ namespace Leaderboard
             }
         }
         
-        private void Spawn(Leaderboard leaderboard)
+        private void Spawn(MirraGames.SDK.Common.Leaderboard leaderboard)
         {
             for (int i = 0; i < leaderboard.players.Length; i++)
             {
