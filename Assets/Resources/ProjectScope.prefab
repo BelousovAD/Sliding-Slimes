@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4262276868366627178}
   - component: {fileID: 5673672220003566885}
   - component: {fileID: 2414338379237699568}
+  - component: {fileID: -6855011489347304455}
   m_Layer: 0
   m_Name: ProjectScope
   m_TagString: Untagged
@@ -169,3 +170,16 @@ MonoBehaviour:
   _hourglassData: {fileID: 11400000, guid: b91bac92d9c9f35469f5b5bb238e76ba, type: 2}
   _lightningData: {fileID: 11400000, guid: be67b2ad21f6bf04dbe9fc9948a4b8aa, type: 2}
   _megaphoneData: {fileID: 11400000, guid: b71765b6425a85d45b1f6202568f0071, type: 2}
+--- !u!114 &-6855011489347304455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579009083052112056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c16a2802804764827b558614c6e33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coins
