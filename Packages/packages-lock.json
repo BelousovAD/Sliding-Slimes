@@ -14,7 +14,7 @@
       "dependencies": {
         "com.unity.addressables": "1.0.0"
       },
-      "hash": "7dd3634923c8a5f1da876051ed605f284e2100d6"
+      "hash": "265d2cb152c7f2e2abd6898f66a830373e5af294"
     },
     "com.savvy-labs.savvy-sdk": {
       "version": "https://gitlab.com/savvy-labs/savvy-sdk.git#4.2.0",
