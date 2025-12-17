@@ -1,18 +1,18 @@
 namespace Mediation
 {
     using Bootstrap;
+    using Common;
     using Reflex.Attributes;
-    using UnityEngine;
 
-    internal class InterstitialAdInvoker : MonoBehaviour
+    public class InterstitialAdButton : AbstractButton
     {
         private SavvyServicesProvider _services;
 
         [Inject]
         private void Initialize(SavvyServicesProvider servicesProvider) =>
             _services = servicesProvider;
-
-        private void OnEnable() =>
+        
+        protected override void HandleClick() =>
             _services.Mediation.ShowInterstitialAd();
     }
 }
