@@ -1,5 +1,6 @@
 namespace LuckyBlock
 {
+    using System.Collections.Generic;
     using Audio;
     using DG.Tweening;
     using Reflex.Attributes;
@@ -14,6 +15,7 @@ namespace LuckyBlock
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private Vector3 _scalePunch;
         [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
+        [SerializeField] private List<Collider> _colliders = new();
 
         private Sequence _sequence;
         private Audio _audio;
@@ -47,6 +49,7 @@ namespace LuckyBlock
             }
             else
             {
+                _colliders.ForEach(element => element.enabled = false);
                 _sequence.Append(_model.DOScale(MinScale, _animationDuration));
                 _sequence.AppendCallback(() =>
                 {

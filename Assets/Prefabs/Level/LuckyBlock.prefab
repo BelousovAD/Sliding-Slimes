@@ -14744,6 +14744,8 @@ MonoBehaviour:
   _particleSystem: {fileID: 1899314441706564709}
   _scalePunch: {x: -0.1, y: -0.1, z: -0.1}
   _animationDuration: 0.3
+  _colliders:
+  - {fileID: 2965299830268070845}
 --- !u!1001 &5491684112169713996
 PrefabInstance:
   m_ObjectHideFlags: 0

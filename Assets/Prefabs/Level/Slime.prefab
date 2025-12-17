@@ -222,6 +222,8 @@ MonoBehaviour:
   _slime: {fileID: 7743013343145485791}
   _model: {fileID: 3052456084595243238}
   _animationDuration: 0.25
+  _colliders:
+  - {fileID: 8045441641617282780}
 --- !u!114 &1026412308817310928
 MonoBehaviour:
   m_ObjectHideFlags: 0
