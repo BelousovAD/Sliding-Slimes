@@ -35,6 +35,7 @@ namespace Spawn
         {
             PooledComponent pooledComponent = _pool.Get();
             pooledComponent.ReleaseRequested += _pool.Release;
+            pooledComponent.transform.SetAsLastSibling();
             pooledComponent.gameObject.SetActive(true);
 
             return pooledComponent;
