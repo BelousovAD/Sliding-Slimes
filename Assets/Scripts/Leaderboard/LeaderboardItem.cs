@@ -6,11 +6,12 @@ namespace Leaderboard
     internal class LeaderboardItem : MonoBehaviour
     {
         private const int Min = 0;
+        private const int MinPosition = 1;
         
         public event Action Initialized;
         public event Action IconChanged;
-        
-        public int Position { get; private set; }
+
+        public int Position { get; private set; } = MinPosition;
         
         public string IconUrl { get; private set; }
         
@@ -32,9 +33,9 @@ namespace Leaderboard
             bool isInTop,
             bool isCurrentPlayer)
         {
-            if (position < Min)
+            if (position < MinPosition)
             {
-                throw new ArgumentOutOfRangeException(nameof(position), $"Must be positive");
+                throw new ArgumentOutOfRangeException(nameof(position), $"Must be greater than {MinPosition}");
             }
 
             if (score < Min)

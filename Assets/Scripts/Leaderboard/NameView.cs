@@ -13,14 +13,14 @@ namespace Leaderboard
         private void Awake() =>
             _textField = GetComponent<TMP_Text>();
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _item.Initialized += UpdateView;
+            UpdateView();
+        }
 
         private void OnDisable() =>
             _item.Initialized -= UpdateView;
-
-        private void Start() =>
-            UpdateView();
 
         private void UpdateView() =>
             _textField.text = _item.Name;

@@ -12,14 +12,14 @@ namespace Leaderboard
         
         private static readonly Dictionary<string, Texture2D> _textures = new();
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _item.Initialized += UpdateTexture;
+            UpdateTexture();
+        }
 
         private void OnDisable() =>
             _item.Initialized -= UpdateTexture;
-
-        private void Start() =>
-            UpdateTexture();
 
         private void UpdateTexture() =>
             SetTexture(_item.IconUrl);

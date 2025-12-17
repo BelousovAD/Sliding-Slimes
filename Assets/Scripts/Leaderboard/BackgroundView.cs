@@ -10,14 +10,14 @@ namespace Leaderboard
         [SerializeField] private Image _ordinaryPlayer;
         [SerializeField] private Image _currentPlayer;
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _item.Initialized += UpdateView;
+            UpdateView();
+        }
 
         private void OnDisable() =>
             _item.Initialized -= UpdateView;
-
-        private void Start() =>
-            UpdateView();
 
         private void UpdateView()
         {

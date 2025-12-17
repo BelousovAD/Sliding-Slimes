@@ -12,14 +12,14 @@ namespace Leaderboard
         [SerializeField] private TMP_Text _textField;
         [SerializeField] private List<Sprite> _positionSprites = new();
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _item.Initialized += UpdateView;
+            UpdateView();
+        }
 
         private void OnDisable() =>
             _item.Initialized -= UpdateView;
-
-        private void Start() =>
-            UpdateView();
 
         private void UpdateView()
         {
