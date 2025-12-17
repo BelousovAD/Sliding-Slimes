@@ -4,8 +4,10 @@ namespace Leaderboard
     using System.Collections.Generic;
     using MirraGames.SDK;
     using MirraGames.SDK.Common;
+    using Reflex.Attributes;
     using Spawn;
     using UnityEngine;
+    using Window;
 
     internal class LeaderboardSpawner : SiblingsSpawner
     {
@@ -15,9 +17,31 @@ namespace Leaderboard
         [SerializeField] private GameObject _infoObject;
 
         private readonly List<PooledComponent> _spawned = new();
+        private Leaderboard _leaderboard;
+        private IWindowService _windowService;
 
-        private void OnEnable() =>
-            UpdateLeaderboard();
+        [Inject]
+        private void Initialize(Leaderboard leaderboard, IWindowService windowService)
+        {
+            _leaderboard = leaderboard;
+            _windowService = windowService;
+        }
+
+        private void OnEnable()
+        {
+            if (MirraSDK.Player.IsLoggedIn == false)
+            {
+                MirraSDK.Player.InvokeLogin(() =>
+                {
+                    _leaderboard.SaveScore();
+                    UpdateLeaderboard();
+                }, _windowService.CloseCurrent);
+            }
+            else
+            {
+                UpdateLeaderboard();
+            }
+        }
 
         private void OnDisable() =>
             Clear();
