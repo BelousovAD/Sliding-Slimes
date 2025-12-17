@@ -21,7 +21,7 @@ namespace Leaderboard
         public void Dispose() =>
             _money.Changed -= SaveScore;
 
-        public void SaveScore() =>
+        private void SaveScore() =>
             MirraSDK.Achievements.SetScore(_id, _money.Value);
     }
 }
