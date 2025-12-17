@@ -16,7 +16,6 @@ namespace Leaderboard
         {
             _money = money;
             _money.Changed += SaveScore;
-            SaveScore();
         }
 
         public void Dispose() =>
