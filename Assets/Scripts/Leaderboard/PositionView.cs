@@ -23,15 +23,18 @@ namespace Leaderboard
 
         private void UpdateView()
         {
+            _image.enabled = false;
+            _textField.enabled = false;
+            
             if (_item.Position <= _positionSprites.Count)
             {
-                _textField.enabled = false;
                 _image.sprite = _positionSprites[_item.Position - 1];
+                _image.enabled = true;
             }
             else
             {
-                _image.enabled = false;
                 _textField.text = _item.Position.ToString();
+                _textField.enabled = true;
             }
         }
     }
