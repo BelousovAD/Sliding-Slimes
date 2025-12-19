@@ -27,8 +27,6 @@ MonoBehaviour:
     TextAsset: {fileID: 4900000, guid: f07e11972d5670f469e0a1afcd606e03, type: 3}
   - SystemLanguage: 27
     TextAsset: {fileID: 4900000, guid: 4fc3ae26e99caf043afb64c46485c069, type: 3}
-  - SystemLanguage: 29
-    TextAsset: {fileID: 4900000, guid: 7a76a2144b2508c419ca7db1e8d6c8e8, type: 3}
   - SystemLanguage: 30
     TextAsset: {fileID: 4900000, guid: f605279dd8bd3c14a88659e50de9db23, type: 3}
   - SystemLanguage: 34
