@@ -1,0 +1,54 @@
+{
+    "groupCollection": [
+        {
+            "key": "Editor",
+            "group": {
+                "boolCollection": [],
+                "intCollection": [],
+                "floatCollection": [],
+                "stringCollection": [
+                    {
+                        "key": "Configuration",
+                        "value": "EditorConfiguration"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "Build",
+            "group": {
+                "boolCollection": [],
+                "intCollection": [],
+                "floatCollection": [],
+                "stringCollection": [
+                    {
+                        "key": "Configuration",
+                        "value": "MirraWebConfiguration"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "MirraWebConfiguration",
+            "group": {
+                "boolCollection": [
+                    {
+                        "key": "VK_PropertyGroup.Visible",
+                        "value": false
+                    },
+                    {
+                        "key": "Y8_PropertyGroup.Visible",
+                        "value": false
+                    },
+                    {
+                        "key": "OK_PropertyGroup.Visible",
+                        "value": false
+                    }
+                ],
+                "intCollection": [],
+                "floatCollection": [],
+                "stringCollection": []
+            }
+        }
+    ]
+}

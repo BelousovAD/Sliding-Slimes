@@ -1,0 +1,21 @@
+{
+    "name": "LuckyBlock",
+    "rootNamespace": "",
+    "references": [
+        "GUID:10dfcc235f564654a8eb7ebe0d01abc4",
+        "GUID:42743b4677aa30d4f8e97ae7ae413748",
+        "GUID:b96de3548dfb26a42a74a0f903414195",
+        "GUID:008f65d56f5918d4ca958a2f25c52a7c",
+        "GUID:c19fb17649f61e245946c25304ea3ff2",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

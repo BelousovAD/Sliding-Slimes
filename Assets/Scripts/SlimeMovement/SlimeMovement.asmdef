@@ -1,0 +1,19 @@
+{
+    "name": "SlimeMovement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:42743b4677aa30d4f8e97ae7ae413748",
+        "GUID:ddea5a15274c1904698316c57c9613eb",
+        "GUID:3dab2c37e2d7c314b81a338b75b49518",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

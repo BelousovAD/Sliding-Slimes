@@ -1,0 +1,12 @@
+8,10
+X,X,X,X,X,X,X,X
+X,X,X,X,S,X,X,X
+X,X,O,O,P,O,X,X
+X,X,O,O,O,O,X,X
+X,X,O,S,T,O,P,X
+X,P,O,T,S,O,X,X
+X,X,O,O,O,O,X,X
+X,X,O,P,O,O,X,X
+X,X,X,S,X,X,X,X
+X,X,X,X,X,X,X,X
+G,4,Y,G,W,R,4,Y,4,E,O,R,O,4

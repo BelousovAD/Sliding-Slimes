@@ -1,0 +1,33 @@
+namespace Ability
+{
+    using Bootstrap;
+    using Reflex.Attributes;
+    using TMPro;
+    using UnityEngine;
+
+    [RequireComponent(typeof(TMP_Text))]
+    public class UnlockLevelView : MonoBehaviour
+    {
+        [SerializeField] private AbilityProvider _abilityProvider;
+        [SerializeField] private string _format = "{0}";
+        [SerializeField] private string _localizationKey;
+
+        private TMP_Text _textField;
+        private SavvyServicesProvider _services;
+
+        [Inject]
+        private void Initialize(SavvyServicesProvider servicesProvider) =>
+            _services = servicesProvider;
+
+        private void Awake() =>
+            _textField = GetComponent<TMP_Text>();
+
+        private void Start()
+        {
+            _textField.text = string.Format(
+                _format,
+                _services.Localisation.GetTranslation(_localizationKey),
+                _abilityProvider.Ability.UnlockLevel);
+        }
+    }
+}
