@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace SlimeMovement
 {
-    using UnityEngine;
-
     [RequireComponent(typeof(Collider))]
     internal class MoveDirectionSetter : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace SlimeMovement
         [SerializeField] private Vector2Int _direction;
 
         private Vector2Int _runtimeDirection;
-        
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.TryGetComponent(out Mover slimeMover) &&

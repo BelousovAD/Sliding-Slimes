@@ -1,24 +1,24 @@
+using Audio;
+using Bootstrap;
+using Currency;
+using Timer;
+
 namespace Ability
 {
-    using Audio;
-    using Bootstrap;
-    using Currency;
-    using Timer;
-
     public class Hourglass : Ability
     {
         private const int AdditionalTime = 60;
 
-        private Audio _audio;
+        private Audio.Audio _audio;
         private CoroutineTimer _timer;
-        
+
         public Hourglass(AbilityData data)
             : base(data)
         { }
 
         public void Initialize(
             SavvyServicesProvider servicesProvider,
-            Audio sound,
+            Audio.Audio sound,
             Money money,
             CoroutineTimer timer)
         {

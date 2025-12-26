@@ -1,9 +1,9 @@
+using Bootstrap;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Level
 {
-    using Bootstrap;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class LevelLoader : MonoBehaviour, ILoadable
     {
         private Level _level;

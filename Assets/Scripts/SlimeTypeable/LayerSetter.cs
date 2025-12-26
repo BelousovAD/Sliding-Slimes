@@ -1,20 +1,20 @@
+using System;
+using UnityEngine;
+
 namespace SlimeTypeable
 {
-    using System;
-    using UnityEngine;
-
     internal class LayerSetter : MonoBehaviour
     {
         [SerializeField] private MonoBehaviour _slimeTypeableComponent;
 
         private ISlimeTypeable _slimeTypeable;
-        
+
         private void Start()
         {
             _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable ?? throw new InvalidOperationException();
             gameObject.layer = LayerMask.NameToLayer(Enum.GetName(typeof(SlimeType), _slimeTypeable.Type));
         }
-        
+
         private void OnValidate()
         {
             if (_slimeTypeableComponent is not null && _slimeTypeableComponent is not ISlimeTypeable)

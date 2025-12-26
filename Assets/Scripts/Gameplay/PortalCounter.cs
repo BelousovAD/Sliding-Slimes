@@ -1,14 +1,12 @@
+using System;
+using Countable;
+using Model;
+
 namespace Gameplay
 {
-    using System;
-    using System.Collections.Generic;
-    using Countable;
-    using Map;
-    using Model;
-
     public class PortalCounter : ICountable, IDisposable
     {
-        private Map _map;
+        private Map.Map _map;
         private int _count;
 
         public event Action CountChanged;
@@ -29,8 +27,8 @@ namespace Gameplay
                 }
             }
         }
-        
-        public void Initialize(Map map)
+
+        public void Initialize(Map.Map map)
         {
             _map = map;
             _map.Initialized += Initialize;

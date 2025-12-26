@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace Gameplay
 {
-    using UnityEngine;
-
     internal class Rotator : MonoBehaviour
     {
         [SerializeField] private Vector3 _rotationPerSecond;

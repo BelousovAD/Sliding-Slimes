@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace Window
 {
-    using System.Collections.Generic;
-    using UnityEngine;
-
     internal class WindowService : IWindowService
     {
         private readonly IWindowSpawner _spawner;
@@ -28,7 +28,7 @@ namespace Window
                 }
             }
         }
-        
+
         public RectTransform Open(string id, bool needCloseCurrent = false)
         {
             if (_windowsHistory.Count > 0)
@@ -39,7 +39,7 @@ namespace Window
                 {
                     return lastWindow.transform as RectTransform;
                 }
-                
+
                 lastWindow.SetInteractable(false);
 
                 if (needCloseCurrent)
@@ -57,7 +57,7 @@ namespace Window
             _windowsHistory.Push(window);
             window.SetActive(true);
             window.SetInteractable(true);
-            
+
             return window.transform as RectTransform;
         }
     }

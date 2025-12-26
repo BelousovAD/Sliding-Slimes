@@ -1,8 +1,8 @@
+using Common;
+using UnityEngine;
+
 namespace Ability
 {
-    using Common;
-    using UnityEngine;
-
     public class AbilityButton : AbstractButton
     {
         [SerializeField] private AbilityProvider _abilityProvider;

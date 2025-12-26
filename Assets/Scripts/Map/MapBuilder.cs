@@ -1,19 +1,19 @@
+using System;
+using System.Collections.Generic;
+using Model;
+using Savvy.Extensions;
+using SlimeTypeable;
+using UnityEngine;
+
 namespace Map
 {
-    using System;
-    using System.Collections.Generic;
-    using Model;
-    using Savvy.Extensions;
-    using SlimeTypeable;
-    using UnityEngine;
-
     internal class MapBuilder : MonoBehaviour
     {
         private const char Separator0 = ',';
         private const char Separator1 = '\n';
         private const int GridOffset = 2;
         private const int SizeDivider = 2;
-        
+
         [SerializeField] private EmptyCell _emptyCell;
         [SerializeField] private LuckyBlock _luckyBlock;
         [SerializeField] private Portal _portal;
@@ -22,7 +22,7 @@ namespace Map
         [SerializeField] private Wall _wall;
 
         private Dictionary<Type, MonoBehaviour> _models;
-        
+
         private enum ObjectType
         {
             EmptyCell = 'O',
@@ -44,7 +44,7 @@ namespace Map
                 [typeof(Travelator)] = _travelator,
                 [typeof(Wall)] = _wall,
             };
-            
+
             string[] data = textMap.text.Split(Separator0, Separator1);
             int indexOfSetting = 0;
             Vector2Int size = new (data[0].ToIntOrDefault(), data[1].ToIntOrDefault());

@@ -1,8 +1,8 @@
+using MirraGames.SDK;
+using UnityEngine;
+
 namespace Gameplay
 {
-    using MirraGames.SDK;
-    using UnityEngine;
-
     public class TimeScaleSetter : MonoBehaviour
     {
         [SerializeField][Min(0f)] private float _timeScale;

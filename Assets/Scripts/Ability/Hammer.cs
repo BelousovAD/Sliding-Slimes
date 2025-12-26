@@ -1,19 +1,18 @@
+using Bootstrap;
+using Currency;
+using Model;
+
 namespace Ability
 {
-    using Bootstrap;
-    using Currency;
-    using Map;
-    using Model;
-
     public class Hammer : Ability
     {
-        private Map _map;
-        
+        private Map.Map _map;
+
         public Hammer(AbilityData data)
             : base(data)
         { }
 
-        public void Initialize(SavvyServicesProvider services, Money money, Map map)
+        public void Initialize(SavvyServicesProvider services, Money money, Map.Map map)
         {
             Initialize(services, money);
             _map = map;

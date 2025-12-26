@@ -1,13 +1,13 @@
+using System.Collections.Generic;
+using Reflex.Attributes;
+using Spawn;
+
 namespace Ability
 {
-    using System.Collections.Generic;
-    using Reflex.Attributes;
-    using Spawn;
-
     public class AbilityProviderSpawner : SiblingsSpawner
     {
         private readonly List<Ability> _abilities = new ();
-        
+
         [Inject]
         private void Initialize(
             Hammer hammer,

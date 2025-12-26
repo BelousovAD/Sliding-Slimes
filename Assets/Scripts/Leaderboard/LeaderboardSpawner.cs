@@ -1,12 +1,12 @@
+using System;
+using System.Collections.Generic;
+using MirraGames.SDK;
+using MirraGames.SDK.Common;
+using Spawn;
+using UnityEngine;
+
 namespace Leaderboard
 {
-    using System;
-    using System.Collections.Generic;
-    using MirraGames.SDK;
-    using MirraGames.SDK.Common;
-    using Spawn;
-    using UnityEngine;
-
     internal class LeaderboardSpawner : SiblingsSpawner
     {
         private readonly List<PooledComponent> _spawned = new ();
@@ -32,14 +32,14 @@ namespace Leaderboard
                 Spawn(leaderboard);
             });
         }
-        
+
         private void Clear()
         {
             foreach (PooledComponent pooledComponent in _spawned)
             {
                 pooledComponent.Release();
             }
-            
+
             _spawned.Clear();
         }
 
@@ -49,18 +49,18 @@ namespace Leaderboard
             {
                 int currentPlayerIndex = -1;
                 string displayName = MirraSDK.Player.DisplayName;
-                    
+
                 for (int i = 0; i < leaderboard.players.Length; i++)
                 {
                     if (leaderboard.players[i].displayName != displayName)
                     {
                         continue;
                     }
-                        
+
                     currentPlayerIndex = i;
                     break;
                 }
-                    
+
                 if (currentPlayerIndex >= _maxCount)
                 {
                     List<PlayerScore> players = new ();
@@ -85,7 +85,7 @@ namespace Leaderboard
                 }
             }
         }
-        
+
         private void Spawn(MirraGames.SDK.Common.Leaderboard leaderboard)
         {
             for (int i = 0; i < leaderboard.players.Length; i++)

@@ -1,21 +1,21 @@
+using System.Collections.Generic;
+using DG.Tweening;
+using Model;
+using UnityEngine;
+
 namespace PortalSlimeMatch
 {
-    using System.Collections.Generic;
-    using DG.Tweening;
-    using Model;
-    using UnityEngine;
-
     internal class SlimeDestroyer : MonoBehaviour
     {
         private static readonly Vector3 MinScale = Vector3.zero;
-        
+
         [SerializeField] private Slime _slime;
         [SerializeField] private Transform _model;
         [SerializeField][Min(0.001f)] private float _animationDuration = 0.001f;
         [SerializeField] private List<Collider> _colliders = new ();
 
         private Sequence _sequence;
-        
+
         private void OnEnable() =>
             _slime.Caught += Destroy;
 

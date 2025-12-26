@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using Bootstrap;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Audio
 {
-    using System.Collections.Generic;
-    using Bootstrap;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class AudioLoader : MonoBehaviour, ILoadable
     {
         private List<Audio> _audios;

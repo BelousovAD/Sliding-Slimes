@@ -1,9 +1,9 @@
+using Common;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Timer
 {
-    using Common;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class AddTimeButton : AbstractButton
     {
         [SerializeField][Min(1)] private int _amount;
@@ -13,7 +13,7 @@ namespace Timer
         [Inject]
         private void Initialize(CoroutineTimer timer) =>
             _timer = timer;
-        
+
         protected override void HandleClick() =>
             _timer.Add(_amount);
     }

@@ -1,10 +1,10 @@
+using System;
+using System.Collections.Generic;
+using Model;
+using UnityEngine;
+
 namespace Map
 {
-    using System;
-    using System.Collections.Generic;
-    using Model;
-    using UnityEngine;
-
     public class Map
     {
         private List<LuckyBlock> _luckyBlocks;
@@ -13,17 +13,17 @@ namespace Map
         private List<Travelator> _travelators;
 
         public event Action Initialized;
-        
+
         public bool IsInitialized { get; private set; }
-        
+
         public Vector2Int Size { get; private set; }
 
         public IReadOnlyCollection<LuckyBlock> LuckyBlocks => _luckyBlocks;
-        
+
         public IReadOnlyCollection<Portal> Portals => _portals;
-        
+
         public IReadOnlyCollection<Slime> Slimes => _slimes;
-        
+
         public IReadOnlyCollection<Travelator> Travelators => _travelators;
 
         public void Initialize(

@@ -1,10 +1,10 @@
+using Bootstrap;
+using Reflex.Attributes;
+using TMPro;
+using UnityEngine;
+
 namespace Ability
 {
-    using Bootstrap;
-    using Reflex.Attributes;
-    using TMPro;
-    using UnityEngine;
-
     [RequireComponent(typeof(TMP_Text))]
     public class UnlockLevelView : MonoBehaviour
     {

@@ -1,9 +1,9 @@
+using System;
+using UnityEngine;
+using UnityEngine.Pool;
+
 namespace Spawn
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.Pool;
-
     public class SiblingsSpawner : MonoBehaviour
     {
         [SerializeField] private PooledComponent _prefab;
@@ -11,7 +11,7 @@ namespace Spawn
         [SerializeField][Min(1)] private int _poolSize = 20;
 
         private IObjectPool<PooledComponent> _pool;
-        
+
         public event Action<PooledComponent> ComponentReleased;
 
         private static void DestroyPooledComponent(PooledComponent pooledComponent) =>

@@ -1,30 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Audio;
+using Bootstrap;
+using Reflex.Attributes;
+using Timer;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using AudioType = Audio.AudioType;
+
 namespace Travelator
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Audio;
-    using Bootstrap;
-    using Model;
-    using Reflex.Attributes;
-    using Timer;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using AudioType = Audio.AudioType;
-
     [RequireComponent(typeof(Collider))]
     public class TypeChanger : MonoBehaviour, IPointerClickHandler
     {
         private const AudioType SoundType = AudioType.Sound;
-        
-        [SerializeField] private Travelator _travelator;
+
+        [SerializeField] private Model.Travelator _travelator;
         [SerializeField][Min(0)] private int _delay = 1;
 
         private CoroutineTimer _timer;
         private bool _isCached;
-        private Audio _audio;
+        private Audio.Audio _audio;
 
         [Inject]
-        private void Initialize(SavvyServicesProvider servicesProvider, IEnumerable<Audio> audios)
+        private void Initialize(SavvyServicesProvider servicesProvider, IEnumerable<Audio.Audio> audios)
         {
             _timer.Initialize(servicesProvider);
             _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);

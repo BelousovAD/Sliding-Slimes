@@ -1,9 +1,9 @@
+using AssetKits.ParticleImage;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Ability
 {
-    using AssetKits.ParticleImage;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     [RequireComponent(typeof(ParticleImage))]
     internal class MegaphoneEffect : MonoBehaviour
     {

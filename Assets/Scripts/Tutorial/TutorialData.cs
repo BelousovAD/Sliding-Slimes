@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace Tutorial
 {
-    using UnityEngine;
-
     [CreateAssetMenu(fileName = nameof(TutorialData), menuName = nameof(TutorialOpener) + "/" + nameof(TutorialData))]
     internal class TutorialData : ScriptableObject
     {

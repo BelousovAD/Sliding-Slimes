@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace Ability
 {
-    using UnityEngine;
-
     [CreateAssetMenu(fileName = nameof(AbilityData), menuName = nameof(Ability) + "/" + nameof(AbilityData))]
     public class AbilityData : ScriptableObject
     {

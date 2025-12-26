@@ -1,18 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Audio;
+using DG.Tweening;
+using Reflex.Attributes;
+using UnityEngine;
+using AudioType = Audio.AudioType;
+
 namespace LuckyBlock
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Audio;
-    using DG.Tweening;
-    using Reflex.Attributes;
-    using UnityEngine;
-    using AudioType = Audio.AudioType;
-
     internal class LuckyBlockDestroyer : MonoBehaviour
     {
         private static readonly Vector3 MinScale = Vector3.zero;
         private const AudioType SoundType = AudioType.Sound;
-        
+
         [SerializeField] private HealthCounter _healthCounter;
         [SerializeField] private Transform _model;
         [SerializeField] private ParticleSystem _particleSystem;
@@ -21,10 +21,10 @@ namespace LuckyBlock
         [SerializeField] private List<Collider> _colliders = new ();
 
         private Sequence _sequence;
-        private Audio _audio;
+        private Audio.Audio _audio;
 
         [Inject]
-        private void Initialize(IEnumerable<Audio> audios) =>
+        private void Initialize(IEnumerable<Audio.Audio> audios) =>
             _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);
 
         private void OnEnable() =>
@@ -42,9 +42,9 @@ namespace LuckyBlock
             {
                 _sequence.Kill(true);
             }
-            
+
             _sequence = DOTween.Sequence();
-            
+
             if (_healthCounter.IsAlive)
             {
                 _sequence.AppendCallback(() => _audio.Play(AudioClipKey.LuckyBlock));

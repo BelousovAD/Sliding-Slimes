@@ -1,15 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Audio
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class MusicPlaylist : MonoBehaviour
     {
         private const AudioType MusicType = AudioType.Music;
-        
+
         private static MusicPlaylist _instance;
         private Audio _audio;
 
@@ -30,7 +30,7 @@ namespace Audio
                 Destroy(gameObject);
             }
         }
-        
+
         private void Start() =>
             StartCoroutine(PlayTrack());
 

@@ -1,12 +1,11 @@
+using System;
+using System.Collections.Generic;
+using Bootstrap;
+using UnityEngine;
+using UnityEngine.Audio;
+
 namespace Audio
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Bootstrap;
-    using UnityEngine;
-    using UnityEngine.Audio;
-
     public class Audio
     {
         private readonly AudioMixerGroup _group;
@@ -34,7 +33,7 @@ namespace Audio
 
         public event Action ActivityChanged;
         public event Action VolumeChanged;
-        
+
         public AudioType Type { get; }
 
         public bool IsActive

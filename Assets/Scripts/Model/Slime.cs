@@ -1,8 +1,8 @@
+using System;
+using SlimeTypeable;
+
 namespace Model
 {
-    using System;
-    using SlimeTypeable;
-
     public class Slime : AbstractModel, ISlimeTypeable
     {
         private const int MinPortalCountToAwake = 1;

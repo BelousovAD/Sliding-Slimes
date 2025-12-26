@@ -1,10 +1,10 @@
+using Currency;
+using Reflex.Attributes;
+using TMPro;
+using UnityEngine;
+
 namespace Ability
 {
-    using Currency;
-    using Reflex.Attributes;
-    using TMPro;
-    using UnityEngine;
-
     public class PriceView : MonoBehaviour
     {
         [SerializeField] private AbilityProvider _abilityProvider;

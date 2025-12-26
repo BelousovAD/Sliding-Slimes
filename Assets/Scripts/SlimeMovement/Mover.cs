@@ -1,16 +1,16 @@
+using UnityEngine;
+
 namespace SlimeMovement
 {
-    using UnityEngine;
-
     [RequireComponent(typeof(Rigidbody))]
     internal class Mover : MonoBehaviour
     {
         private static Mover _busyInstance;
 
         [SerializeField][Min(0f)] private float _speed;
-        
+
         private Rigidbody _rigidbody;
-        
+
         public Vector3 Direction { get; private set; }
 
         private void Awake() =>
@@ -22,7 +22,7 @@ namespace SlimeMovement
             {
                 return;
             }
-            
+
             Direction = new Vector3(direction.x, 0, direction.y);
             _rigidbody.isKinematic = false;
             transform.localPosition = Vector3Int.RoundToInt(transform.localPosition);

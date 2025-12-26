@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace Leaderboard
 {
-    using System.Collections.Generic;
-    using TMPro;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     internal class PositionView : MonoBehaviour
     {
         [SerializeField] private LeaderboardItem _item;
@@ -25,7 +25,7 @@ namespace Leaderboard
         {
             _image.enabled = false;
             _textField.enabled = false;
-            
+
             if (_item.Position <= _positionSprites.Count)
             {
                 _image.sprite = _positionSprites[_item.Position - 1];

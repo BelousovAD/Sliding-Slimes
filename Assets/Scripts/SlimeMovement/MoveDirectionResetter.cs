@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace SlimeMovement
 {
-    using UnityEngine;
-
     public class MoveDirectionResetter : MonoBehaviour
     {
         [SerializeField] private Transform _raycastSource;

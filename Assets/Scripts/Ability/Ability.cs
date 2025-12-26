@@ -1,10 +1,10 @@
+using System;
+using Bootstrap;
+using Currency;
+using UnityEngine;
+
 namespace Ability
 {
-    using System;
-    using Bootstrap;
-    using Currency;
-    using UnityEngine;
-
     public abstract class Ability
     {
         public const int MinCount = 0;
@@ -53,7 +53,7 @@ namespace Ability
         public int Price => _data.Price;
 
         public int UnlockLevel => _data.UnlockLevel;
-        
+
         public void Initialize(SavvyServicesProvider servicesProvider, Money money)
         {
             _services = servicesProvider;
@@ -72,7 +72,7 @@ namespace Ability
                 Used?.Invoke();
                 return;
             }
-            
+
             if (IsOnlyRewardForAd || _money.TrySpend(Price) == false)
             {
                 _services.Mediation.ShowRewardedAd(() =>
@@ -82,16 +82,16 @@ namespace Ability
                 });
                 return;
             }
-            
+
             Activate();
             Used?.Invoke();
         }
-        
+
         public void Load() =>
             Count = _services.Preferences.LoadInt(_data.SaveKey, _data.StartCount);
 
         protected abstract void Activate();
-        
+
         private void Save() =>
             _services.Preferences.SaveInt(_data.SaveKey, Count);
     }

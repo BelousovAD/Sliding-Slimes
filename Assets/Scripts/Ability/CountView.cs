@@ -1,8 +1,8 @@
+using TMPro;
+using UnityEngine;
+
 namespace Ability
 {
-    using TMPro;
-    using UnityEngine;
-
     public class CountView : MonoBehaviour
     {
         [SerializeField] private AbilityProvider _abilityProvider;

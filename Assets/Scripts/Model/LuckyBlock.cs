@@ -1,7 +1,7 @@
+using System;
+
 namespace Model
 {
-    using System;
-
     public class LuckyBlock : AbstractModel
     {
         private const int MinStartHealth = 1;
@@ -9,9 +9,9 @@ namespace Model
         public event Action DestroyRequested;
 
         public int StartHealth { get; private set; } = MinStartHealth;
-        
+
         public bool IsUpgraded { get; private set; }
-        
+
         public void Initialize(int health)
         {
             if (health < 1)

@@ -1,16 +1,16 @@
+using System;
+using System.Collections;
+using Bootstrap;
+using UnityEngine;
+
 namespace Timer
 {
-    using System;
-    using System.Collections;
-    using Bootstrap;
-    using UnityEngine;
-
     public class CoroutineTimer
     {
         private const int Min = 0;
         private const int Second = 1;
-        
         private readonly WaitForSeconds _delay = new (Second);
+
         private Coroutine _coroutine;
         private SavvyServicesProvider _services;
         private int _time;
@@ -20,7 +20,7 @@ namespace Timer
 
         public event Action TimeChanged;
         public event Action TimeIsUp;
-        
+
         public int Max { get; }
 
         public int Time
@@ -64,7 +64,7 @@ namespace Timer
 
                 Time--;
             }
-            
+
             TimeIsUp?.Invoke();
         }
     }

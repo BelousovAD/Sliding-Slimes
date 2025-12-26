@@ -1,10 +1,9 @@
+using System.Collections.Generic;
+using Reflex.Core;
+using UnityEngine;
+
 namespace Map
 {
-    using System.Collections.Generic;
-    using Level;
-    using Reflex.Core;
-    using UnityEngine;
-
     internal class MapBuilderInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private MapBuilder _mapBuilder;
@@ -23,7 +22,7 @@ namespace Map
         {
             _builder.OnContainerBuilt -= Initialize;
 
-            _mapBuilder.Build(container.Resolve<Map>(), _maps[container.Resolve<Level>().Chosen - 1]);
+            _mapBuilder.Build(container.Resolve<Map>(), _maps[container.Resolve<Level.Level>().Chosen - 1]);
         }
     }
 }
