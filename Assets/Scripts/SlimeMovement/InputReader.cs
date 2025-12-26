@@ -1,16 +1,16 @@
+using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
 namespace SlimeMovement
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-
     internal class InputReader : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
     {
         private bool _isCached;
         private Vector2 _startPoint;
 
         public event Action<Vector2Int> MoveRequested;
-        
+
         public void OnPointerDown(PointerEventData eventData)
         {
             _isCached = true;
@@ -34,7 +34,7 @@ namespace SlimeMovement
                 {
                     direction.x = 0;
                 }
-                
+
                 MoveRequested?.Invoke(direction);
             }
         }

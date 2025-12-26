@@ -1,8 +1,8 @@
+using System;
+using UnityEngine;
+
 namespace SlimeTypeable
 {
-    using System;
-    using UnityEngine;
-
     [RequireComponent(typeof(MeshRenderer))]
     internal class ColorView : MonoBehaviour
     {
@@ -31,16 +31,16 @@ namespace SlimeTypeable
 
         private void Awake() =>
             _meshRenderer = GetComponent<MeshRenderer>();
-        
+
         private void Start()
         {
             _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable ?? throw new InvalidOperationException();
             _meshRenderer.material.color = Color;
         }
 
-        private void OnValidate()   
+        private void OnValidate()
         {
-            if (_slimeTypeableComponent is not (null or ISlimeTypeable))
+            if (_slimeTypeableComponent is not null && _slimeTypeableComponent is not ISlimeTypeable)
             {
                 Debug.LogError($"{nameof(_slimeTypeableComponent)} must inherit {nameof(ISlimeTypeable)}");
                 _slimeTypeableComponent = null;

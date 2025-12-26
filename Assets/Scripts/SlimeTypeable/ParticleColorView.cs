@@ -1,8 +1,8 @@
+using System;
+using UnityEngine;
+
 namespace SlimeTypeable
 {
-    using System;
-    using UnityEngine;
-
     [RequireComponent(typeof(ParticleSystem))]
     internal class ParticleColorView : MonoBehaviour
     {
@@ -31,7 +31,7 @@ namespace SlimeTypeable
 
         private void Awake() =>
             _particleSystem = GetComponent<ParticleSystem>();
-        
+
         private void Start()
         {
             _slimeTypeable = _slimeTypeableComponent as ISlimeTypeable ?? throw new InvalidOperationException();
@@ -39,9 +39,9 @@ namespace SlimeTypeable
             particleSystemMain.startColor = Color;
         }
 
-        private void OnValidate()   
+        private void OnValidate()
         {
-            if (_slimeTypeableComponent is not (null or ISlimeTypeable))
+            if (_slimeTypeableComponent is not null && _slimeTypeableComponent is not ISlimeTypeable)
             {
                 Debug.LogError($"{nameof(_slimeTypeableComponent)} must inherit {nameof(ISlimeTypeable)}");
                 _slimeTypeableComponent = null;

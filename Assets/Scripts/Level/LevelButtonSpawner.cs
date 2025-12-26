@@ -1,8 +1,8 @@
+using Reflex.Attributes;
+using Spawn;
+
 namespace Level
 {
-    using Reflex.Attributes;
-    using Spawn;
-
     internal class LevelButtonSpawner : SiblingsSpawner
     {
         private Level _level;

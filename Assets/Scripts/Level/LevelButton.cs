@@ -1,9 +1,9 @@
+using System;
+using Common;
+using Reflex.Attributes;
+
 namespace Level
 {
-    using System;
-    using Common;
-    using Reflex.Attributes;
-
     internal class LevelButton : AbstractButton
     {
         private Level _level;
@@ -27,7 +27,7 @@ namespace Level
                 }
             }
         }
-        
+
         [Inject]
         private void Initialize(Level level) =>
             _level = level;

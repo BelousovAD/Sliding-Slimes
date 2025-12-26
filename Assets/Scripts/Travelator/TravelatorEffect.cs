@@ -1,20 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Audio;
+using Reflex.Attributes;
+using UnityEngine;
+using AudioType = Audio.AudioType;
+
 namespace Travelator
 {
-    using Audio;
-    using Model;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class TravelatorEffect : MonoBehaviour
     {
-        [SerializeField] private Travelator _travelator;
+        private const AudioType SoundType = AudioType.Sound;
+
+        [SerializeField] private Model.Travelator _travelator;
         [SerializeField] private ParticleSystem _particleSystem;
 
-        private Audio _audio;
+        private Audio.Audio _audio;
 
         [Inject]
-        private void Initialize(Sound sound) =>
-            _audio = sound;
+        private void Initialize(IEnumerable<Audio.Audio> audios) =>
+            _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);
 
         private void OnEnable() =>
             _travelator.ManualStatusChanged += PlayAnimation;

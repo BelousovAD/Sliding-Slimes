@@ -1,18 +1,16 @@
+using System;
+using Timer;
+using Window;
+
 namespace Gameplay
 {
-    using System;
-    using Level;
-    using Map;
-    using Timer;
-    using Window;
-
     internal class Gameplay : IDisposable
     {
         private const int PortalCountToWin = 0;
-        
+
         private readonly string _defeatWindowId;
         private readonly string _victoryWindowId;
-        private Level _level;
+        private Level.Level _level;
         private PortalCounter _portalCounter;
         private CoroutineTimer _timer;
         private IWindowService _windowService;
@@ -24,7 +22,7 @@ namespace Gameplay
         }
 
         public void Initialize(
-            Level level,
+            Level.Level level,
             PortalCounter portalCounter,
             CoroutineTimer timer,
             IWindowService windowService)
@@ -50,7 +48,7 @@ namespace Gameplay
             {
                 return;
             }
-            
+
             if (_level.Chosen == _level.Available)
             {
                 _level.Unlock();

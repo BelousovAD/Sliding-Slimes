@@ -1,26 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Ability;
+using Currency;
+using Reflex.Attributes;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
 namespace LuckyBlock
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Ability;
-    using Currency;
-    using Model;
-    using Reflex.Attributes;
-    using UnityEngine;
-    using Random = UnityEngine.Random;
-
     public class LuckyBlockReward : MonoBehaviour
     {
         private const float MinRandomValue = 0f;
         private const int MoneyFactor = 2;
-        
-        [SerializeField] private LuckyBlock _luckyBlock;
+
+        [SerializeField] private Model.LuckyBlock _luckyBlock;
         [SerializeField] private HealthCounter _healthCounter;
-        [SerializeField, Min(0)] private int _minMoney;
-        [SerializeField, Min(0)] private int _maxMoney = 1;
+        [SerializeField][Min(0)] private int _minMoney;
+        [SerializeField][Min(0)] private int _maxMoney = 1;
         [Header("When Upgraded")]
-        [SerializeField] private List<Chance> _bonusChances = new();
+        [SerializeField] private List<Chance> _bonusChances = new ();
         
         private Money _money;
         private Hammer _hammer;
@@ -28,6 +27,15 @@ namespace LuckyBlock
         private Lightning _lightning;
         private Megaphone _megaphone;
         private float _totalChance;
+
+        private enum BonusType
+        {
+            X2Money = 0,
+            Hourglass = 1,
+            Megaphone = 2,
+            Lightning = 3,
+            Hammer = 4,
+        }
 
         [Inject]
         private void Initialize(
@@ -50,7 +58,7 @@ namespace LuckyBlock
         private void OnEnable() =>
             _healthCounter.CountChanged += Earn;
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _healthCounter.CountChanged -= Earn;
 
         private void Earn()
@@ -59,7 +67,7 @@ namespace LuckyBlock
             {
                 return;
             }
-            
+
             if (_luckyBlock.IsUpgraded == false)
             {
                 _money.Earn(Random.Range(_minMoney, _maxMoney + 1));
@@ -77,7 +85,7 @@ namespace LuckyBlock
                     {
                         continue;
                     }
-                    
+
                     switch (chance.Bonus)
                     {
                         case BonusType.X2Money:
@@ -98,7 +106,7 @@ namespace LuckyBlock
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-                        
+
                     break;
                 }
             }
@@ -112,15 +120,6 @@ namespace LuckyBlock
             }
         }
 
-        private enum BonusType
-        {
-            X2Money = 0,
-            Hourglass,
-            Megaphone,
-            Lightning,
-            Hammer,
-        }
-        
         [Serializable]
         private struct Chance
         {

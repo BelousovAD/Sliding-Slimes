@@ -1,9 +1,9 @@
+using Reflex.Attributes;
+using TMPro;
+using UnityEngine;
+
 namespace Level
 {
-    using Reflex.Attributes;
-    using TMPro;
-    using UnityEngine;
-
     [RequireComponent(typeof(LevelButton))]
     internal class LevelButtonView : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Level
             _level.AvailableChanged += UpdateView;
             UpdateView();
         }
-        
+
         private void OnDisable()
         {
             _levelButton.NumberChanged -= UpdateView;

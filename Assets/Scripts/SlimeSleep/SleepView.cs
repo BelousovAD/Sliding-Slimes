@@ -1,13 +1,13 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace SlimeSleep
 {
-    using System.Collections.Generic;
-    using UnityEngine;
-
     internal class SleepView : MonoBehaviour
     {
         [SerializeField] private SleepCounter _sleepCounter;
-        [SerializeField] private List<GameObject> _awakeObjects = new();
-        [SerializeField] private List<GameObject> _sleepObjects = new();
+        [SerializeField] private List<GameObject> _awakeObjects = new ();
+        [SerializeField] private List<GameObject> _sleepObjects = new ();
 
         private void OnEnable()
         {

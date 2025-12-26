@@ -1,16 +1,16 @@
+using UnityEngine;
+
 namespace Ability
 {
-    using UnityEngine;
-
     [CreateAssetMenu(fileName = nameof(AbilityData), menuName = nameof(Ability) + "/" + nameof(AbilityData))]
     public class AbilityData : ScriptableObject
     {
         [SerializeField] private Sprite _icon;
         [SerializeField] private bool _isOnlyRewardForAd;
-        [SerializeField, Min(0)] private int _price;
+        [SerializeField][Min(0)] private int _price;
         [SerializeField] private string _saveKey;
-        [SerializeField, Min(0)] private int _startCount;
-        [SerializeField, Min(1)] private int _unlockLevel = 1;
+        [SerializeField][Min(0)] private int _startCount;
+        [SerializeField][Min(1)] private int _unlockLevel = 1;
 
         public Sprite Icon => _icon;
 

@@ -1,12 +1,12 @@
+using Common;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Currency
 {
-    using Common;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class EarnMoneyButton : AbstractButton
     {
-        [SerializeField, Min(0)] private int _amount;
+        [SerializeField][Min(0)] private int _amount;
 
         private Money _money;
 

@@ -1,8 +1,8 @@
+using System;
+using SlimeTypeable;
+
 namespace Model
 {
-    using System;
-    using SlimeTypeable;
-
     public class Slime : AbstractModel, ISlimeTypeable
     {
         private const int MinPortalCountToAwake = 1;
@@ -39,7 +39,8 @@ namespace Model
 
             if (portalCountToAwake < MinPortalCountToAwake)
             {
-                throw new ArgumentOutOfRangeException(nameof(portalCountToAwake),
+                throw new ArgumentOutOfRangeException(
+                    nameof(portalCountToAwake),
                     $"Must be greater than or equal to {MinPortalCountToAwake}");
             }
 

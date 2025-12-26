@@ -1,14 +1,14 @@
+using Reflex.Attributes;
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace Gameplay
 {
-    using Reflex.Attributes;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     [RequireComponent(typeof(Button))]
     internal class SkipGameButton : MonoBehaviour
     {
         [SerializeField] private bool _win;
-        
+
         private Button _button;
         private Gameplay _gameplay;
 

@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace SlimeMovement
 {
-    using UnityEngine;
-
     public class MoveDirectionResetter : MonoBehaviour
     {
         [SerializeField] private Transform _raycastSource;
@@ -13,7 +13,8 @@ namespace SlimeMovement
         {
             if (_mover.Direction != Vector3.zero
                 &&
-                Physics.Raycast(_raycastSource.position,
+                Physics.Raycast(
+                    _raycastSource.position,
                     _mover.Direction,
                     out RaycastHit hit,
                     _raycastDistance,

@@ -1,9 +1,9 @@
+using Bootstrap;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Ability
 {
-    using Bootstrap;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     internal class AbilityLoader : MonoBehaviour, ILoadable
     {
         private Ability _hammer;

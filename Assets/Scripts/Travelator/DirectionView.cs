@@ -1,11 +1,10 @@
+using UnityEngine;
+
 namespace Travelator
 {
-    using Model;
-    using UnityEngine;
-
     internal class DirectionView : MonoBehaviour
     {
-        [SerializeField] private Travelator _travelator;
+        [SerializeField] private Model.Travelator _travelator;
 
         private Vector2Int _direction;
 

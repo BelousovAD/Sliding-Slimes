@@ -1,24 +1,25 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace Model
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
-
     public class Travelator : AbstractModel
     {
-        private readonly List<TravelatorType> _typeOrder = new()
+        private readonly List<TravelatorType> _typeOrder = new ()
         {
             TravelatorType.North,
             TravelatorType.East,
             TravelatorType.South,
             TravelatorType.West,
         };
+
         private int _index;
         private bool _isManual;
 
         public event Action TypeChanged;
         public event Action ManualStatusChanged;
-        
+
         private int Index
         {
             get

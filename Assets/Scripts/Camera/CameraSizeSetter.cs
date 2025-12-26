@@ -1,26 +1,25 @@
+using MirraGames.SDK;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Camera
 {
-    using Map;
-    using MirraGames.SDK;
-    using Reflex.Attributes;
-    using UnityEngine;
-
-    [RequireComponent(typeof(Camera))]
+    [RequireComponent(typeof(UnityEngine.Camera))]
     public class CameraSizeSetter : MonoBehaviour
     {
         private const float AdditionalSize = 0.5f;
         private const float HorizontalFactor = 0.5f;
         private const float VerticalFactor = 1f;
-        
-        private Camera _camera;
-        private Map _map;
+
+        private UnityEngine.Camera _camera;
+        private Map.Map _map;
 
         [Inject]
-        private void Initialize(Map map) =>
+        private void Initialize(Map.Map map) =>
             _map = map;
 
         private void Awake() =>
-            _camera = GetComponent<Camera>();
+            _camera = GetComponent<UnityEngine.Camera>();
 
         private void OnEnable()
         {

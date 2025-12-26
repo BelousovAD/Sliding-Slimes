@@ -1,18 +1,18 @@
+using System;
+using Countable;
+using Model;
+using UnityEngine;
+
 namespace LuckyBlock
 {
-    using System;
-    using Countable;
-    using Model;
-    using UnityEngine;
-
     internal class HealthCounter : MonoBehaviour, ICountable
     {
-        [SerializeField] private LuckyBlock _luckyBlock;
-        
+        [SerializeField] private Model.LuckyBlock _luckyBlock;
+
         private int _count;
 
         public event Action CountChanged;
-        
+
         public int Count
         {
             get

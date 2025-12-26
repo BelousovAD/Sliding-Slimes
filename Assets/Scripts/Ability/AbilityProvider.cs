@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace Ability
 {
-    using UnityEngine;
-
     public class AbilityProvider : MonoBehaviour
     {
         public Ability Ability { get; private set; }

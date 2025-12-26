@@ -1,12 +1,12 @@
+using System;
+using Countable;
+using Gameplay;
+using Model;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace SlimeSleep
 {
-    using System;
-    using Countable;
-    using Gameplay;
-    using Model;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     public class SleepCounter : MonoBehaviour, ICountable
     {
         [SerializeField] private Slime _slime;
@@ -14,7 +14,7 @@ namespace SlimeSleep
         private PortalCounter _portalCounter;
 
         public event Action CountChanged;
-        
+
         public int Count
         {
             get

@@ -1,9 +1,9 @@
+using System;
+using Bootstrap;
+using UnityEngine;
+
 namespace Level
 {
-    using System;
-    using Bootstrap;
-    using UnityEngine;
-
     public class Level
     {
         private const int Min = 1;
@@ -81,7 +81,7 @@ namespace Level
                 Available++;
             }
         }
-        
+
         public void Load() =>
             Available = _services.Preferences.LoadInt(SaveKey, Min);
 

@@ -1,8 +1,8 @@
+using SlimeSleep;
+using UnityEngine;
+
 namespace SlimeMovement
 {
-    using SlimeSleep;
-    using UnityEngine;
-
     internal class ManualMovability : MonoBehaviour
     {
         [SerializeField] private SleepCounter _sleepCounter;

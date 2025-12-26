@@ -1,21 +1,20 @@
+using System.Collections.Generic;
+using Reflex.Attributes;
+using UnityEngine;
+
 namespace Ability
 {
-    using System.Collections.Generic;
-    using Level;
-    using Reflex.Attributes;
-    using UnityEngine;
-
     public class LockView : MonoBehaviour
     {
         [SerializeField] private AbilityProvider _abilityProvider;
-        [SerializeField] private List<GameObject> _lockObjects = new();
-        [SerializeField] private List<GameObject> _unlockObjects = new();
+        [SerializeField] private List<GameObject> _lockObjects = new ();
+        [SerializeField] private List<GameObject> _unlockObjects = new ();
 
         private Ability _ability;
-        private Level _level;
+        private Level.Level _level;
 
         [Inject]
-        private void Initialize(Level level) =>
+        private void Initialize(Level.Level level) =>
             _level = level;
 
         private void Start()
