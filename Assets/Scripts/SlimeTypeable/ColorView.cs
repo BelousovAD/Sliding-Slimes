@@ -40,7 +40,7 @@ namespace SlimeTypeable
 
         private void OnValidate()   
         {
-            if (_slimeTypeableComponent is not (null or ISlimeTypeable))
+            if (_slimeTypeableComponent is not null && _slimeTypeableComponent is not ISlimeTypeable)
             {
                 Debug.LogError($"{nameof(_slimeTypeableComponent)} must inherit {nameof(ISlimeTypeable)}");
                 _slimeTypeableComponent = null;

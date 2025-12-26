@@ -12,7 +12,7 @@ namespace Window
         
         [SerializeField] private Window _window;
         [SerializeField] private RectTransform _content;
-        [SerializeField, Min(0f)] private float _animationDuration;
+        [SerializeField][Min(0f)] private float _animationDuration;
         
         private CanvasGroup _canvasGroup;
         private Tweener _tweener;

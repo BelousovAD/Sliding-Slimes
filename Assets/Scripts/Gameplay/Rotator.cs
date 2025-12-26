@@ -1,0 +1,12 @@
+namespace Gameplay
+{
+    using UnityEngine;
+
+    internal class Rotator : MonoBehaviour
+    {
+        [SerializeField] private Vector3 _rotationPerSecond;
+
+        private void Update() =>
+            transform.Rotate(_rotationPerSecond * Time.deltaTime);
+    }
+}

@@ -6,7 +6,7 @@ namespace Timer
 
     internal class TimerInstaller : MonoBehaviour, IInstaller
     {
-        [SerializeField, Min(1)] private int _maxTime = 90;
+        [SerializeField][Min(1)] private int _maxTime = 90;
 
         private CoroutineTimer _timer;
         private ContainerBuilder _builder;

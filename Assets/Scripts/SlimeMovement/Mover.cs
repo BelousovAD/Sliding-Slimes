@@ -5,9 +5,10 @@ namespace SlimeMovement
     [RequireComponent(typeof(Rigidbody))]
     internal class Mover : MonoBehaviour
     {
-        [SerializeField, Min(0f)] private float _speed;
-
         private static Mover _busyInstance;
+
+        [SerializeField][Min(0f)] private float _speed;
+        
         private Rigidbody _rigidbody;
         
         public Vector3 Direction { get; private set; }

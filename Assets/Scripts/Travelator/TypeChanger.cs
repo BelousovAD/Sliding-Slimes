@@ -17,7 +17,7 @@ namespace Travelator
         private const AudioType SoundType = AudioType.Sound;
         
         [SerializeField] private Travelator _travelator;
-        [SerializeField, Min(0)] private int _delay = 1;
+        [SerializeField][Min(0)] private int _delay = 1;
 
         private CoroutineTimer _timer;
         private bool _isCached;

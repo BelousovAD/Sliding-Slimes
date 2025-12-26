@@ -8,8 +8,9 @@ namespace Timer
     public class CoroutineTimer
     {
         private const int Min = 0;
+        private const int Second = 1;
         
-        private readonly WaitForSeconds _delay = new(1);
+        private readonly WaitForSeconds _delay = new (Second);
         private Coroutine _coroutine;
         private SavvyServicesProvider _services;
         private int _time;

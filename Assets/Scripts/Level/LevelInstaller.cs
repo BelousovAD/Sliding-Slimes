@@ -6,7 +6,7 @@ namespace Level
 
     internal class LevelInstaller : MonoBehaviour, IInstaller
     {
-        [SerializeField, Min(1)] private int _maxLevel = 1;
+        [SerializeField][Min(1)] private int _maxLevel = 1;
 
         private Level _level;
         private ContainerBuilder _builder;

@@ -8,8 +8,8 @@ namespace Ability
     public class LockView : MonoBehaviour
     {
         [SerializeField] private AbilityProvider _abilityProvider;
-        [SerializeField] private List<GameObject> _lockObjects = new();
-        [SerializeField] private List<GameObject> _unlockObjects = new();
+        [SerializeField] private List<GameObject> _lockObjects = new ();
+        [SerializeField] private List<GameObject> _unlockObjects = new ();
 
         private Ability _ability;
         private Level _level;

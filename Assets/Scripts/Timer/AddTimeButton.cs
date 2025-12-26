@@ -6,7 +6,7 @@ namespace Timer
 
     internal class AddTimeButton : AbstractButton
     {
-        [SerializeField, Min(1)] private int _amount;
+        [SerializeField][Min(1)] private int _amount;
 
         private CoroutineTimer _timer;
 

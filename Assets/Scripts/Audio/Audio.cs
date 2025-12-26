@@ -11,7 +11,7 @@ namespace Audio
     {
         private readonly AudioMixerGroup _group;
         private readonly AudioSourceSpawner _spawner;
-        private readonly Dictionary<AudioClipKey, AudioClip> _tracks = new();
+        private readonly Dictionary<AudioClipKey, AudioClip> _tracks = new ();
         private SavvyServicesProvider _services;
         private bool _isActive = true;
         private float _volume = 1f;

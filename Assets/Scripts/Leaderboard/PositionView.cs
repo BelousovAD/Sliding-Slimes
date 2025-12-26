@@ -10,7 +10,7 @@ namespace Leaderboard
         [SerializeField] private LeaderboardItem _item;
         [SerializeField] private Image _image;
         [SerializeField] private TMP_Text _textField;
-        [SerializeField] private List<Sprite> _positionSprites = new();
+        [SerializeField] private List<Sprite> _positionSprites = new ();
 
         private void OnEnable()
         {

@@ -6,7 +6,7 @@ namespace Model
 
     public class Travelator : AbstractModel
     {
-        private readonly List<TravelatorType> _typeOrder = new()
+        private readonly List<TravelatorType> _typeOrder = new ()
         {
             TravelatorType.North,
             TravelatorType.East,

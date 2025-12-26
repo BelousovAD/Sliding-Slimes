@@ -8,7 +8,7 @@ namespace Map
     internal class MapBuilderInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private MapBuilder _mapBuilder;
-        [SerializeField] private List<TextAsset> _maps = new();
+        [SerializeField] private List<TextAsset> _maps = new ();
 
         private ContainerBuilder _builder;
 

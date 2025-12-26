@@ -151,7 +151,8 @@ namespace SavvyServices
             return result;
         }
 
-        public TEnum LoadEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct
+        public TEnum LoadEnum<TEnum>(string key, TEnum defaultValue)
+            where TEnum : struct
         {
             TEnum result = MirraSDK.Data.GetString(key).ToEnumOrDefault(defaultValue);
             Debug($"Load enum prefs. Key '{key}', value '{result}'", _settings.Debug);

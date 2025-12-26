@@ -6,8 +6,8 @@ namespace Window
     internal class WindowService : IWindowService
     {
         private readonly IWindowSpawner _spawner;
-        private readonly Stack<Window> _windowsHistory = new();
-        private readonly Dictionary<string, Window> _spawnedWindows = new();
+        private readonly Stack<Window> _windowsHistory = new ();
+        private readonly Dictionary<string, Window> _spawnedWindows = new ();
 
         public WindowService(IWindowSpawner spawner) =>
             _spawner = spawner;

@@ -5,7 +5,7 @@ namespace Gameplay
 
     public class TimeScaleSetter : MonoBehaviour
     {
-        [SerializeField, Min(0f)] private float _timeScale;
+        [SerializeField][Min(0f)] private float _timeScale;
         [SerializeField] private bool _setOnEnable;
         [SerializeField] private bool _setOnDisable;
 

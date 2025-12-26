@@ -6,7 +6,7 @@ namespace Window
 
     internal class WindowSpawner : MonoBehaviour, IWindowSpawner
     {
-        [SerializeField] private List<Window> _windowPrefabs = new();
+        [SerializeField] private List<Window> _windowPrefabs = new ();
         
         public Window Spawn(string id)
         {

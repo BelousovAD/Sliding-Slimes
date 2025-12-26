@@ -16,7 +16,8 @@ namespace Model
         {
             if (health < 1)
             {
-                throw new ArgumentOutOfRangeException(nameof(health),
+                throw new ArgumentOutOfRangeException(
+                    nameof(health),
                     $"Must be greater than {MinStartHealth}");
             }
 

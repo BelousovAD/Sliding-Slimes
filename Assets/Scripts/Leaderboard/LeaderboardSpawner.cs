@@ -9,12 +9,12 @@ namespace Leaderboard
 
     internal class LeaderboardSpawner : SiblingsSpawner
     {
-        [SerializeField] private string _id;
-        [SerializeField, Min(1)] private int _maxCount;
-        [SerializeField, Min(1)] private int _topCount;
-        [SerializeField] private GameObject _infoObject;
+        private readonly List<PooledComponent> _spawned = new ();
 
-        private readonly List<PooledComponent> _spawned = new();
+        [SerializeField] private string _id;
+        [SerializeField][Min(1)] private int _maxCount;
+        [SerializeField][Min(1)] private int _topCount;
+        [SerializeField] private GameObject _infoObject;
 
         private void OnEnable() =>
             UpdateLeaderboard();
@@ -63,7 +63,7 @@ namespace Leaderboard
                     
                 if (currentPlayerIndex >= _maxCount)
                 {
-                    List<PlayerScore> players = new();
+                    List<PlayerScore> players = new ();
 
                     for (int i = 0; i < _topCount; i++)
                     {
@@ -92,8 +92,12 @@ namespace Leaderboard
             {
                 PlayerScore player = leaderboard.players[i];
                 PooledComponent pooledComponent = Spawn();
-                pooledComponent.GetComponent<LeaderboardItem>().Initialize(player.position,
-                    player.profilePictureUrl, player.displayName, player.score, i < _topCount,
+                pooledComponent.GetComponent<LeaderboardItem>().Initialize(
+                    player.position,
+                    player.profilePictureUrl,
+                    player.displayName,
+                    player.score,
+                    i < _topCount,
                     MirraSDK.Player.DisplayName == player.displayName);
                 _spawned.Add(pooledComponent);
             }

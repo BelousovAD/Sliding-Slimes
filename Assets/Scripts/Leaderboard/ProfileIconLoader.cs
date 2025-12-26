@@ -7,10 +7,10 @@ namespace Leaderboard
 
     internal class ProfileIconLoader : MonoBehaviour
     {
+        private static readonly Dictionary<string, Texture2D> _textures = new ();
+        
         [SerializeField] private LeaderboardItem _item;
         [SerializeField] private Sprite _default;
-        
-        private static readonly Dictionary<string, Texture2D> _textures = new();
 
         private void OnEnable()
         {
@@ -44,7 +44,7 @@ namespace Leaderboard
         
         private void SetTexture(Texture2D texture)
         {
-            Rect rect = new(0, 0, texture.width, texture.height);
+            Rect rect = new (0, 0, texture.width, texture.height);
             _item.SetIcon(Sprite.Create(texture, rect, Vector2.zero));
         }
         

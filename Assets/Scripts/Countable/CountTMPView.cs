@@ -33,7 +33,7 @@ namespace Countable
 
         private void OnValidate()
         {
-            if (_countableComponent is not (null or ICountable))
+            if (_countableComponent is not null && _countableComponent is not ICountable)
             {
                 Debug.LogError($"{nameof(_countableComponent)} must inherit {nameof(ICountable)}");
                 _countableComponent = null;

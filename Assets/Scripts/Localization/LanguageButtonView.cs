@@ -8,7 +8,7 @@ namespace Localization
     public class LanguageButtonView : MonoBehaviour
     {
         [SerializeField] private SwitchLanguageButton _button;
-        [SerializeField] private List<Sprite> _flags = new();
+        [SerializeField] private List<Sprite> _flags = new ();
         
         private Image _image;
 

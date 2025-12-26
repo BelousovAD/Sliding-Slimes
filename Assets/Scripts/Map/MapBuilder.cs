@@ -22,6 +22,16 @@ namespace Map
         [SerializeField] private Wall _wall;
 
         private Dictionary<Type, MonoBehaviour> _models;
+        
+        private enum ObjectType
+        {
+            EmptyCell = 'O',
+            Portal = 'P',
+            LuckyBlock = 'L',
+            Slime = 'S',
+            Travelator = 'T',
+            Wall = 'X',
+        }
 
         public void Build(Map map, TextAsset textMap)
         {
@@ -37,12 +47,12 @@ namespace Map
             
             string[] data = textMap.text.Split(Separator0, Separator1);
             int indexOfSetting = 0;
-            Vector2Int size = new(data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
+            Vector2Int size = new (data[0].ToIntOrDefault(), data[1].ToIntOrDefault());
             int settingsOffset = size.x * size.y + GridOffset;
-            List<LuckyBlock> luckyBlocks = new();
-            List<Portal> portals = new();
-            List<Slime> slimes = new();
-            List<Travelator> travelators = new();
+            List<LuckyBlock> luckyBlocks = new ();
+            List<Portal> portals = new ();
+            List<Slime> slimes = new ();
+            List<Travelator> travelators = new ();
 
             for (int y = 0; y < size.y; y++)
             {
@@ -71,7 +81,8 @@ namespace Map
                             break;
                         case ObjectType.Slime:
                             Slime slime = Spawn<Slime>(new Vector2(x, y));
-                            slime.Initialize((SlimeType)data[settingsOffset + indexOfSetting++][0],
+                            slime.Initialize(
+                                (SlimeType)data[settingsOffset + indexOfSetting++][0],
                                 data[settingsOffset + indexOfSetting++].ToIntOrDefault());
                             slimes.Add(slime);
                             break;
@@ -93,22 +104,14 @@ namespace Map
             map.Initialize(size, luckyBlocks, portals, slimes, travelators);
         }
 
-        private T Spawn<T>(Vector2 position) where T : AbstractModel
+        private T Spawn<T>(Vector2 position)
+            where T : AbstractModel
         {
             return Instantiate(
                 _models[typeof(T)] as T,
                 new Vector3(position.x, 0f, position.y),
-                Quaternion.identity, transform);
-        }
-        
-        private enum ObjectType
-        {
-            EmptyCell = 'O',
-            Portal = 'P',
-            LuckyBlock = 'L',
-            Slime = 'S',
-            Travelator = 'T',
-            Wall = 'X'
+                Quaternion.identity,
+                transform);
         }
     }
 }

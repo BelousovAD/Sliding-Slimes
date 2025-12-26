@@ -12,8 +12,8 @@ namespace Audio
         [SerializeField] private AudioMixerGroup _musicGroup;
         [SerializeField] private AudioMixerGroup _soundGroup;
         [SerializeField] private PooledAudioSource _prefab;
-        [SerializeField] private List<Track> _musics = new();
-        [SerializeField] private List<Track> _sounds = new();
+        [SerializeField] private List<Track> _musics = new ();
+        [SerializeField] private List<Track> _sounds = new ();
 
         private Audio _music;
         private Audio _sound;
@@ -22,7 +22,7 @@ namespace Audio
         public void InstallBindings(ContainerBuilder builder)
         {
             _builder = builder;
-            GameObject spawnerObject = new(nameof(AudioSourceSpawner));
+            GameObject spawnerObject = new (nameof(AudioSourceSpawner));
             AudioSourceSpawner spawner = spawnerObject.AddComponent<AudioSourceSpawner>();
             DontDestroyOnLoad(spawnerObject);
             spawner.Initialize(_prefab, spawnerObject.transform);

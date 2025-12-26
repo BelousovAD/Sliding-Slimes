@@ -10,7 +10,7 @@ namespace Bootstrap
     internal class Loader : MonoSavvy
     {
         [SerializeField] private string _sceneToLoad;
-        [SerializeField] private List<MonoBehaviour> _loaders = new();
+        [SerializeField] private List<MonoBehaviour> _loaders = new ();
         
         private void Start()
         {

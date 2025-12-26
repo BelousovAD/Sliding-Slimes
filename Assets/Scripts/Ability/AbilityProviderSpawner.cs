@@ -6,7 +6,7 @@ namespace Ability
 
     public class AbilityProviderSpawner : SiblingsSpawner
     {
-        private readonly List<Ability> _abilities = new();
+        private readonly List<Ability> _abilities = new ();
         
         [Inject]
         private void Initialize(

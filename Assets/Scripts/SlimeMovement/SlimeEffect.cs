@@ -15,7 +15,7 @@ namespace SlimeMovement
         [SerializeField] private InputReader _inputReader;
         [SerializeField] private Transform _model;
         [SerializeField] private Vector3 _scalePunch;
-        [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
+        [SerializeField][Min(0.001f)] private float _animationDuration = 0.001f;
 
         private Tweener _tweener;
         private Audio _audio;

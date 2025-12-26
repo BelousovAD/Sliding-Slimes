@@ -8,7 +8,7 @@ namespace Timer
     [RequireComponent(typeof(Slider))]
     public class TimerSliderView : MonoBehaviour
     {
-        [SerializeField, Min(0)] private float _changingTime = 1;
+        [SerializeField][Min(0)] private float _changingTime = 1;
         
         private Slider _slider;
         private CoroutineTimer _timer;

@@ -39,7 +39,8 @@ namespace Model
 
             if (portalCountToAwake < MinPortalCountToAwake)
             {
-                throw new ArgumentOutOfRangeException(nameof(portalCountToAwake),
+                throw new ArgumentOutOfRangeException(
+                    nameof(portalCountToAwake),
                     $"Must be greater than or equal to {MinPortalCountToAwake}");
             }
 

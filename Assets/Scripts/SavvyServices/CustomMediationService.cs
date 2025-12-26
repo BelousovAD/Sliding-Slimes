@@ -2,7 +2,6 @@ namespace SavvyServices
 {
     using System;
     using MirraGames.SDK;
-    using MirraMediation;
     using Savvy.Constants;
     using Savvy.Container;
     using Savvy.Extensions;
@@ -240,6 +239,7 @@ namespace SavvyServices
                         _preferences.SaveInt(GetBannerAdKey(), _bannerAdCount);
                         _eventBus.Invoke(new BannerAdData { Count = _bannerAdCount });
                     }
+                    
                     break;
                 case AdType.Interstitial:
                     if (_settings.SendInterstitialAdCount)
@@ -248,6 +248,7 @@ namespace SavvyServices
                         _preferences.SaveInt(GetInterstitialAdKey(), _interstitialAdCount);
                         _eventBus.Invoke(new InterstitialAdData { Count = _interstitialAdCount });
                     }
+                    
                     break;
                 case AdType.Rewarded:
                     if (_settings.SendRewardedAdCount)
@@ -256,6 +257,7 @@ namespace SavvyServices
                         _preferences.SaveInt(GetRewardedAdKey(), _rewardedAdCount);
                         _eventBus.Invoke(new RewardedAdData { Count = _rewardedAdCount });
                     }
+                    
                     break;
                 default:
                     adType.ToEnumUnknown();

@@ -31,7 +31,7 @@ namespace Audio
             }
         }
         
-        private void Start () =>
+        private void Start() =>
             StartCoroutine(PlayTrack());
 
         private IEnumerator PlayTrack()

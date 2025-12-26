@@ -9,7 +9,13 @@ namespace Web
         [SerializeField] private GameState _state;
         [SerializeField] private bool _sendOnEnable;
         [SerializeField] private bool _sendOnDisable;
-
+        
+        private enum GameState
+        {
+            Start = 0,
+            Stop = 1,
+        }
+        
         private void OnEnable()
         {
             if (_sendOnEnable)
@@ -39,12 +45,6 @@ namespace Web
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        private enum GameState
-        {
-            Start = 0,
-            Stop
         }
     }
 }

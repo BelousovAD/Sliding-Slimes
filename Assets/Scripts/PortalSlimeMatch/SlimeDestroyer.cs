@@ -11,8 +11,8 @@ namespace PortalSlimeMatch
         
         [SerializeField] private Slime _slime;
         [SerializeField] private Transform _model;
-        [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
-        [SerializeField] private List<Collider> _colliders = new();
+        [SerializeField][Min(0.001f)] private float _animationDuration = 0.001f;
+        [SerializeField] private List<Collider> _colliders = new ();
 
         private Sequence _sequence;
         

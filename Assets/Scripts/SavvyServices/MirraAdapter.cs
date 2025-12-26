@@ -1,4 +1,4 @@
-namespace SavvyServices.MirraMediation
+namespace SavvyServices
 {
     using MirraGames.SDK;
     using Savvy.Container;

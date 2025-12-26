@@ -2,7 +2,8 @@ namespace Audio
 {
     using System.Collections.Generic;
     using Bootstrap;
-    using Reflex.Attributes;using UnityEngine;
+    using Reflex.Attributes;
+    using UnityEngine;
 
     internal class AudioLoader : MonoBehaviour, ILoadable
     {

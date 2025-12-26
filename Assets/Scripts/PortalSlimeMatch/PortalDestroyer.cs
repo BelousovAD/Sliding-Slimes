@@ -17,8 +17,8 @@ namespace PortalSlimeMatch
         [SerializeField] private Portal _portal;
         [SerializeField] private Transform _model;
         [SerializeField] private ParticleSystem _particleSystem;
-        [SerializeField, Min(0.001f)] private float _animationDuration = 0.001f;
-        [SerializeField] private List<Collider> _colliders = new();
+        [SerializeField][Min(0.001f)] private float _animationDuration = 0.001f;
+        [SerializeField] private List<Collider> _colliders = new ();
 
         private Sequence _sequence;
         private Audio _audio;

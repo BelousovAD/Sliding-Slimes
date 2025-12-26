@@ -13,7 +13,7 @@ namespace SavvyServices
     public class CustomLocalizationService : NetSavvyResources, ILocalizationService
     {
         private readonly string _settingsPath = $"{PathConstants.SavvyServicesDir}/{nameof(LocalizationSettings)}";
-        private readonly Dictionary<string, string> _dictionary = new();
+        private readonly Dictionary<string, string> _dictionary = new ();
         private LocalizationSettings _settings;
         private IPreferencesService _preferences;
         

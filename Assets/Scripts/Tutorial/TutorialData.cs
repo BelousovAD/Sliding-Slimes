@@ -6,7 +6,7 @@ namespace Tutorial
     internal class TutorialData : ScriptableObject
     {
         [SerializeField] private string _saveKey = "Tutorial";
-        [SerializeField, Min(1)] private int _level = 1;
+        [SerializeField][Min(1)] private int _level = 1;
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _descriptionKey = "TutorialDescription";
 
