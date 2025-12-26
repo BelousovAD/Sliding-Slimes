@@ -1,5 +1,7 @@
 namespace Ability
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Audio;
     using Bootstrap;
     using Currency;
@@ -7,9 +9,12 @@ namespace Ability
     using Reflex.Core;
     using Timer;
     using UnityEngine;
+    using AudioType = Audio.AudioType;
 
     internal class AbilityInstaller : MonoBehaviour, IInstaller
     {
+        private const AudioType SoundType = AudioType.Sound;
+        
         [SerializeField] private AbilityData _hammerData; 
         [SerializeField] private AbilityData _hourglassData; 
         [SerializeField] private AbilityData _lightningData; 
@@ -41,13 +46,16 @@ namespace Ability
         {
             _builder.OnContainerBuilt -= Initialize;
 
+            Audio sound = container.Resolve<IEnumerable<Audio>>()
+                .FirstOrDefault(audioObject => audioObject.Type == SoundType);
+
             _hammer.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
                 container.Resolve<Money>(),
                 container.Resolve<Map>());
             _hourglass.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
-                container.Resolve<Sound>(),
+                sound,
                 container.Resolve<Money>(),
                 container.Resolve<CoroutineTimer>());
             _lightning.Initialize(
@@ -56,7 +64,7 @@ namespace Ability
                 container.Resolve<Map>());
             _megaphone.Initialize(
                 container.Resolve<SavvyServicesProvider>(),
-                container.Resolve<Sound>(),
+                sound,
                 container.Resolve<Money>(),
                 container.Resolve<Map>());
         }

@@ -1,5 +1,7 @@
 namespace Travelator
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Audio;
     using Bootstrap;
     using Model;
@@ -7,10 +9,13 @@ namespace Travelator
     using Timer;
     using UnityEngine;
     using UnityEngine.EventSystems;
+    using AudioType = Audio.AudioType;
 
     [RequireComponent(typeof(Collider))]
     public class TypeChanger : MonoBehaviour, IPointerClickHandler
     {
+        private const AudioType SoundType = AudioType.Sound;
+        
         [SerializeField] private Travelator _travelator;
         [SerializeField, Min(0)] private int _delay = 1;
 
@@ -19,10 +24,10 @@ namespace Travelator
         private Audio _audio;
 
         [Inject]
-        private void Initialize(SavvyServicesProvider servicesProvider, Sound sound)
+        private void Initialize(SavvyServicesProvider servicesProvider, IEnumerable<Audio> audios)
         {
             _timer.Initialize(servicesProvider);
-            _audio = sound;
+            _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);
         }
 
         private void Awake() =>

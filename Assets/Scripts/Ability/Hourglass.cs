@@ -18,7 +18,7 @@ namespace Ability
 
         public void Initialize(
             SavvyServicesProvider servicesProvider,
-            Sound sound,
+            Audio sound,
             Money money,
             CoroutineTimer timer)
         {

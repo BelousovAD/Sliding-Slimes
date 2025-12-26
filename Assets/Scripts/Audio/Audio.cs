@@ -7,9 +7,8 @@ namespace Audio
     using UnityEngine;
     using UnityEngine.Audio;
 
-    public abstract class Audio
+    public class Audio
     {
-        private readonly AudioType _type;
         private readonly AudioMixerGroup _group;
         private readonly AudioSourceSpawner _spawner;
         private readonly Dictionary<AudioClipKey, AudioClip> _tracks = new();
@@ -23,7 +22,7 @@ namespace Audio
             AudioSourceSpawner spawner,
             IEnumerable<Track> tracks)
         {
-            _type = type;
+            Type = type;
             _group = group;
             _spawner = spawner;
 
@@ -35,6 +34,8 @@ namespace Audio
 
         public event Action ActivityChanged;
         public event Action VolumeChanged;
+        
+        public AudioType Type { get; }
 
         public bool IsActive
         {
@@ -83,8 +84,8 @@ namespace Audio
 
         public void Load()
         {
-            IsActive = _services.Preferences.LoadBool(_type + nameof(IsActive), true);
-            Volume = Mathf.Clamp01(_services.Preferences.LoadFloat(_type + nameof(Volume), 0.5f));
+            IsActive = _services.Preferences.LoadBool(Type + nameof(IsActive), true);
+            Volume = Mathf.Clamp01(_services.Preferences.LoadFloat(Type + nameof(Volume), 0.5f));
         }
 
         public float Play(AudioClipKey key)
@@ -98,8 +99,8 @@ namespace Audio
 
         private void Save()
         {
-            _services.Preferences.SaveBool(_type + nameof(IsActive), IsActive);
-            _services.Preferences.SaveFloat(_type + nameof(Volume), Volume);
+            _services.Preferences.SaveBool(Type + nameof(IsActive), IsActive);
+            _services.Preferences.SaveFloat(Type + nameof(Volume), Volume);
         }
     }
 }

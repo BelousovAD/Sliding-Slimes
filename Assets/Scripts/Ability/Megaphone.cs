@@ -15,7 +15,7 @@ namespace Ability
             : base(data)
         { }
 
-        public void Initialize(SavvyServicesProvider services, Sound sound, Money money, Map map)
+        public void Initialize(SavvyServicesProvider services, Audio sound, Money money, Map map)
         {
             Initialize(services, money);
             _audio = sound;

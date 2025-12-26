@@ -1,15 +1,18 @@
 namespace PortalSlimeMatch
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Audio;
     using DG.Tweening;
     using Model;
     using Reflex.Attributes;
     using UnityEngine;
+    using AudioType = Audio.AudioType;
 
     internal class PortalDestroyer : MonoBehaviour
     {
         private static readonly Vector3 MinScale = Vector3.zero;
+        private const AudioType SoundType = AudioType.Sound;
 
         [SerializeField] private Portal _portal;
         [SerializeField] private Transform _model;
@@ -21,8 +24,8 @@ namespace PortalSlimeMatch
         private Audio _audio;
 
         [Inject]
-        private void Initialize(Sound sound) =>
-            _audio = sound;
+        private void Initialize(IEnumerable<Audio> audios) =>
+            _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);
 
         private void OnEnable() =>
             _portal.SlimeCaught += Destroy;

@@ -1,14 +1,17 @@
 namespace LuckyBlock
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Audio;
     using DG.Tweening;
     using Reflex.Attributes;
     using UnityEngine;
+    using AudioType = Audio.AudioType;
 
     internal class LuckyBlockDestroyer : MonoBehaviour
     {
         private static readonly Vector3 MinScale = Vector3.zero;
+        private const AudioType SoundType = AudioType.Sound;
         
         [SerializeField] private HealthCounter _healthCounter;
         [SerializeField] private Transform _model;
@@ -21,8 +24,8 @@ namespace LuckyBlock
         private Audio _audio;
 
         [Inject]
-        private void Initialize(Sound sound) =>
-            _audio = sound;
+        private void Initialize(IEnumerable<Audio> audios) =>
+            _audio = audios.FirstOrDefault(audioObject => audioObject.Type == SoundType);
 
         private void OnEnable() =>
             _healthCounter.CountChanged += Destroy;

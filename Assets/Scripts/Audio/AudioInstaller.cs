@@ -15,8 +15,8 @@ namespace Audio
         [SerializeField] private List<Track> _musics = new();
         [SerializeField] private List<Track> _sounds = new();
 
-        private Music _music;
-        private Sound _sound;
+        private Audio _music;
+        private Audio _sound;
         private ContainerBuilder _builder;
         
         public void InstallBindings(ContainerBuilder builder)
@@ -26,8 +26,8 @@ namespace Audio
             AudioSourceSpawner spawner = spawnerObject.AddComponent<AudioSourceSpawner>();
             DontDestroyOnLoad(spawnerObject);
             spawner.Initialize(_prefab, spawnerObject.transform);
-            _music = new Music(_musicGroup, spawner, _musics);
-            _sound = new Sound(_soundGroup, spawner, _sounds);
+            _music = new Audio(AudioType.Music, _musicGroup, spawner, _musics);
+            _sound = new Audio(AudioType.Sound, _soundGroup, spawner, _sounds);
 
             _builder
                 .AddSingleton(_music)
